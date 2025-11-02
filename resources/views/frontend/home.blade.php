@@ -1030,7 +1030,7 @@
       <!-- المشروع 1 -->
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card border-0 shadow-sm h-100 hover-shadow" style="transition:0.3s;">
-          <img src="{{ asset('assets/img/works/work1.jpg') }}" class="card-img-top rounded-3" alt="مشروع 1">
+          <img src="{{ asset('img/project1.jpg') }}" class="card-img-top rounded-3" alt="مشروع 1">
           <div class="card-body">
             <h5 class="card-title fw-bold text-body-emphasis">مغسلة فندقية – الرياض</h5>
             <p class="card-text text-muted small">تجهيز وتشغيل نظام غسيل أوتوماتيكي للفنادق الكبرى بخزائن ذكية وتوصيل آلي.</p>
@@ -1041,7 +1041,7 @@
       <!-- المشروع 2 -->
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card border-0 shadow-sm h-100 hover-shadow">
-          <img src="{{ asset('assets/img/works/work2.jpg') }}" class="card-img-top rounded-3" alt="مشروع 2">
+          <img src="{{ asset('img/project2.jpg') }}" class="card-img-top rounded-3" alt="مشروع 2">
           <div class="card-body">
             <h5 class="card-title fw-bold text-body-emphasis">نظام خزائن ذكية</h5>
             <p class="card-text text-muted small">تطوير وتنفيذ نظام خزائن تسليم واستلام مؤتمت بالكامل لخدمة العملاء 24/7.</p>
@@ -1052,7 +1052,7 @@
       <!-- المشروع 3 -->
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card border-0 shadow-sm h-100 hover-shadow">
-          <img src="{{ asset('assets/img/works/work3.jpg') }}" class="card-img-top rounded-3" alt="مشروع 3">
+          <img src="{{ asset('img/project3.jpg') }}" class="card-img-top rounded-3" alt="مشروع 3">
           <div class="card-body">
             <h5 class="card-title fw-bold text-body-emphasis">عقود صيانة مغاسل</h5>
             <p class="card-text text-muted small">عقود صيانة وتشغيل مغاسل أوتوماتيكية للمجمعات السكنية والفنادق.</p>
@@ -1063,7 +1063,7 @@
       <!-- المشروع 4 -->
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card border-0 shadow-sm h-100 hover-shadow">
-          <img src="{{ asset('assets/img/works/work4.jpg') }}" class="card-img-top rounded-3" alt="مشروع 4">
+          <img src="{{ asset('img/project4.jpg') }}" class="card-img-top rounded-3" alt="مشروع 4">
           <div class="card-body">
             <h5 class="card-title fw-bold text-body-emphasis">تطبيق التوصيل الذكي</h5>
             <p class="card-text text-muted small">ربط نظام التوصيل الذكي بالمغاسل لتوفير تجربة سهلة وسريعة للعملاء.</p>
@@ -1074,7 +1074,7 @@
       <!-- المشروع 5 -->
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card border-0 shadow-sm h-100 hover-shadow">
-          <img src="{{ asset('assets/img/works/work5.jpg') }}" class="card-img-top rounded-3" alt="مشروع 5">
+          <img src="{{ asset('img/project5.jpg') }}" class="card-img-top rounded-3" alt="مشروع 5">
           <div class="card-body">
             <h5 class="card-title fw-bold text-body-emphasis">تجهيز فروع بونا الجديدة</h5>
             <p class="card-text text-muted small">تصميم وتنفيذ الهوية البصرية وتجهيز الفروع الجديدة في الرياض وجدة.</p>
@@ -1085,7 +1085,7 @@
       <!-- المشروع 6 -->
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card border-0 shadow-sm h-100 hover-shadow">
-          <img src="{{ asset('assets/img/works/work6.jpg') }}" class="card-img-top rounded-3" alt="مشروع 6">
+          <img src="{{ asset('img/project6.jpg') }}" class="card-img-top rounded-3" alt="مشروع 6">
           <div class="card-body">
             <h5 class="card-title fw-bold text-body-emphasis">توسعة أنظمة الغسيل المركزية</h5>
             <p class="card-text text-muted small">رفع الطاقة الإنتاجية لأنظمة الغسيل المركزية بنسبة 35٪ لتحسين الأداء.</p>
