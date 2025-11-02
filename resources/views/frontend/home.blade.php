@@ -83,13 +83,13 @@
                             والخزائن الذكية بتقنيات حديثة تجمع بين النظافة والفخامة.
                         </p>
                         <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-xl-start">
-                            <a href="#order"
+                            <a href="#"
                                class="btn btn-lg text-white fw-semibold shadow"
                                style="background-color:#1226AA; border-radius:12px;"
                                data-aos="fade-up" data-aos-delay="300">
                                 اطلب الآن
                             </a>
-                            <a href="#services"
+                            <a href="#"
                                class="btn btn-lg fw-semibold"
                                style="border:2px solid #4AC1E0; color:#4AC1E0; border-radius:12px;"
                                data-aos="fade-up" data-aos-delay="400">
@@ -351,7 +351,7 @@
 
         <!-- زر -->
         <div class="text-center pt-7">
-            <a href="#order" class="btn btn-lg text-white fw-semibold"
+            <a href="#" class="btn btn-lg text-white fw-semibold"
                style="background-color: #1226AA; border-radius: 12px;">
                 احجز خدمتك الآن
                 <span class="bi bi-arrow-left-short ms-1"></span>
@@ -425,7 +425,7 @@
                         وجودة عالية تلائم أسلوب الحياة العصري، مع التزامنا الكامل بمعايير الفخامة والثقة.
                     </p>
                     <div class="mt-4">
-                        <a href="#services"
+                        <a href="#"
                            class="icon-link icon-link-hover text-decoration-none fw-bold"
                            style="color: #1226AA;">
                             اكتشف خدماتنا
@@ -604,8 +604,8 @@
                             </blockquote>
 
                             <figcaption class="m-0 mt-5">
-                                <img class="mx-auto rounded-circle shadow-sm" width="50" height="50"
-                                     src="{{ asset('assets/img/small-team/st3.jpg') }}" alt="عميل بونا" loading="lazy">
+                                {{-- <img class="mx-auto rounded-circle shadow-sm" width="50" height="50"
+                                     src="{{ asset('assets/img/small-team/st3.jpg') }}" alt="عميل بونا" loading="lazy"> --}}
                                 <div class="mt-3 d-flex align-items-center justify-content-center gap-2">
                                     <div class="fw-bold text-dark">ريم العتيبي</div>
                                     <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="text-dark" fill="currentColor">
@@ -621,7 +621,7 @@
                 <!-- رأي 3 -->
                 <div class="carousel-item">
                     <div class="mx-auto text-center" style="max-width: 800px;">
-                        <img class="mx-auto" src="{{ asset('img/logo.png') }}" height="55" alt="BONA Laundry" loading="lazy">
+                        {{-- <img class="mx-auto" src="{{ asset('img/logo.png') }}" height="55" alt="BONA Laundry" loading="lazy"> --}}
                         <figure class="m-0 mt-5">
                             <blockquote class="fw-semibold text-dark fs-5 lh-lg">
                                 <p class="m-0">
@@ -632,8 +632,8 @@
                             </blockquote>
 
                             <figcaption class="m-0 mt-5">
-                                <img class="mx-auto rounded-circle shadow-sm" width="50" height="50"
-                                     src="{{ asset('assets/img/small-team/st4.jpg') }}" alt="عميل بونا" loading="lazy">
+                                {{-- <img class="mx-auto rounded-circle shadow-sm" width="50" height="50"
+                                     src="{{ asset('assets/img/small-team/st4.jpg') }}" alt="عميل بونا" loading="lazy"> --}}
                                 <div class="mt-3 d-flex align-items-center justify-content-center gap-2">
                                     <div class="fw-bold text-dark">سلمان المطيري</div>
                                     <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="text-dark" fill="currentColor">

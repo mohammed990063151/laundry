@@ -174,17 +174,17 @@
             </div>
 
             <div class="order-2 order-xl-2">
-                <a href="/" class="d-flex align-items-center text-decoration-none">
+                <a href="#" class="d-flex align-items-center text-decoration-none">
                     <img src="{{ asset('img/logo.png') }}" height="30" alt="Bona Logo" loading="lazy">
                 </a>
             </div>
 
             <div class="order-1 order-xl-3">
                 <ul class="nav justify-content-center justify-content-xl-end">
-                    <li class="nav-item"><a href="{{ url('/about') }}" class="nav-link text-body-secondary px-2">من نحن</a></li>
-                    <li class="nav-item"><a href="{{ url('/services') }}" class="nav-link text-body-secondary px-2">خدماتنا</a></li>
-                    <li class="nav-item"><a href="{{ url('/contact') }}" class="nav-link text-body-secondary px-2">تواصل معنا</a></li>
-                    <li class="nav-item"><a href="{{ url('/privacy') }}" class="nav-link text-body-secondary px-2">سياسة الخصوصية</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-body-secondary px-2">من نحن</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-body-secondary px-2">خدماتنا</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-body-secondary px-2">تواصل معنا</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-body-secondary px-2">سياسة الخصوصية</a></li>
                 </ul>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <header class="navigation position-absolute w-100 bg-body-tertiary shadow border-bottom border-light border-opacity-10 rounded-bottom-3 rounded-bottom-sm-4">
     <nav class="navbar navbar-expand-xl" aria-label="Offcanvas navbar large">
         <div class="container py-1">
-            <a href="./index.html" class="navbar-brand">
+            <a href="#" class="navbar-brand">
                 <img src="{{ asset('img/logo.png') }}" height="40" alt="logo">
             </a>
 
@@ -68,7 +68,7 @@
             <div class="offcanvas offcanvas-end border-0 rounded-start-0 rounded-start-sm-4" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
                 <div class="offcanvas-header" style="padding: 2rem 2rem 1.5rem 2rem;">
                     <h5 class="offcanvas-title m-0" id="offcanvasNavbar2Label">
-                        <a class="navbar-brand" href="javascript:;">
+                        <a class="navbar-brand" href="#">
                             <img src="{{ asset('img/logo.png') }}" height="32" alt="logo">
                         </a>
                     </h5>
@@ -78,19 +78,19 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav align-items-xl-center flex-grow-1 column-gap-4 row-gap-4 row-gap-xl-2">
                         <li class="nav-item ms-xl-auto">
-                            <a href="./home-rtl.html" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold" aria-current="page">
+                            <a href="#" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold" aria-current="page">
 	                                Home
 	                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="./services-rtl.html" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+                            <a href="#" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
 	                                Services
 	                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="./about-rtl.html" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+                            <a href="#" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
 	                                About
 	                            </a>
                         </li>
@@ -107,17 +107,17 @@
 					                        </svg>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item text-body-emphasis bg-body-secondary-hover py-2 text-base leading-6 fw-semibold" href="./blog-rtl.html">
+                                        <a class="dropdown-item text-body-emphasis bg-body-secondary-hover py-2 text-base leading-6 fw-semibold" href="#">
 								        		Blog page
 								        	</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item text-body-emphasis bg-body-secondary-hover py-2 text-base leading-6 fw-semibold" href="./blog-post-rtl.html">
+                                        <a class="dropdown-item text-body-emphasis bg-body-secondary-hover py-2 text-base leading-6 fw-semibold" href="#">
 								        		Blog post
 								        	</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item text-body-emphasis bg-body-secondary-hover py-2 text-base leading-6 fw-semibold" href="./blog-author-rtl.html"> 	Author page
+                                        <a class="dropdown-item text-body-emphasis bg-body-secondary-hover py-2 text-base leading-6 fw-semibold" href="#"> 	Author page
 								        	</a>
                                     </li>
                                 </ul>
@@ -125,7 +125,7 @@
                         </li>
 
                         <li class="nav-item ms-xl-auto">
-                            <a href="./contact-rtl.html" class="px-3 text-body-emphasis bg-body-secondary-hover border nav-link rounded-3 text-base leading-6 fw-semibold text-center">
+                            <a href="#" class="px-3 text-body-emphasis bg-body-secondary-hover border nav-link rounded-3 text-base leading-6 fw-semibold text-center">
 	                                Contact us
 	                            </a>
                         </li>
