@@ -29,6 +29,10 @@
 <link rel="stylesheet" href="{{ asset('assets/libraries/aos/aos.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/main.min.rtl.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+<!-- Google Font: Cairo -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- Open Graph Meta Tags for Social Sharing -->
 <!-- Update the 'title' and 'description' content below to enhance social sharing -->
@@ -60,5 +64,9 @@
         Or just remove it!!!!
     -->
 <link rel="canonical" href="your_canonical_url_goes_here">
-
+<style>
+    body {
+        font-family: 'Cairo', sans-serif;
+    }
+</style>
 </head>

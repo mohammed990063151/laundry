@@ -112,7 +112,7 @@
               <div class="col-12 col-xl-4">
                 <div class="pt-3 pt-md-4 pt-xl-12 pb-2 pb-md-3 pb-xl-6">
                     <!-- Button trigger modal -->
-                    <a class="video-play-button video-btn-modal position-relative" href="javascript:;" data-bs-toggle="modal" data-bs-target="#videoModal" data-bs-src="https://www.youtube.com/embed/EX0TcLgOPv0">
+                    <a class="video-play-button video-btn-modal position-relative" href="javascript:;" data-bs-toggle="modal" data-bs-target="#videoModal" data-bs-src="https://www.youtube.com/watch?v=MNOXcYcvQcQ">
                         <span class="top-50 start-50 translate-middle"></span>
                     </a>
                 </div>
@@ -1014,6 +1014,88 @@
         </div>
     </div>
 </div>
+
+
+<section id="portfolio" class="overflow-hidden py-7 py-sm-8 py-xl-9" style="background-color:#f8f9fa;">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-semibold text-uppercase" style="color:#4AC1E0;">أعمالنا</h2>
+      <h3 class="fw-bold display-6" style="color:#1226AA;">بعض من مشاريعنا وإنجازاتنا</h3>
+      <p class="text-muted mt-3 fs-5">نفخر بما نقدمه من حلول احترافية وخدمات متكاملة لعملائنا في مختلف المجالات.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- المشروع 1 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 hover-shadow" style="transition:0.3s;">
+          <img src="{{ asset('assets/img/works/work1.jpg') }}" class="card-img-top rounded-3" alt="مشروع 1">
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-body-emphasis">مغسلة فندقية – الرياض</h5>
+            <p class="card-text text-muted small">تجهيز وتشغيل نظام غسيل أوتوماتيكي للفنادق الكبرى بخزائن ذكية وتوصيل آلي.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- المشروع 2 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 hover-shadow">
+          <img src="{{ asset('assets/img/works/work2.jpg') }}" class="card-img-top rounded-3" alt="مشروع 2">
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-body-emphasis">نظام خزائن ذكية</h5>
+            <p class="card-text text-muted small">تطوير وتنفيذ نظام خزائن تسليم واستلام مؤتمت بالكامل لخدمة العملاء 24/7.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- المشروع 3 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 hover-shadow">
+          <img src="{{ asset('assets/img/works/work3.jpg') }}" class="card-img-top rounded-3" alt="مشروع 3">
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-body-emphasis">عقود صيانة مغاسل</h5>
+            <p class="card-text text-muted small">عقود صيانة وتشغيل مغاسل أوتوماتيكية للمجمعات السكنية والفنادق.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- المشروع 4 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 hover-shadow">
+          <img src="{{ asset('assets/img/works/work4.jpg') }}" class="card-img-top rounded-3" alt="مشروع 4">
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-body-emphasis">تطبيق التوصيل الذكي</h5>
+            <p class="card-text text-muted small">ربط نظام التوصيل الذكي بالمغاسل لتوفير تجربة سهلة وسريعة للعملاء.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- المشروع 5 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 hover-shadow">
+          <img src="{{ asset('assets/img/works/work5.jpg') }}" class="card-img-top rounded-3" alt="مشروع 5">
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-body-emphasis">تجهيز فروع بونا الجديدة</h5>
+            <p class="card-text text-muted small">تصميم وتنفيذ الهوية البصرية وتجهيز الفروع الجديدة في الرياض وجدة.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- المشروع 6 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 hover-shadow">
+          <img src="{{ asset('assets/img/works/work6.jpg') }}" class="card-img-top rounded-3" alt="مشروع 6">
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-body-emphasis">توسعة أنظمة الغسيل المركزية</h5>
+            <p class="card-text text-muted small">رفع الطاقة الإنتاجية لأنظمة الغسيل المركزية بنسبة 35٪ لتحسين الأداء.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
 
