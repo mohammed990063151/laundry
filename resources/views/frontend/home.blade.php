@@ -577,8 +577,8 @@
                             </blockquote>
 
                             <figcaption class="m-0 mt-5">
-                                <img class="mx-auto rounded-circle shadow-sm" width="50" height="50"
-                                     src="{{ asset('assets/img/small-team/st2.jpg') }}" alt="عميل بونا" loading="lazy">
+                                {{-- <img class="mx-auto rounded-circle shadow-sm" width="50" height="50"
+                                     src="{{ asset('assets/img/small-team/st2.jpg') }}" alt="عميل بونا" loading="lazy"> --}}
                                 <div class="mt-3 d-flex align-items-center justify-content-center gap-2">
                                     <div class="fw-bold text-dark">أحمد القحطاني</div>
                                     <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="text-dark" fill="currentColor">
