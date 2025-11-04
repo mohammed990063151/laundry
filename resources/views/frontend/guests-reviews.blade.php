@@ -1,323 +1,145 @@
-{{-- @extends('frontend.layouts.master')
 
-@section('title', 'آراء النزلاء - فندق إنالة')
-
-@section('content')
-
-<section class="page-header" style="
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('{{ asset('img/criticism-3083099_1280.jpg') }}') center/cover no-repeat;
-    color: #fff;
-">
-    <h1 style="font-size: 3rem; color: #D9EF82; margin-bottom: 15px;">
-        آراء النزلاء
-    </h1>
-    <p style="max-width: 800px; margin: auto; font-size: 1.1rem; line-height: 1.8; color: #eee;">
-        اكتشف آراء وتجارب زوارنا السابقين مع <strong>فنادق إنالة</strong> واستمتع بخدماتنا المميزة.
-    </p>
-</section>
-<section class="reviews-page">
-    <div class="container">
-        <h1 class="page-title">آراء النزلاء</h1>
-        <p class="page-subtitle">تعرف على ما يقوله ضيوفنا الكرام عن تجربتهم في فندق ومنتجع إنالة 🌿</p>
-
-        <div class="reviews-grid">
-            @foreach (range(1, 15) as $i)
-            <div class="review-card">
-                <div class="review-header">
-                    <img src="https://i.pravatar.cc/100?img={{ $i }}" alt="ضيف">
-                    <div>
-                        <h3>الضيف رقم {{ $i }}</h3>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p class="review-text">
-                    كانت تجربتي في فندق إنالة أكثر من رائعة. الغرفة نظيفة، الإطلالة خلابة، والخدمة ممتازة.
-                    أشكر جميع العاملين على حسن الضيافة والتنظيم. سأعود مجددًا في أقرب وقت ❤️
-                </p>
-                <span class="review-date">بتاريخ {{ now()->subDays($i)->format('Y/m/d') }}</span>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<style>
-.reviews-page {
-    padding: 80px 20px;
-    background: #fafafa;
-    font-family: "Cairo", sans-serif;
-}
-.page-title {
-    text-align: center;
-    color: #1a1a1a;
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-}
-.page-subtitle {
-    text-align: center;
-    color: #555;
-    font-size: 1.1rem;
-    margin-bottom: 60px;
-}
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-}
-.review-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.review-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
-}
-.review-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-.review-header img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-.review-header h3 {
-    font-size: 1.2rem;
-    color: #222;
-    margin: 0;
-}
-.stars {
-    color: #F4C542;
-    font-size: 1rem;
-}
-.review-text {
-    font-size: 0.95rem;
-    color: #444;
-    line-height: 1.7;
-    margin-bottom: 10px;
-}
-.review-date {
-    font-size: 0.8rem;
-    color: #888;
-}
-@media (max-width:768px) {
-    .page-title { font-size: 2rem; }
-    .page-subtitle { font-size: 0.95rem; }
-}
-</style>
-@endsection --}}
-{{-- @extends('frontend.layouts.master')
-
-<style>
-.reviews-page {
-    padding: 80px 20px;
-    background: #fafafa;
-    font-family: "Cairo", sans-serif;
-}
-.page-title {
-    text-align: center;
-    color: #1a1a1a;
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-}
-.page-subtitle {
-    text-align: center;
-    color: #555;
-    font-size: 1.1rem;
-    margin-bottom: 60px;
-}
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-}
-.review-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.review-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
-}
-.review-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-.review-header img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-.review-header h3 {
-    font-size: 1.2rem;
-    color: #222;
-    margin: 0;
-}
-.stars {
-    color: #F4C542;
-    font-size: 1rem;
-}
-.review-text {
-    font-size: 0.95rem;
-    color: #444;
-    line-height: 1.7;
-    margin-bottom: 10px;
-}
-.review-date {
-    font-size: 0.8rem;
-    color: #888;
-}
-@media (max-width:768px) {
-    .page-title { font-size: 2rem; }
-    .page-subtitle { font-size: 0.95rem; }
-}
-</style>
-@section('title','آراء عملائنا - شركة مُضياف')
-
-@section('content')
-
-
-<section class="page-header" style="
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('{{ asset('img/criticism-3083099_1280.jpg') }}') center/cover no-repeat;
-    color: #fff;
-">
-    <h1 style="color:#D9EF82;font-size:3rem;">آراء عملائنا</h1>
-    <p>تجارب عملاء مُضياف مع خدماتنا الزراعية والبيئية 🌿</p>
-</section>
-
-<section class="reviews-page">
-<div class="container">
-<div class="reviews-grid">
-
-@foreach($items as $t)
-<div class="review-card">
-    <div class="review-header">
-        <img src="{{ $t->avatar ? asset('storage/'.$t->avatar) : 'https://i.pravatar.cc/100' }}" />
-        <div>
-            <h3>{{ $t->name }}</h3>
-            <div class="stars">{{ str_repeat('⭐',$t->stars) }}</div>
-        </div>
-    </div>
-
-    <p class="review-text">{{ $t->review }}</p>
-    <span class="review-date">{{ $t->created_at?->format('Y-m-d') ?? '-' }}
-</span>
-</div>
-
-
-@endforeach
-
-</div>
-</div>
-</section>
-
-@endsection --}}
 @extends('frontend.layouts.master')
 
-@section('title', 'مشاريعنا - شركة مضياف')
-
 @section('content')
-{{-- <section class="page-header" style="
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('{{ asset('dashboard_files/img/gallery/1761301329.jpg') }}') center/cover no-repeat;
-    color: #fff;
-">
-    <h1 style="font-size: 3rem; color: #D9EF82; margin-bottom: 15px;">
-        آراء النزلاء
-    </h1>
-    <p style="max-width: 800px; margin: auto; font-size: 1.1rem; line-height: 1.8; color: #eee;">
-        اكتشف آراء وتجارب زوارنا السابقين مع <strong>فنادق إنالة</strong> واستمتع بخدماتنا المميزة.
-    </p>
-</section> --}}
 
-<section class="page-header" style="
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                url('{{ asset('dashboard_files/img/gallery/1761301329.jpg') }}') center/cover no-repeat;
-    color: #fff;
-">
-    <h1 style="font-size:3rem; color:#D9EF82; margin-bottom:10px;">مشاريعنا</h1>
-    <p style="max-width:700px; margin:auto; color:#eee; font-size:1.2rem;">
-        استعرض بعض المشاريع التي نفذتها شركة مضياف باحترافية عالية في مجالات الزراعة والتنسيق الخارجي.
-    </p>
-</section>
-<br /><br />
-<section class="projects py-5" style="background:#f9f9f9;">
-    <div class="container">
-        <div class="row g-4">
-            @foreach($projects as $project)
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="project-card bg-white border-0 rounded-4 shadow-sm overflow-hidden h-100"
-                     style="transition: all 0.3s ease; cursor:pointer;"
-                     onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'"
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.05)'">
+<!-- Hero Section -->
+<div class="overflow-hidden py-9 py-xl-10 position-relative">
+    <img src="./assets/img/bg/bg1.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Projects">
 
-                    <div class="project-image" style="height:180px; overflow:hidden;">
-                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}"
-                             style="width:100%; height:100%; object-fit:cover; transition: transform .4s;">
-                    </div>
+    <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark"
+        style="opacity: 0.8; mix-blend-mode: multiply; filter: contrast(1.15) brightness(0.9);"></div>
 
-                    <div class="p-3">
-                        <h5 class="fw-bold text-success mb-2" style="font-size:1.1rem;">{{ $project->title }}</h5>
-                        <p class="text-muted small mb-3" style="line-height:1.6;">
-                            {{ Str::limit(strip_tags($project->description), 80) }}
-                        </p>
-
-                        {{-- <div class="d-flex justify-content-between align-items-center">
-                            @if($project->location)
-                                <span class="text-secondary small">
-                                    <i class="fa-solid fa-location-dot text-success me-1"></i>
-                                    {{ $project->location }}
-                                </span>
-                            @endif
-                            <a href=""
-                               class="btn btn-outline-success btn-sm rounded-pill px-3">
-                                عرض التفاصيل <i class="fa-solid fa-arrow-left-long ms-1"></i>
-                            </a>
-                        </div> --}}
-                        <div class="d-flex justify-content-between align-items-center">
-    @if($project->location)
-        <span class="text-secondary small">
-            <i class="fa-solid fa-location-dot text-success me-1"></i>
-            {{ $project->location }}
-        </span>
-    @endif
-
-    @if($project->completion_date)
-        <span class="text-muted small">
-            <i class="fa-regular fa-calendar-days text-success me-1"></i>
-            {{ \Carbon\Carbon::parse($project->completion_date)->format('d M Y') }}
-        </span>
-    @endif
-</div>
-
-                    </div>
-
-                </div>
+    <div class="position-absolute z-0 top-0 h-100 w-100">
+        <div class="container h-100 d-flex align-items-center">
+            <div class="max-w-2xl mx-auto mx-xl-0 text-center text-xl-start">
+                <h1 class="m-0 mt-7 text-white fw-bold display-5" data-aos="fade" data-aos-duration="3000">
+                    مشاريعنا
+                </h1>
+                <p class="m-0 mt-4 text-white fs-5" data-aos-delay="100" data-aos="fade" data-aos-duration="3000">
+                    نفخر بتنفيذ مشاريع غسيل احترافية تلبي أعلى معايير الجودة والنظافة في المملكة.
+                </p>
             </div>
-            <br /><br />
-            @endforeach
         </div>
     </div>
-</section>
-<br /><br />
+</div>
+
+<!-- Intro Section -->
+<div class="overflow-hidden py-7 py-sm-8 py-xl-9">
+    <div class="container text-center">
+        <h2 class="text-primary-emphasis fw-semibold">نبذة عن مشاريع بونا</h2>
+        <p class="m-0 mt-3 text-body-secondary fs-5 mx-auto" style="max-width:800px;">
+            على مدار السنوات الماضية، قدمت <strong>بونا</strong> خدماتها المتميزة لعشرات الشركات والفنادق والمجمعات السكنية.
+            نعمل وفق معايير عالمية في الغسيل والتعقيم والتغليف لتلبية احتياجات المؤسسات والأفراد على حد سواء.
+        </p>
+    </div>
+</div>
+
+<!-- Projects Grid -->
+<div class="overflow-hidden py-6 py-sm-8 py-xl-9 bg-body-tertiary">
+    <div class="container">
+        <div class="row gy-5 gx-4">
+            <!-- Project 1 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/hotel-laundry.jpg" class="card-img-top object-fit-cover" height="230" alt="Hotel Project">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">مشروع فنادق الرياض</h5>
+                        <p class="text-body-secondary small mt-2">
+                            شراكة مع مجموعة فنادق راقية لتقديم خدمة غسيل يومية متكاملة تشمل تنظيف المفارش، الستائر، والمناشف، بمعايير فندقية فاخرة.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: الرياض</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/hospital-laundry.jpg" class="card-img-top object-fit-cover" height="230" alt="Hospital Project">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">مشروع المستشفيات</h5>
+                        <p class="text-body-secondary small mt-2">
+                            خدمات غسيل وتعقيم احترافية للملابس الطبية والمفارش باستخدام منظفات آمنة ومعقمة وفق المعايير الصحية.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: جدة</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/residential.jpg" class="card-img-top object-fit-cover" height="230" alt="Residential Project">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">عقود سكنية طويلة الأجل</h5>
+                        <p class="text-body-secondary small mt-2">
+                            خدمات الغسيل للمجمعات السكنية وشركات التطوير العقاري بعقود شهرية مرنة وجودة موثوقة.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: الدمام</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/corporate.jpg" class="card-img-top object-fit-cover" height="230" alt="Corporate Laundry">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">خدمات الشركات والمؤسسات</h5>
+                        <p class="text-body-secondary small mt-2">
+                            حلول غسيل يومية للمكاتب والمراكز التجارية، مع خدمة استلام وتسليم مرنة تتناسب مع أوقات العمل.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: الخبر</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/uniforms.jpg" class="card-img-top object-fit-cover" height="230" alt="Uniform Laundry">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">مشروع غسيل الزي الموحد</h5>
+                        <p class="text-body-secondary small mt-2">
+                            إدارة كاملة لملابس العاملين في المصانع والمطاعم، مع تعقيم وضمان تقديمها في أفضل صورة.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: مكة المكرمة</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/event-laundry.jpg" class="card-img-top object-fit-cover" height="230" alt="Event Project">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">مشروع فعاليات ومناسبات</h5>
+                        <p class="text-body-secondary small mt-2">
+                            دعم تنظيمي لغسيل أقمشة المناسبات الرسمية، حفلات الزفاف والمؤتمرات بخدمة سريعة وفاخرة.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: المدينة المنورة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call To Action -->
+<div class="pb-9 pt-7">
+    <div class="container">
+        <div class="py-6 position-relative text-white rounded-3">
+            <img src="./assets/img/bg/bg10.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover rounded-3" alt="Bona Laundry">
+            <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark rounded-3"
+                style="opacity: 0.85; mix-blend-mode: multiply; filter: contrast(1.1) brightness(0.85);"></div>
+
+            <div class="px-5 text-center">
+                <h2 class="fw-bold display-6">هل ترغب بالتعاون معنا؟</h2>
+                <p class="mt-3 fs-5">نحن في بونا جاهزون لتقديم حلول غسيل احترافية تناسب مشاريعك المؤسسية.</p>
+                <a href="{{  route('contact') }}" class="btn btn-lg btn-primary text-white mt-3">تواصل معنا الآن</a>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

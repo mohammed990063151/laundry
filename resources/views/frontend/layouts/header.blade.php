@@ -1,7 +1,7 @@
 <header class="navigation position-absolute w-100 bg-body-tertiary shadow border-bottom border-light border-opacity-10 rounded-bottom-3 rounded-bottom-sm-4">
     <nav class="navbar navbar-expand-xl" aria-label="Offcanvas navbar large">
         <div class="container py-1">
-            <a href="#" class="navbar-brand">
+            <a href="{{route('frontend.home') }}" class="navbar-brand">
                 <img src="{{ asset('img/logo.png') }}" height="40" alt="logo">
             </a>
 
@@ -78,24 +78,29 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav align-items-xl-center flex-grow-1 column-gap-4 row-gap-4 row-gap-xl-2">
                         <li class="nav-item ms-xl-auto">
-                            <a href="#" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold" aria-current="page">
-	                                Home
+                            <a href="{{ route('frontend.home') }}" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold" aria-current="page">
+	                                الرئسية
 	                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
-	                                Services
+                            <a href="{{ route('frontend.our-services') }}" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+	                                خدماتنا
 	                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
-	                                About
+                            <a href="{{ route('frontend.about-us') }}" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+	                                من نحن
+	                            </a>
+                        </li>
+                         <li class="nav-item">
+                            <a href="{{ route('book.now') }}" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+	                                مشاريعنا
 	                            </a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <div class="dropdown">
                                 <button class="btn w-100 text-start dropdown-toggle px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 								        Blog
@@ -122,11 +127,11 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item ms-xl-auto">
-                            <a href="#" class="px-3 text-body-emphasis bg-body-secondary-hover border nav-link rounded-3 text-base leading-6 fw-semibold text-center">
-	                                Contact us
+                            <a href="{{  route('contact') }}" class="px-3 text-body-emphasis bg-body-secondary-hover border nav-link rounded-3 text-base leading-6 fw-semibold text-center">
+	                              تواصل معنا
 	                            </a>
                         </li>
                     </ul>

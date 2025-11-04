@@ -107,7 +107,7 @@
 		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16"> <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/> </svg>
 	</button> --}}
 
-    <footer class="overflow-hidden py-6 py-sm-7 py-xl-8" >
+    <footer class="overflow-hidden py-6 py-sm-7 py-xl-8"  style="background-color: #c3eaf4">
     <div class="container">
         <div class="row gy-5 align-items-center">
 
@@ -174,17 +174,17 @@
             </div>
 
             <div class="order-2 order-xl-2">
-                <a href="#" class="d-flex align-items-center text-decoration-none">
+                <a href="{{ route('frontend.home') }}" class="d-flex align-items-center text-decoration-none">
                     <img src="{{ asset('img/logo.png') }}" height="30" alt="Bona Logo" loading="lazy">
                 </a>
             </div>
 
             <div class="order-1 order-xl-3">
                 <ul class="nav justify-content-center justify-content-xl-end">
-                    <li class="nav-item"><a href="#" class="nav-link text-body-secondary px-2">من نحن</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-body-secondary px-2">خدماتنا</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-body-secondary px-2">تواصل معنا</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-body-secondary px-2">سياسة الخصوصية</a></li>
+                    <li class="nav-item"><a href="{{ route('frontend.about-us') }}" class="nav-link text-body-secondary px-2">من نحن</a></li>
+                    <li class="nav-item"><a href="{{ route('frontend.our-services') }}" class="nav-link text-body-secondary px-2">خدماتنا</a></li>
+                    <li class="nav-item"><a href="{{  route('contact') }}" class="nav-link text-body-secondary px-2">تواصل معنا</a></li>
+                    <li class="nav-item"><a href="{{ route('privacy') }}" class="nav-link text-body-secondary px-2">سياسة الخصوصية</a></li>
                 </ul>
             </div>
         </div>

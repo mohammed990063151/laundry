@@ -1,251 +1,145 @@
-@extends('frontend.layouts.master')
 
-@section('title', 'احجز الآن | فنادق ومنتجعات إنالة')
+@extends('frontend.layouts.master')
 
 @section('content')
 
-<section class="page-header" style="
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('{{ asset('img/hotel-595587_1280.jpg') }}') center/cover no-repeat;
-    color: #fff;
-">
-    <h1 style="font-size: 3rem; color: #D9EF82; margin-bottom: 15px;">
-       احجز إقامتك الآن
-    </h1>
-    <p style="max-width: 800px; margin: auto; font-size: 1.1rem; line-height: 1.8; color: #eee;">
-       لا تنتظر! احجز غرفتك الآن واستمتع بإقامة مريحة وفاخرة في فنادقنا. تجربة لا تُنسى بانتظارك.
-    </p>
-</section>
-<section class="booking-section">
-    <div class="container">
-        <h1 class="page-title">احجز إقامتك الآن</h1>
-        <p class="page-subtitle">استمتع بتجربة فندقية فاخرة في فنادق ومنتجعات إنالة 🌿</p>
+<!-- Hero Section -->
+<div class="overflow-hidden py-9 py-xl-10 position-relative">
+    <img src="./assets/img/bg/bg1.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Projects">
 
-        <form class="booking-form">
-            <!-- Personal Info -->
-            <div class="form-group">
-                <h3>معلومات النزيل</h3>
-                <div class="grid">
-                    <div>
-                        <label>الاسم الكامل</label>
-                        <input type="text" placeholder="أدخل اسمك الكامل" required>
-                    </div>
-                    <div>
-                        <label>البريد الإلكتروني</label>
-                        <input type="email" placeholder="example@email.com" required>
-                    </div>
-                    <div>
-                        <label>رقم الجوال</label>
-                        <input type="tel" placeholder="05xxxxxxxx" required>
-                    </div>
-                </div>
+    <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark"
+        style="opacity: 0.8; mix-blend-mode: multiply; filter: contrast(1.15) brightness(0.9);"></div>
+
+    <div class="position-absolute z-0 top-0 h-100 w-100">
+        <div class="container h-100 d-flex align-items-center">
+            <div class="max-w-2xl mx-auto mx-xl-0 text-center text-xl-start">
+                <h1 class="m-0 mt-7 text-white fw-bold display-5" data-aos="fade" data-aos-duration="3000">
+                    مشاريعنا
+                </h1>
+                <p class="m-0 mt-4 text-white fs-5" data-aos-delay="100" data-aos="fade" data-aos-duration="3000">
+                    نفخر بتنفيذ مشاريع غسيل احترافية تلبي أعلى معايير الجودة والنظافة في المملكة.
+                </p>
             </div>
-
-            <!-- Booking Info -->
-            <div class="form-group">
-                <h3>تفاصيل الحجز</h3>
-                <div class="grid">
-                    <div>
-                        <label>تاريخ الوصول</label>
-                        <input type="date" required>
-                    </div>
-                    <div>
-                        <label>تاريخ المغادرة</label>
-                        <input type="date" required>
-                    </div>
-                    <div>
-                        <label>عدد النزلاء</label>
-                        <select>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4+</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Room Type -->
-            <div class="form-group">
-                <h3>اختيار نوع الغرفة</h3>
-                <div class="rooms-grid">
-                    <div class="room-card">
-                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80" alt="غرفة فاخرة">
-                        <h4>غرفة فاخرة</h4>
-                        <p>سرير مزدوج كبير - فطور مجاني - إطلالة على المدينة</p>
-                        <span class="price">400 ريال / الليلة</span>
-                        <input type="radio" name="room" value="luxury" required>
-                    </div>
-
-                    <div class="room-card">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="جناح ملكي">
-                        <h4>جناح ملكي</h4>
-                        <p>غرفة مع جاكوزي خاص وخدمة فاخرة 24/7</p>
-                        <span class="price">950 ريال / الليلة</span>
-                        <input type="radio" name="room" value="royal">
-                    </div>
-
-                    <div class="room-card">
-                        <img src="../img/break-649351_1280.jpg" alt="غرفة عائلية">
-                        <h4>غرفة عائلية</h4>
-                        <p>سعة 4 أشخاص - مساحة واسعة - خدمات عائلية متكاملة</p>
-                        <span class="price">650 ريال / الليلة</span>
-                        <input type="radio" name="room" value="family">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Payment Info -->
-            <div class="form-group">
-                <h3>طريقة الدفع</h3>
-                <div class="payment-methods">
-                    <label><input type="radio" name="payment" checked> بطاقة ائتمان</label>
-                    <label><input type="radio" name="payment"> الدفع عند الوصول</label>
-                    <label><input type="radio" name="payment"> تحويل بنكي</label>
-                </div>
-            </div>
-
-            <!-- Notes -->
-            <div class="form-group">
-                <h3>ملاحظات إضافية</h3>
-                <textarea rows="4" placeholder="اكتب أي طلبات خاصة أو ملاحظات إضافية..."></textarea>
-            </div>
-
-            <!-- Submit -->
-            <div class="submit-container">
-                <button type="submit" class="btn-book">تأكيد الحجز الآن</button>
-            </div>
-        </form>
+        </div>
     </div>
-</section>
+</div>
 
+<!-- Intro Section -->
+<div class="overflow-hidden py-7 py-sm-8 py-xl-9">
+    <div class="container text-center">
+        <h2 class="text-primary-emphasis fw-semibold">نبذة عن مشاريع بونا</h2>
+        <p class="m-0 mt-3 text-body-secondary fs-5 mx-auto" style="max-width:800px;">
+            على مدار السنوات الماضية، قدمت <strong>بونا</strong> خدماتها المتميزة لعشرات الشركات والفنادق والمجمعات السكنية.
+            نعمل وفق معايير عالمية في الغسيل والتعقيم والتغليف لتلبية احتياجات المؤسسات والأفراد على حد سواء.
+        </p>
+    </div>
+</div>
+
+<!-- Projects Grid -->
+<div class="overflow-hidden py-6 py-sm-8 py-xl-9 bg-body-tertiary">
+    <div class="container">
+        <div class="row gy-5 gx-4">
+            <!-- Project 1 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/hotel-laundry.jpg" class="card-img-top object-fit-cover" height="230" alt="Hotel Project">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">مشروع فنادق الرياض</h5>
+                        <p class="text-body-secondary small mt-2">
+                            شراكة مع مجموعة فنادق راقية لتقديم خدمة غسيل يومية متكاملة تشمل تنظيف المفارش، الستائر، والمناشف، بمعايير فندقية فاخرة.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: الرياض</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/hospital-laundry.jpg" class="card-img-top object-fit-cover" height="230" alt="Hospital Project">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">مشروع المستشفيات</h5>
+                        <p class="text-body-secondary small mt-2">
+                            خدمات غسيل وتعقيم احترافية للملابس الطبية والمفارش باستخدام منظفات آمنة ومعقمة وفق المعايير الصحية.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: جدة</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/residential.jpg" class="card-img-top object-fit-cover" height="230" alt="Residential Project">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">عقود سكنية طويلة الأجل</h5>
+                        <p class="text-body-secondary small mt-2">
+                            خدمات الغسيل للمجمعات السكنية وشركات التطوير العقاري بعقود شهرية مرنة وجودة موثوقة.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: الدمام</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/corporate.jpg" class="card-img-top object-fit-cover" height="230" alt="Corporate Laundry">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">خدمات الشركات والمؤسسات</h5>
+                        <p class="text-body-secondary small mt-2">
+                            حلول غسيل يومية للمكاتب والمراكز التجارية، مع خدمة استلام وتسليم مرنة تتناسب مع أوقات العمل.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: الخبر</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/uniforms.jpg" class="card-img-top object-fit-cover" height="230" alt="Uniform Laundry">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">مشروع غسيل الزي الموحد</h5>
+                        <p class="text-body-secondary small mt-2">
+                            إدارة كاملة لملابس العاملين في المصانع والمطاعم، مع تعقيم وضمان تقديمها في أفضل صورة.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: مكة المكرمة</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="./assets/img/projects/event-laundry.jpg" class="card-img-top object-fit-cover" height="230" alt="Event Project">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-body-emphasis">مشروع فعاليات ومناسبات</h5>
+                        <p class="text-body-secondary small mt-2">
+                            دعم تنظيمي لغسيل أقمشة المناسبات الرسمية، حفلات الزفاف والمؤتمرات بخدمة سريعة وفاخرة.
+                        </p>
+                        <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: المدينة المنورة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call To Action -->
+<div class="pb-9 pt-7">
+    <div class="container">
+        <div class="py-6 position-relative text-white rounded-3">
+            <img src="./assets/img/bg/bg10.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover rounded-3" alt="Bona Laundry">
+            <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark rounded-3"
+                style="opacity: 0.85; mix-blend-mode: multiply; filter: contrast(1.1) brightness(0.85);"></div>
+
+            <div class="px-5 text-center">
+                <h2 class="fw-bold display-6">هل ترغب بالتعاون معنا؟</h2>
+                <p class="mt-3 fs-5">نحن في بونا جاهزون لتقديم حلول غسيل احترافية تناسب مشاريعك المؤسسية.</p>
+                <a href="{{  route('contact') }}" class="btn btn-lg btn-primary text-white mt-3">تواصل معنا الآن</a>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
-
-<style>
-.booking-section {
-    padding: 80px 20px;
-    background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
-    font-family: 'Cairo', sans-serif;
-}
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.page-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #2d2d2d;
-    margin-bottom: 10px;
-}
-.page-subtitle {
-    text-align: center;
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 50px;
-}
-.booking-form {
-    background: #fff;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-}
-.form-group {
-    margin-bottom: 50px;
-}
-.form-group h3 {
-    color: #D9EF82;
-    margin-bottom: 20px;
-}
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-label {
-    font-weight: 600;
-    color: #333;
-}
-input, select, textarea {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    outline: none;
-    transition: 0.3s;
-}
-input:focus, select:focus, textarea:focus {
-    border-color: #D9EF82;
-    box-shadow: 0 0 5px rgba(217,239,130,0.5);
-}
-.rooms-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-.room-card {
-    background: #fafafa;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    position: relative;
-}
-.room-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-.room-card img {
-    border-radius: 10px;
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-.room-card h4 {
-    color: #333;
-    margin-bottom: 8px;
-}
-.room-card p {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-.room-card .price {
-    color: #D9EF82;
-    font-weight: bold;
-    font-size: 1rem;
-}
-.payment-methods {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    font-size: 0.95rem;
-}
-textarea {
-    resize: none;
-}
-.submit-container {
-    text-align: center;
-}
-.btn-book {
-    background-color: #D9EF82;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.btn-book:hover {
-    background-color: #c5e66f;
-}
-@media (max-width: 768px) {
-    .page-title { font-size: 2rem; }
-    .booking-form { padding: 25px; }
-}
-</style>

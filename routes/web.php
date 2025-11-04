@@ -83,9 +83,12 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 
 // Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
-Route::get('/rooms', function () {
+Route::get('/Book_Your_Service_Now', function () {
     return view('frontend.rooms.index');
 })->name('rooms.show');
+Route::get('/privacy', function () {
+    return view('frontend.rooms.show');
+})->name('privacy');
 
 
 

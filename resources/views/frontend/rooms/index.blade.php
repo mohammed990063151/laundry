@@ -1,211 +1,133 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-<section class="page-header" style="
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('{{ asset('img/contact-us-6921414_1280.jpg') }}') center/cover no-repeat;
-    color: #fff;
-">
-    <h1 style="font-size: 3rem; color: #D9EF82; margin-bottom: 15px;">
-        تواصل معنا
-    </h1>
-    <p style="max-width: 800px; margin: auto; font-size: 1.1rem; line-height: 1.8; color: #eee;">
-        نحن في <strong>فنادق إنالة</strong> نرحب بتواصلكم واستفساراتكم في أي وقت.
-    </p>
-</section>
-<section class="rooms-section">
-    <h1>الغرف</h1>
-    <p>اكتشف مجموعتنا الواسعة من الغرف الفندقية الفاخرة المصممة لتلبية جميع احتياجاتك</p>
+<!-- Hero Section -->
+<div class="overflow-hidden py-9 py-xl-10 position-relative text-center text-white">
+    <img src="./assets/img/bg/bg1.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Booking">
 
-    <div class="rooms-container">
+    <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark"
+        style="opacity: 0.8; mix-blend-mode: multiply; filter: contrast(1.2) brightness(0.9);"></div>
 
-        <!-- غرفة 1 -->
-        <div class="room-card">
-            <div class="room-image">
-                <img src="../img/bedroom-349701_1280.jpg" alt="غرفة ديلوكس كينغ">
-                <div class="room-overlay">
-                    <a href="#" class="room-btn">عرض التفاصيل</a>
-                </div>
-            </div>
-            <div class="room-info">
-                <h3>غرفة ديلوكس كينغ</h3>
-                <p>استمتع بإقامة فاخرة في هذه الغرفة الأنيقة المزودة بأحدث وسائل الراحة.</p>
-                <ul>
-                    <li>🛏️ سرير مزدوج كبير</li>
-                    <li>📶 واي فاي مجاني</li>
-                    <li>🥐 إفطار صباحي شامل</li>
-                    <li>🌇 إطلالة رائعة على المدينة</li>
-                </ul>
-                <a href="{{ route('book.now') }}" class="room-btn-outline">احجز الآن</a>
-            </div>
-        </div>
-
-        <!-- غرفة 2 -->
-        <div class="room-card">
-            <div class="room-image">
-                <img src="../img/bedroom-2593500_1280.jpg" alt="جناح فاخر">
-                <div class="room-overlay">
-                    <a href="#" class="room-btn">عرض التفاصيل</a>
-                </div>
-            </div>
-            <div class="room-info">
-                <h3>جناح فاخر بإطلالة بانورامية</h3>
-                <p>جناح راقٍ يضم غرفة جلوس خاصة وشرفة بإطلالة ساحرة على المدينة.</p>
-                <ul>
-                    <li>🛋️ غرفة جلوس منفصلة</li>
-                    <li>☕ آلة قهوة خاصة</li>
-                    <li>🛁 جاكوزي فاخر</li>
-                    <li>🌅 شرفة بانورامية</li>
-                </ul>
-                <a href="{{ route('book.now') }}" class="room-btn-outline">احجز الآن</a>
-            </div>
-        </div>
-
-        <!-- غرفة 3 -->
-        <div class="room-card">
-            <div class="room-image">
-                <img src="../img/bedroom-7349893_1280.jpg" alt="غرفة مزدوجة فاخرة">
-                <div class="room-overlay">
-                    <a href="#" class="room-btn">عرض التفاصيل</a>
-                </div>
-            </div>
-            <div class="room-info">
-                <h3>غرفة مزدوجة فاخرة</h3>
-                <p>غرفة واسعة بأجواء دافئة مثالية للعائلات أو الأصدقاء.</p>
-                <ul>
-                    <li>🛏️ سريران مريحتان</li>
-                    <li>📺 تلفاز ذكي بشاشة كبيرة</li>
-                    <li>🧺 خدمة تنظيف يومية</li>
-                    <li>🚗 مواقف سيارات مجانية</li>
-                </ul>
-                <a href="{{ route('book.now') }}" class="room-btn-outline">احجز الآن</a>
-            </div>
-        </div>
-
+    <div class="container position-relative">
+        <h1 class="fw-bold display-5" data-aos="fade" data-aos-duration="3000">
+            احجز خدمتك الآن
+        </h1>
+        <p class="mt-3 fs-5" data-aos-delay="100" data-aos="fade" data-aos-duration="3000">
+            خدمة الغسيل من <strong>بونا</strong> تصلك أينما كنت — نظافة احترافية وسرعة في التنفيذ.
+        </p>
     </div>
-</section>
+</div>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+<!-- Booking Form Section -->
+<div class="overflow-hidden py-7 py-sm-8 py-xl-9 bg-body-tertiary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-body-emphasis">نموذج الحجز</h2>
+            <p class="text-body-secondary fs-6">املأ النموذج التالي وسيتم التواصل معك لتأكيد الحجز</p>
+        </div>
 
-body {
-    font-family: 'Cairo', sans-serif;
-    background: #f8f8f8;
-    color: #333;
-}
-.rooms-section {
-    padding: 60px 20px;
-    text-align: center;
-}
-.rooms-section h1 {
-    color: #D9EF82;
-    font-size: 2.4rem;
-    margin-bottom: 10px;
-}
-.rooms-section p {
-    color: #666;
-    margin-bottom: 40px;
-}
-.rooms-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.room-card {
-    background: #fff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.room-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-}
-.room-image {
-    position: relative;
-    overflow: hidden;
-    height: 230px;
-}
-.room-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-.room-card:hover .room-image img {
-    transform: scale(1.05);
-}
-.room-overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.45);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-.room-card:hover .room-overlay {
-    opacity: 1;
-}
-.room-btn {
-    background: #D9EF82;
-    color: #fff;
-    padding: 10px 25px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s;
-}
-.room-btn:hover {
-    background: #c4e366;
-}
-.room-info {
-    padding: 20px;
-    text-align: right;
-}
-.room-info h3 {
-    color: #333;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-.room-info p {
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-.room-info ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 15px;
-}
-.room-info ul li {
-    font-size: 0.9rem;
-    color: #444;
-    margin-bottom: 6px;
-}
-.room-btn-outline {
-    display: inline-block;
-    border: 2px solid #D9EF82;
-    color: #D9EF82;
-    padding: 8px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-.room-btn-outline:hover {
-    background: #D9EF82;
-    color: #fff;
-}
-@media (max-width: 768px) {
-    .rooms-section h1 { font-size: 2rem; }
-}
-</style>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm">
+                    <form id="bookingForm" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold">الاسم الكامل</label>
+                                <input type="text" class="form-control form-control-sm" placeholder="اكتب اسمك" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold">رقم الجوال</label>
+                                <input type="text" class="form-control form-control-sm" placeholder="05xxxxxxxx" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold">المدينة</label>
+                                <select class="form-select form-select-sm" required>
+                                    <option value="">اختر المدينة</option>
+                                    <option>الرياض</option>
+                                    <option>جدة</option>
+                                    <option>الدمام</option>
+                                    <option>الخبر</option>
+                                    <option>المدينة المنورة</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold">العنوان التفصيلي</label>
+                                <input type="text" class="form-control form-control-sm" placeholder="الحي، الشارع، رقم المنزل" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold">نوع الخدمة</label>
+                                <select class="form-select form-select-sm" required>
+                                    <option value="">اختر الخدمة</option>
+                                    <option>غسيل وكي</option>
+                                    <option>غسيل فقط</option>
+                                    <option>تنظيف جاف (Dry Clean)</option>
+                                    <option>مفارش وستائر</option>
+                                    <option>الملابس الرسمية</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold">وقت الاستلام المفضل</label>
+                                <input type="datetime-local" class="form-control form-control-sm" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold">طريقة الدفع</label>
+                                <select class="form-select form-select-sm">
+                                    <option>عند الاستلام (COD)</option>
+                                    <option>دفع إلكتروني</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold">البريد الإلكتروني (اختياري)</label>
+                                <input type="email" class="form-control form-control-sm" placeholder="name@email.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-semibold">ملاحظات إضافية</label>
+                                <textarea class="form-control form-control-sm" rows="3" placeholder="اكتب ملاحظاتك إن وجدت..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 text-center">
+                            <button type="submit" class="btn btn-primary px-5 py-2 text-white fw-semibold">
+                                تأكيد الحجز
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Contact -->
+        <div class="text-center mt-5">
+            <p class="text-body-secondary mb-3">هل تحتاج مساعدة؟ تواصل معنا مباشرة 👇</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://wa.me/966500000000" target="_blank" class="btn btn-success text-white fw-semibold px-4">
+                    <i class="fab fa-whatsapp me-2"></i> واتساب
+                </a>
+                <a href="tel:+966500000000" class="btn btn-outline-primary fw-semibold px-4">
+                    <i class="fa-solid fa-phone me-2"></i> اتصال مباشر
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="pb-9 pt-7">
+    <div class="container">
+        <div class="py-6 position-relative text-white rounded-3 text-center">
+            <img src="./assets/img/bg/bg10.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover rounded-3" alt="Bona CTA">
+            <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark rounded-3"
+                style="opacity: 0.85; mix-blend-mode: multiply; filter: contrast(1.1) brightness(0.85);"></div>
+
+            <div class="px-5">
+                <h2 class="fw-bold display-6">راحة بالك تبدأ من هنا</h2>
+                <p class="mt-3 fs-5">بونا تقدم لك تجربة غسيل مثالية بخدمة توصيل سريعة ومعقمة.</p>
+                <a href="tel:+966500000000" class="btn btn-lg btn-light text-primary mt-3 fw-semibold">
+                    اتصل الآن واحجز موعدك
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
