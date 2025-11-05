@@ -3,31 +3,40 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\ContactMessage;
-use App\Models\Pagservice;
-use App\Models\CompanyBranch;
-use App\Models\Testimonial;
-use App\Models\Section;
-use Illuminate\Http\Request;
+use App\Models\BonaMessage;     // الرسائل الواردة من نموذج التواصل
+use App\Models\Order;           // الطلبات
+use App\Models\CompanyBranch;          // الفروع
+use App\Models\User;            // العملاء أو المستخدمين
+use App\Models\Service;         // الخدمات
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $messagesCount   = ContactMessage::count();
-        $servicesCount   = Pagservice::count();
-        $branchesCount   = CompanyBranch::count();
-        $testimonialsCount = Testimonial::count();
-        $sectionsCount   = Section::count();
+        // عدد الرسائل
+        $messagesCount = BonaMessage::count();
 
-        $lastMessages = ContactMessage::latest()->take(5)->get();
+        // عدد الطلبات
+        $ordersCount = Order::count();
+
+        // عدد الفروع
+        $branchesCount = CompanyBranch::count();
+
+        // عدد العملاء (يمكنك تخصيص Role معين لاحقًا)
+        $customersCount = User::count();
+
+        // عدد الخدمات
+        $servicesCount = Service::count();
+
+        // آخر الرسائل (5 فقط)
+        $lastMessages = BonaMessage::latest()->take(5)->get();
 
         return view('admin.dashboard.home', compact(
             'messagesCount',
-            'servicesCount',
+            'ordersCount',
             'branchesCount',
-            'testimonialsCount',
-            'sectionsCount',
+            'customersCount',
+            'servicesCount',
             'lastMessages'
         ));
     }
