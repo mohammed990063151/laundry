@@ -19,8 +19,13 @@ use App\Http\Controllers\Dashboard\ContactSettingsController;
 use App\Http\Controllers\Dashboard\BranchesController;
 use App\Http\Controllers\Dashboard\MessagesController;
 use App\Http\Controllers\Dashboard\TestimonialController;
+use App\Http\Controllers\Dashboard\BonaMessageController;
 use App\Http\Controllers\PagContactController;
 use App\Models\Service;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Front\NewsletterController;
+use App\Http\Controllers\Dashboard\NewslettersController;
 Route::get('/custom-login', function() {
     return view('auth.custom-login');
 })->name('custom-login');
@@ -63,7 +68,7 @@ Route::get('/about-us', function () {
 })->name('frontend.about-us');
 
 // صفحة الغرف
-Route::get('/allrooms', function () {
+Route::get('/order', function () {
     return view('frontend.allrooms');
 })->name('frontend.rooms');
 Route::get('/guests-reviews', function () {
@@ -97,6 +102,19 @@ Route::get('/privacy', function () {
 // Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+
+
+
+Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
+
+
+Route::post('/bona-form', [App\Http\Controllers\Front\BonaFormController::class, 'store'])
+    ->name('frontend.bonaform.store');
+
+
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])
+    ->name('newsletter.subscribe');
 
 
 // Auth::routes();
@@ -107,6 +125,23 @@ Route::middleware(['auth', 'web'])->prefix('dashboard')->name('dashboard.')->gro
 // settings
 Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
     Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
+Route::get('/orders', [OrderController::class, 'index'])
+    ->middleware(['auth']) // يمكن إزالة auth لو غير مطلوب
+    ->name('orders');
+
+
+// للوحة التحكم
+Route::get('bookings', [BookingController::class, 'index'])
+    ->middleware(['auth']) // يمكنك حذفها إذا لم تستخدم تسجيل الدخول
+    ->name('bookings');
+
+Route::get('/bona-index', [BonaMessageController::class, 'index'])
+    ->name('bona-messages.index');
+
+
+
+    Route::get('/newsletter', [NewslettersController::class, 'index'])->name('newsletter.index');
+
 
 // sections
     Route::get('section/edit', [App\Http\Controllers\Dashboard\SectionController::class, 'edit'])->name('sections.edit');

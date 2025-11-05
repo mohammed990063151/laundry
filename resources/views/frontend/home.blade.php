@@ -256,7 +256,7 @@
             <div class="col-12 col-xl-6">
                 <div class="mx-auto max-w-2xl">
                     <div class="ratio ratio-4x3" data-aos-delay="0" data-aos="fade" data-aos-duration="2000">
-                        <img src="{{ asset('img/aboute_me.jpg') }}"
+                        <img src="{{ asset('assets/img/bg/bg2.jpg') }}"
                              {{-- class="object-fit-cover rounded-3 shadow" --}}
                              alt="عن بونا" loading="lazy">
                     </div>
@@ -266,7 +266,7 @@
 
         <!-- صورة كبيرة أسفل النص -->
         <div class="ratio ratio-16x9 mt-7 mt-sm-8 mt-xl-9" data-aos="fade-up" data-aos-duration="2500">
-            <img src="{{ asset('img/master.jpg') }}"
+            <img src="{{ asset('assets/img/bg/bg4.jpg') }}"
                  class="object-fit-cover rounded-3 shadow"
                  alt="منشأة بونا" loading="lazy">
         </div>
@@ -292,7 +292,9 @@
                         <img class="mx-auto" src="{{ asset('img/logo.png') }}" height="55" alt="BONA Laundry" loading="lazy">
                         <figure class="m-0 mt-5">
                             <blockquote class="fw-semibold text-dark fs-5 lh-lg">
-                                <p class="m-0">
+                                <p class="m-0" style="
+    color: #05235b;
+">
                                     “ تجربتي مع <strong>بونا</strong> كانت رائعة! الغسيل نظيف جدًا، التعبئة مرتبة، والتوصيل دقيق في الوقت.
                                     فريق العمل محترف، والتعامل راقٍ للغاية. بالتأكيد أصبحت عميل دائم لديهم. ”
                                 </p>
@@ -319,7 +321,9 @@
                         <img class="mx-auto" src="{{ asset('img/logo.png') }}" height="55" alt="BONA Laundry" loading="lazy">
                         <figure class="m-0 mt-5">
                             <blockquote class="fw-semibold text-dark fs-5 lh-lg">
-                                <p class="m-0">
+                                <p class="m-0" style="
+    color: #05235b;
+">
                                     “ أكثر ما أعجبني في <strong>بونا</strong> هو خدمة التوصيل الذكي والخزائن الذكية.
                                     سهولة وسرعة في الاستلام، بالإضافة إلى جودة الغسيل التي تفوق التوقعات. ”
                                 </p>
@@ -346,7 +350,9 @@
                         {{-- <img class="mx-auto" src="{{ asset('img/logo.png') }}" height="55" alt="BONA Laundry" loading="lazy"> --}}
                         <figure class="m-0 mt-5">
                             <blockquote class="fw-semibold text-dark fs-5 lh-lg">
-                                <p class="m-0">
+                                <p class="m-0" style="
+    color: #05235b;
+">
                                     “ خدمة احترافية بمعنى الكلمة، تعامل راقٍ وتنظيم ممتاز.
                                     <strong>بونا</strong> تهتم بأدق التفاصيل في الغسيل والتغليف.
                                     شكراً على التجربة المميزة. ”
@@ -487,12 +493,19 @@
                 </div>
 
                 <div class="mx-auto max-w-2xl mt-5">
-                    <form class="row g-4 needs-validation" id="bonaForm" novalidate>
+                     @if(session('success'))
+                        <div class="alert alert-success text-center mb-4">{{ session('success') }}</div>
+                    @endif
+                   <form class="row g-4 needs-validation" id="bonaForm"
+      action="{{ route('frontend.bonaform.store') }}"
+      method="POST" novalidate>
+    @csrf
+
                         <div class="col-md-6">
                             <label for="nameForm" class="form-label text-sm">
                                 الاسم الكامل <span class="text-danger">*</span>
                             </label>
-                            <input type="text" class="form-control form-control-sm" id="nameForm" required>
+                            <input type="text" name="name" class="form-control form-control-sm" id="nameForm" required>
                             <div class="invalid-feedback text-xs">الرجاء إدخال الاسم الكامل.</div>
                         </div>
 
@@ -500,7 +513,7 @@
                             <label for="phoneForm" class="form-label text-sm">
                                 رقم الجوال <span class="text-danger">*</span>
                             </label>
-                            <input type="text" class="form-control form-control-sm" id="phoneForm" required>
+                            <input type="text" name="phone" class="form-control form-control-sm" id="phoneForm" required>
                             <div class="invalid-feedback text-xs">الرجاء إدخال رقم الجوال.</div>
                         </div>
 
@@ -508,7 +521,7 @@
                             <label for="emailForm" class="form-label text-sm">
                                 البريد الإلكتروني <span class="text-danger">*</span>
                             </label>
-                            <input type="email" class="form-control form-control-sm" id="emailForm" required>
+                            <input type="email" name="email" class="form-control form-control-sm" id="emailForm" required>
                             <div class="invalid-feedback text-xs">الرجاء إدخال البريد الإلكتروني.</div>
                         </div>
 
@@ -516,7 +529,7 @@
                             <label for="subjectForm" class="form-label text-sm">
                                 نوع الاستفسار <span class="text-danger">*</span>
                             </label>
-                            <select class="form-select form-select-sm" id="subjectForm" required>
+                            <select class="form-select form-select-sm"  name="subject" id="subjectForm" required>
                                 <option value="">اختر...</option>
                                 <option>طلب خدمة غسيل</option>
                                 <option>شكاوى واقتراحات</option>
@@ -530,7 +543,7 @@
                             <label for="messageForm" class="form-label text-sm">
                                 الرسالة <span class="text-danger">*</span>
                             </label>
-                            <textarea class="form-control form-control-sm" id="messageForm" rows="3" required></textarea>
+                            <textarea class="form-control form-control-sm" name="message" id="messageForm" rows="3" required></textarea>
                             <div class="invalid-feedback text-xs">الرجاء كتابة الرسالة.</div>
                         </div>
 

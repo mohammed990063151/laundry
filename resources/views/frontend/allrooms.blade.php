@@ -32,61 +32,64 @@
                     <p class="text-body-secondary text-center mb-4">
                         الرجاء تعبئة البيانات التالية ليتم التواصل معك لتأكيد الطلب واستلام الملابس.
                     </p>
-
-                    <form id="orderForm" novalidate>
+   @if(session('success'))
+            <div class="alert alert-success"><i class="fa fa-check-circle"></i> {{ session('success') }}</div>
+        @endif
+                   <form id="orderForm" action="{{ route('order.store') }}" method="POST">
+                           @csrf
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">الاسم الكامل</label>
-                                <input type="text" class="form-control form-control-sm" placeholder="اكتب اسمك" required>
+                                <input type="text" name="full_name" class="form-control form-control-sm" placeholder="اكتب اسمك" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">رقم الجوال</label>
-                                <input type="text" class="form-control form-control-sm" placeholder="05xxxxxxxx" required>
+                                <input type="text" name="phone"  class="form-control form-control-sm" placeholder="05xxxxxxxx" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">البريد الإلكتروني</label>
-                                <input type="email" class="form-control form-control-sm" placeholder="name@email.com">
+                                <input type="email" name="email"  class="form-control form-control-sm" placeholder="name@email.com">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">المدينة</label>
-                                <select class="form-select form-select-sm" required>
+                                <select class="form-select form-select-sm" name="city" required>
                                     <option value="">اختر المدينة</option>
-                                    <option>الرياض</option>
-                                    <option>جدة</option>
-                                    <option>الدمام</option>
-                                    <option>الخبر</option>
-                                    <option>المدينة المنورة</option>
+                                    <option value="الرياض">الرياض</option>
+                                    <option value="جدة">جدة</option>
+                                    <option value="الدمام">الدمام</option>
+                                    <option value="الخبر">الخبر</option>
+                                    <option value="المدينة المنورة">المدينة المنورة</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">العنوان بالتفصيل</label>
-                                <input type="text" class="form-control form-control-sm" placeholder="الحي، الشارع، رقم المنزل" required>
+                                <input type="text" name="address" class="form-control form-control-sm" placeholder="الحي، الشارع، رقم المنزل" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">نوع الخدمة</label>
-                                <select class="form-select form-select-sm" required>
+                                <select class="form-select form-select-sm" name="service_type" required>
                                     <option value="">اختر الخدمة</option>
-                                    <option>غسيل وكي</option>
-                                    <option>غسيل فقط</option>
-                                    <option>تنظيف جاف (Dry Clean)</option>
-                                    <option>مفارش وستائر</option>
-                                    <option>ملابس رسمية</option>
+                                    <option value="غسيل وكي">غسيل وكي</option>
+                                    <option value="غسيل فقط">غسيل فقط</option>
+                                    <option value="تنظيف جاف (Dry Clean)">تنظيف جاف (Dry Clean)</option>
+                                    <option value="مفارش وستائر">مفارش وستائر</option>
+                                    <option value="ملابس رسمية">ملابس رسمية</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">طريقة الدفع</label>
-                                <select class="form-select form-select-sm" required>
-                                    <option>عند الاستلام (COD)</option>
-                                    <option>دفع إلكتروني</option>
+                                <select class="form-select form-select-sm"  name="payment_method" required>
+                                    <option value="عند الاستلام (COD)">عند الاستلام (COD)</option>
+                                    <option value="دفع إلكتروني">دفع إلكتروني</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">وقت الاستلام المفضل</label>
-                                <input type="datetime-local" class="form-control form-control-sm" required>
+                                <input type="datetime-local"  name = "pickup_time"  class="form-control form-control-sm" required>
                             </div>
                             <div class="col-12">
                                 <label class="form-label small fw-semibold">ملاحظات إضافية</label>
-                                <textarea class="form-control form-control-sm" rows="3" placeholder="اكتب أي ملاحظات هنا..."></textarea>
+                                <textarea class="form-control form-control-sm" name = "notes" rows="3" placeholder="اكتب أي ملاحظات هنا..."></textarea>
                             </div>
                         </div>
 

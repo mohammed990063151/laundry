@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
     {
         // إنشاء المستخدم
         $user = User::firstOrCreate(
-            ['email' => 'almidyaf@gmail.com'],
+            ['email' => 'bona@gmail.com'],
             [
                 'first_name' => 'Super',
                 'last_name' => 'Admin',

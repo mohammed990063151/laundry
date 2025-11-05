@@ -49,7 +49,7 @@
 
             <div class="col-12 col-xl-6">
                 <div class="ratio ratio-4x3" data-aos-delay="200" data-aos="fade" data-aos-duration="3000">
-                    <img src="./assets/img/bg/bg5.jpg" class="object-fit-cover rounded-3" alt="Bona Laundry Process">
+                    <img src="./assets/img/bg/bg7.jpg" class="object-fit-cover rounded-3" alt="Bona Laundry Process">
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
         <div class="row gx-lg-4 row-cols-1 row-cols-lg-2">
             <div class="col">
                 <div class="ratio ratio-1x1" data-aos="fade" data-aos-duration="1000">
-                    <img src="./assets/img/bg/bg3.jpg" class="object-fit-cover rounded-3" alt="Laundry Machine" loading="lazy">
+                    <img src="./assets/img/bg/bg2.jpg" class="object-fit-cover rounded-3" alt="Laundry Machine" loading="lazy">
                 </div>
             </div>
             <div class="col d-none d-lg-block">

@@ -42,7 +42,7 @@
             <!-- Project 1 -->
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                    <img src="./assets/img/projects/hotel-laundry.jpg" class="card-img-top object-fit-cover" height="230" alt="Hotel Project">
+                    <img src="./assets/img/bg/bg9.jpg" class="card-img-top object-fit-cover" height="230" alt="Hotel Project">
                     <div class="card-body p-4">
                         <h5 class="fw-bold text-body-emphasis">مشروع فنادق الرياض</h5>
                         <p class="text-body-secondary small mt-2">
@@ -56,7 +56,7 @@
             <!-- Project 2 -->
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                    <img src="./assets/img/projects/hospital-laundry.jpg" class="card-img-top object-fit-cover" height="230" alt="Hospital Project">
+                    <img src="./assets/img/bg/bg10.jpg" class="card-img-top object-fit-cover" height="230" alt="Hospital Project">
                     <div class="card-body p-4">
                         <h5 class="fw-bold text-body-emphasis">مشروع المستشفيات</h5>
                         <p class="text-body-secondary small mt-2">
@@ -70,7 +70,7 @@
             <!-- Project 3 -->
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                    <img src="./assets/img/projects/residential.jpg" class="card-img-top object-fit-cover" height="230" alt="Residential Project">
+                    <img src="./assets/img/bg/bg2.jpg" class="card-img-top object-fit-cover" height="230" alt="Residential Project">
                     <div class="card-body p-4">
                         <h5 class="fw-bold text-body-emphasis">عقود سكنية طويلة الأجل</h5>
                         <p class="text-body-secondary small mt-2">
@@ -84,7 +84,7 @@
             <!-- Project 4 -->
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                    <img src="./assets/img/projects/corporate.jpg" class="card-img-top object-fit-cover" height="230" alt="Corporate Laundry">
+                    <img src="./assets/img/bg/bg7.jpg" class="card-img-top object-fit-cover" height="230" alt="Corporate Laundry">
                     <div class="card-body p-4">
                         <h5 class="fw-bold text-body-emphasis">خدمات الشركات والمؤسسات</h5>
                         <p class="text-body-secondary small mt-2">
@@ -98,7 +98,7 @@
             <!-- Project 5 -->
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                    <img src="./assets/img/projects/uniforms.jpg" class="card-img-top object-fit-cover" height="230" alt="Uniform Laundry">
+                    <img src="./assets/img/bg/bg9.jpg" class="card-img-top object-fit-cover" height="230" alt="Uniform Laundry">
                     <div class="card-body p-4">
                         <h5 class="fw-bold text-body-emphasis">مشروع غسيل الزي الموحد</h5>
                         <p class="text-body-secondary small mt-2">
@@ -112,7 +112,7 @@
             <!-- Project 6 -->
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                    <img src="./assets/img/projects/event-laundry.jpg" class="card-img-top object-fit-cover" height="230" alt="Event Project">
+                    <img src="./assets/img/bg/bg10.jpg" class="card-img-top object-fit-cover" height="230" alt="Event Project">
                     <div class="card-body p-4">
                         <h5 class="fw-bold text-body-emphasis">مشروع فعاليات ومناسبات</h5>
                         <p class="text-body-secondary small mt-2">

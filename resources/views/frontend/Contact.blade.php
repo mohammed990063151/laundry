@@ -33,28 +33,82 @@
             <div class="col-12 col-lg-6">
                 <div class="bg-body-tertiary p-4 p-md-5 rounded-4 shadow-sm">
                     <h2 class="fw-bold text-body-emphasis mb-3">أرسل لنا رسالة</h2>
-                    <form id="contactForm" novalidate>
+                    @if(session('success'))
+                        <div class="alert alert-success text-center mb-4">{{ session('success') }}</div>
+                    @endif
+                   <form class="row g-4 needs-validation" id="bonaForm"
+      action="{{ route('frontend.bonaform.store') }}"
+      method="POST" novalidate>
+    @csrf
                         <div class="row g-3">
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <label class="form-label small fw-semibold">الاسم الكامل</label>
-                                <input type="text" class="form-control form-control-sm" placeholder="اكتب اسمك" required>
+                                <input type="text" name="" class="form-control form-control-sm" placeholder="اكتب اسمك" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">البريد الإلكتروني</label>
-                                <input type="email" class="form-control form-control-sm" placeholder="name@email.com" required>
+                                <input type="email" name="" class="form-control form-control-sm" placeholder="name@email.com" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">رقم الجوال</label>
-                                <input type="text" class="form-control form-control-sm" placeholder="05xxxxxxxx" required>
+                                <input type="text" name="" class="form-control form-control-sm" placeholder="05xxxxxxxx" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-semibold">الموضوع</label>
-                                <input type="text" class="form-control form-control-sm" placeholder="موضوع الرسالة" required>
+                                <input type="text" name="" class="form-control form-control-sm" placeholder="موضوع الرسالة" required>
                             </div>
                             <div class="col-12">
                                 <label class="form-label small fw-semibold">الرسالة</label>
-                                <textarea class="form-control form-control-sm" rows="4" placeholder="اكتب رسالتك هنا..." required></textarea>
-                            </div>
+                                <textarea name="message" class="form-control form-control-sm" rows="4" placeholder="اكتب رسالتك هنا..." required></textarea>
+                            </div> --}}
+
+                        <div class="col-md-6">
+                            <label for="nameForm" class="form-label text-sm">
+                                الاسم الكامل <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" name="name" class="form-control form-control-sm" id="nameForm" required>
+                            <div class="invalid-feedback text-xs">الرجاء إدخال الاسم الكامل.</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="phoneForm" class="form-label text-sm">
+                                رقم الجوال <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" name="phone" class="form-control form-control-sm" id="phoneForm" required>
+                            <div class="invalid-feedback text-xs">الرجاء إدخال رقم الجوال.</div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="emailForm" class="form-label text-sm">
+                                البريد الإلكتروني <span class="text-danger">*</span>
+                            </label>
+                            <input type="email" name="email" class="form-control form-control-sm" id="emailForm" required>
+                            <div class="invalid-feedback text-xs">الرجاء إدخال البريد الإلكتروني.</div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="subjectForm" class="form-label text-sm">
+                                نوع الاستفسار <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select form-select-sm"  name="subject" id="subjectForm" required>
+                                <option value="">اختر...</option>
+                                <option>طلب خدمة غسيل</option>
+                                <option>شكاوى واقتراحات</option>
+                                <option>شراكات وعقود</option>
+                                <option>أخرى</option>
+                            </select>
+                            <div class="invalid-feedback text-xs">الرجاء اختيار نوع الاستفسار.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="messageForm" class="form-label text-sm">
+                                الرسالة <span class="text-danger">*</span>
+                            </label>
+                            <textarea class="form-control form-control-sm" name="message" id="messageForm" rows="3" required></textarea>
+                            <div class="invalid-feedback text-xs">الرجاء كتابة الرسالة.</div>
+                        </div>
+
+                       
                         </div>
 
                         <div class="mt-4 text-center">

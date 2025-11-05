@@ -114,7 +114,7 @@
             <!-- قسم الاشتراك -->
             <div class="col-12 col-xl-6">
                 <div class="pb-3 max-w-lg position-relative">
-                    <form method="post" target="_blank" novalidate class="newsletter-form">
+                    {{-- <form method="post" target="_blank" novalidate class="newsletter-form">
                         <h2 class="fw-bold text-3xl" style="color:#1226AA;">
                             اشترك في نشرتنا البريدية 📬
                         </h2>
@@ -132,7 +132,43 @@
 
                         <!-- رسائل الاستجابة -->
                         <div class="subscribe-response mt-2 text-success small"></div>
-                    </form>
+                    </form> --}}
+                    <form method="POST" novalidate
+      class="newsletter-form"
+      action="{{ route('newsletter.subscribe') }}">
+    @csrf
+
+    <h2 class="fw-bold text-3xl" style="color:#1226AA;">
+        اشترك في نشرتنا البريدية 📬
+    </h2>
+    <p class="m-0 mt-3 text-muted fs-5">
+        كن أول من يعرف عن العروض الجديدة وخدمات بونا الذكية في الغسيل والتوصيل.
+    </p>
+
+    <div class="mt-4 mb-2 d-flex flex-column flex-sm-row w-100 gap-2">
+        <label for="emailSubscribe" class="visually-hidden">البريد الإلكتروني</label>
+        <input type="email" id="emailSubscribe" name="email"
+               class="form-control text-sm py-2"
+               placeholder="أدخل بريدك الإلكتروني" required>
+        <button type="submit" class="btn fw-semibold text-white text-sm"
+                style="background-color:#1226AA;">اشتراك</button>
+    </div>
+
+    {{-- رسالة النجاح --}}
+    @if(session('newsletter_success'))
+        <div class="subscribe-response mt-2 text-success small">
+            {{ session('newsletter_success') }}
+        </div>
+    @endif
+
+    {{-- رسالة الخطأ --}}
+    @error('email')
+        <div class="subscribe-response mt-2 text-danger small">
+            {{ $message }}
+        </div>
+    @enderror
+</form>
+
                 </div>
             </div>
 

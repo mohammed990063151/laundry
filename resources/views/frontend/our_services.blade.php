@@ -44,7 +44,7 @@
             </div>
             <div class="col-12 col-xl-6">
                 <div class="ratio ratio-4x3" data-aos="fade" data-aos-delay="300">
-                    <img src="./assets/img/bg/laundry-eco.jpg" class="object-fit-cover rounded-3" alt="Bona Eco Friendly">
+                    <img src="{{  asset('assets/img/bg/bg2.jpg')}}" class="object-fit-cover rounded-3" alt="Bona Eco Friendly">
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-12 col-xl-6">
                 <div class="ratio ratio-4x3">
-                    <img src="./assets/img/bg/laundry-service1.jpg" class="object-fit-cover rounded-3" alt="Bona Dry Cleaning">
+                    <img src="{{  asset('assets/img/bg/bg4.jpg')}}" class="object-fit-cover rounded-3" alt="Bona Dry Cleaning">
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-12 col-xl-6">
                 <div class="ratio ratio-4x3">
-                    <img src="./assets/img/bg/laundry-service2.jpg" class="object-fit-cover rounded-3" alt="Bona Wash and Fold">
+                    <img src="{{  asset('assets/img/bg/bg7.jpg')}}" class="object-fit-cover rounded-3" alt="Bona Wash and Fold">
                 </div>
             </div>
         </div>
@@ -122,7 +122,7 @@
             </div>
             <div class="col-12 col-xl-6">
                 <div class="ratio ratio-4x3">
-                    <img src="./assets/img/bg/laundry-service3.jpg" class="object-fit-cover rounded-3" alt="Bona Express Delivery">
+                    <img src="{{  asset('assets/img/bg/bg8.jpg')}}" class="object-fit-cover rounded-3" alt="Bona Express Delivery">
                 </div>
             </div>
         </div>
@@ -133,7 +133,7 @@
 <div class="overflow-hidden py-7 py-sm-8 py-xl-9 d-none d-xl-block">
     <div class="container">
         <div class="ratio ratio-16x9">
-            <img src="./assets/img/bg/laundry-team.jpg" class="object-fit-cover rounded-3" alt="Bona Team">
+            <img src="{{  asset('assets/img/bg/bg10.jpg')}}" class="object-fit-cover rounded-3" alt="Bona Team">
         </div>
     </div>
 </div>

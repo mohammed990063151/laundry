@@ -16,6 +16,7 @@ class HomeController extends Controller
     public function index()
     {
         $section = Section::first();
+        // return      $section ;
         $about = About::first();
         $whyus = WhyUs::first();
         $gallery = GalleryItem::latest()->get();
@@ -25,5 +26,5 @@ class HomeController extends Controller
         return view('frontend.home', compact('section', 'about', 'whyus', 'gallery', 'settinggallery','services','counter'));
     }
 
-   
+
 }

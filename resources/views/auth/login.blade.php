@@ -2,163 +2,176 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>تسجيل الدخول | شركة مُضياف الزراعية</title>
+    <title>تسجيل الدخول | بونا Bona</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Cairo:400,600,700&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-    *{
-        margin:0; padding:0; box-sizing:border-box;
-        font-family:'Cairo', sans-serif;
-    }
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif;}
+
     body {
-        background:#f9fdf7;
-        display:flex;
-        justify-content:center;
-        align-items:center;
         height:100vh;
+        background: linear-gradient(135deg, #eaf0ff, #f5f7ff);
+        display:flex;
+        align-items:center;
+        justify-content:center;
         position:relative;
         overflow:hidden;
     }
-    /* خلفية أوراق نبات */
-    .bg-leaf {
-        position:absolute; z-index:-1;
-        width:120%; opacity:.08;
-        top:-100px; right:-50px;
-        animation: leafMove 9s infinite alternate;
-    }
-    @keyframes leafMove {
-        to { transform: translateY(40px) rotate(3deg); }
+
+    /* خلفية بشكل موجي */
+    .wave {
+        position:absolute;
+        bottom:0; left:0;
+        width:100%;
+        height:220px;
+        background-size:cover;
+        opacity:.8;
     }
 
-    .login-box {
-        width:92%; max-width:950px;
+    .login-container {
         background:#fff;
-        border-radius:18px;
+        width:90%; max-width:950px;
         display:flex;
+        border-radius:20px;
         overflow:hidden;
-        box-shadow:0px 10px 45px rgba(0,0,0,0.08);
-        animation:fadeUp .7s;
-    }
-    @keyframes fadeUp {
-        from { opacity:0; transform: translateY(40px); }
-        to {opacity:1; transform: translateY(0); }
+        box-shadow:0 8px 40px rgba(0,0,0,0.1);
+        animation:fadeIn .7s ease-in-out;
     }
 
-    .left {
+    @keyframes fadeIn {
+        from {opacity:0; transform:translateY(40px);}
+        to {opacity:1; transform:translateY(0);}
+    }
+
+    /* الجزء الأيسر */
+    .login-image {
         flex:1;
-        background:linear-gradient(135deg,#bfe88d,#9ad776);
-        padding:40px 25px;
-        color:#1b3615;
-        text-align:center;
+        background:linear-gradient(135deg,#1226AA,#3c57ff);
+        color:white;
         display:flex;
         flex-direction:column;
+        align-items:center;
         justify-content:center;
+        text-align:center;
+        padding:40px 25px;
     }
-    .left img {
+    .login-image img {
         width:170px;
-        margin:10px auto 25px;
-        border-radius:15px;
+        height:auto;
+        margin-bottom:20px;
+        border-radius:12px;
         background:#fff;
         padding:10px;
-        box-shadow:0 6px 12px rgba(0,0,0,.12);
     }
-    .left h2 {
-        font-size:2rem; margin-bottom:10px;
+    .login-image h2 {
+        font-size:2rem;
         font-weight:700;
+        margin-bottom:10px;
     }
-    .left p {
-        font-size:1.1rem;
+    .login-image p {
+        font-size:1rem;
         opacity:.9;
+        line-height:1.8;
     }
 
-    .right {
+    /* الجزء الأيمن */
+    .login-form {
         flex:1;
         padding:45px 35px;
         display:flex;
         flex-direction:column;
         align-items:center;
         justify-content:center;
-        text-align:right;
-    }
-    .right h3 {
-        color:#2b4b24;
-        margin-bottom:25px;
-        font-size:1.8rem;
-        font-weight:700;
     }
 
-    .form-group { width:100%; max-width:330px; margin-bottom:20px; position:relative; }
+    .login-form h3 {
+        color:#1226AA;
+        font-weight:700;
+        margin-bottom:25px;
+        font-size:1.7rem;
+    }
+
+    .form-group {
+        width:100%; max-width:320px; position:relative; margin-bottom:20px;
+    }
     .form-group input {
         width:100%;
         padding:12px 45px 12px 15px;
         border-radius:30px;
-        border:1px solid #d4e3c8;
+        border:1px solid #cfd8f3;
+        background:#f9faff;
         font-size:1rem;
         outline:none;
         transition:.3s;
     }
-    .form-group input:focus { border-color:#7bb452; box-shadow:0 0 8px rgba(98,158,60,0.4); }
-
+    .form-group input:focus {
+        border-color:#1226AA;
+        box-shadow:0 0 8px rgba(18,38,170,0.3);
+        background:white;
+    }
     .form-group i {
-        position:absolute; top:50%; right:15px;
+        position:absolute;
+        top:50%; right:15px;
         transform:translateY(-50%);
-        color:#6daa35;
+        color:#1226AA;
+        opacity:.8;
     }
 
-    .btn {
-        margin-top:10px;
-        width:100%;
-        max-width:330px;
-        padding:11px;
+    .btn-login {
+        width:100%; max-width:320px;
+        background:#1226AA;
+        color:#fff;
         font-size:1.1rem;
+        padding:12px;
         border:none;
         border-radius:30px;
-        background:#8fc44e;
-        color:white;
-        font-weight:bold;
         cursor:pointer;
+        font-weight:600;
         transition:.3s;
     }
-    .btn:hover {
-        background:#79b23f;
-        transform: scale(1.03);
+    .btn-login:hover {
+        background:#1b33d3;
+        transform:scale(1.03);
+    }
+
+    .remember {
+        width:100%; max-width:320px;
+        display:flex;
+        align-items:center;
+        gap:8px;
+        margin-bottom:10px;
+        font-size:.95rem;
+        color:#555;
     }
 
     @media(max-width:900px){
-        .login-box{
-            flex-direction:column;
-            height:auto;
-        }
-        .left img{ width:130px; }
+        .login-container {flex-direction:column;}
+        .login-image {padding:30px 20px;}
     }
 </style>
 </head>
 <body>
 
-<img class="bg-leaf" src="https://i.postimg.cc/YSKb6JTk/leaf-bg.png">
-
-<div class="login-box">
-
+<div class="login-container">
     {{-- الجزء الأيسر --}}
-    <div class="left">
-        <img src="{{ asset($setting->logo) }}" alt="Logo">
-        <h2>شركة مُضياف الزراعية</h2>
-        <p>حلول زراعية متكاملة، مشاتل، ري، مكافحة آفات والمزيد...</p>
+    <div class="login-image">
+        <img src="{{ $setting->logo}}" alt="Bona Logo">
+        <h2>بونا Bona</h2>
+        <p>تطبيق الغسيل الذكي الذي يصل إليك أينما كنت — نظافة، سرعة، وراحة.</p>
     </div>
 
     {{-- الجزء الأيمن --}}
-    <div class="right">
-        <h3>تسجيل الدخول للنظام</h3>
+    <div class="login-form">
+        <h3>تسجيل الدخول إلى بونا</h3>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
             <div class="form-group">
                 <i class="fa fa-envelope"></i>
                 <input type="email" name="email" placeholder="البريد الإلكتروني" required>
@@ -169,15 +182,17 @@
                 <input type="password" name="password" placeholder="كلمة المرور" required>
             </div>
 
-            <div style="width:100%; max-width:330px; margin-bottom:10px; display:flex; gap:7px;">
+            <div class="remember">
                 <input type="checkbox" id="remember" name="remember">
                 <label for="remember">تذكرني</label>
             </div>
 
-            <button class="btn">دخول 🔐</button>
+            <button class="btn-login">دخول 🔐</button>
         </form>
     </div>
 </div>
+
+<div class="wave"></div>
 
 </body>
 </html>
