@@ -8,7 +8,7 @@
 	<!-- Hero Section -->
 <div class="overflow-hidden py-9 py-xl-10 position-relative">
     {{-- <img src="./assets/img/bg/bg1.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Laundry"> --}}
-<img src="{{ $about->hero_image}}" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Laundry">
+<img src="{{ $about->hero_image ?? './assets/img/bg/bg1.jpg'}}" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Laundry">
     <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark"
         style="opacity: 0.85; mix-blend-mode: multiply; filter: contrast(1.15) brightness(0.85);"></div>
 
@@ -17,11 +17,11 @@
             <div class="max-w-2xl mx-auto mx-xl-0 text-center text-xl-start">
                 <h1 class="m-0 mt-7 text-white fw-bold display-5" data-aos="fade" data-aos-duration="3000">
                     {{-- من نحن --}}
-                    {{ $about->hero_title}}
+                    {{ $about->hero_title ?? 'من نحن' }}
                 </h1>
                 <p class="m-0 mt-4 text-white fs-5" data-aos-delay="100" data-aos="fade" data-aos-duration="3000">
                     {{-- في <strong>بونا</strong> نعيد تعريف مفهوم الغسيل بخدمات ذكية وسريعة توفر وقتك وجهدك. --}}
-                     {{ $about->hero_description}}
+                     {{ $about->hero_description ?? 'في بونا نعيد تعريف مفهوم الغسيل بخدمات ذكية وسريعة توفر وقتك وجهدك.' }}
                 </p>
             </div>
         </div>
@@ -37,12 +37,12 @@
                     <h2 class="m-0 text-primary-emphasis text-base fw-semibold">عن بونا</h2>
                     <p class="m-0 mt-2 text-body-emphasis display-6 fw-bold">
                         {{-- غسيل عصري.. بخدمة راقية وجودة استثنائية --}}
-                        {{ $about->about_title}}
+                        {{ $about->about_title ?? 'غسيل عصري.. بخدمة راقية وجودة استثنائية' }}
                     </p>
                     <p class="m-0 mt-4 text-body-secondary fs-5">
                         {{-- تأسست <strong>بونا</strong> لتكون الخيار الأول للأفراد والعائلات الباحثين عن الراحة والنظافة في كل تفاصيل حياتهم.
                         نقدم خدمات غسيل متكاملة تشمل الغسيل، التنشيف، الكي، والتوصيل إلى باب المنزل. --}}
-                        {{ $about->about_text}}
+                        {{ $about->about_text ?? 'تأسست بونا لتكون الخيار الأول للأفراد والعائلات الباحثين عن الراحة والنظافة في كل تفاصيل حياتهم. نقدم خدمات غسيل متكاملة تشمل الغسيل، التنشيف، الكي، والتوصيل إلى باب المنزل.' }}
                     </p>
                     {{-- <p class="m-0 mt-4 text-body-secondary fs-5">
                         نعمل بفريق محترف وتجهيزات حديثة تضمن لك نظافة فائقة، حماية كاملة للأقمشة، وتجربة خالية من المتاعب.
@@ -54,7 +54,7 @@
             <div class="col-12 col-xl-6">
                 <div class="ratio ratio-4x3" data-aos-delay="200" data-aos="fade" data-aos-duration="3000">
                     {{-- <img src="./assets/img/bg/bg7.jpg" class="object-fit-cover rounded-3" alt="Bona Laundry Process"> --}}
-                    <img src="{{ $about->about_image}}" class="object-fit-cover rounded-3" alt="Bona Laundry Process">
+                    <img src="{{ $about->about_image ?? './assets/img/bg/bg7.jpg'}}" class="object-fit-cover rounded-3" alt="Bona Laundry Process">
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
                 <h3 class="m-0 mt-3 text-body-emphasis fw-semibold">رؤيتنا</h3>
                 <p class="m-0 mt-2 text-body-secondary">
                     {{-- أن نكون المغسلة الأكثر ثقة في المملكة، بخدمة توازن بين الجودة، السرعة، والاستدامة. --}}
-                     {{ $about->vision_text}}
+                     {{ $about->vision_text ?? 'أن نكون المغسلة الأكثر ثقة في المملكة، بخدمة توازن بين الجودة، السرعة، والاستدامة.' }}
                 </p>
             </div>
 
@@ -83,7 +83,7 @@
                 <h3 class="m-0 mt-3 text-body-emphasis fw-semibold">مهمتنا</h3>
                 <p class="m-0 mt-2 text-body-secondary">
                     {{-- تقديم تجربة غسيل متطورة تدمج التكنولوجيا مع الخدمة الراقية لتلائم نمط الحياة الحديث. --}}
-                     {{ $about->mission_text}}
+                     {{ $about->mission_text  ?? 'تقديم تجربة غسيل متطورة تدمج التكنولوجيا مع الخدمة الراقية لتلائم نمط الحياة الحديث.' }}
                 </p>
             </div>
 
@@ -97,7 +97,7 @@
                     <strong>الجودة</strong> في الأداء،
                     <strong>الابتكار</strong> في الحلول،
                     <strong>الاهتمام</strong> براحة العميل. --}}
-                     {{ $about->values_text}}
+                     {{ $about->values_text ?? '<strong>الثقة</strong> في الخدمة، <strong>الجودة</strong> في الأداء، <strong>الابتكار</strong> في الحلول، <strong>الاهتمام</strong> براحة العميل.' }}
                 </p>
             </div>
         </div>
@@ -131,12 +131,12 @@
                     <h2 class="text-primary-emphasis fw-semibold">قصتنا</h2>
                     <p class="mt-2 text-body-emphasis display-6 fw-bold">
                     {{-- من فكرة صغيرة إلى علامة نظافة كبرى --}}
- {{ $about->story_title}}
+ {{ $about->story_title ?? 'من فكرة صغيرة إلى علامة نظافة كبرى' }}
                     </p>
                     <p class="mt-4 text-body fs-5">
                         {{-- بدأت <strong>بونا</strong> برؤية بسيطة: جعل الغسيل تجربة سهلة ومريحة في حياة كل شخص.
                         انطلقت من فريق صغير يسعى لتغيير مفهوم المغسلة التقليدية إلى خدمة حديثة متكاملة. --}}
-                         {{ $about->story_text}}
+                         {{ $about->story_text ?? 'بدأت بونا برؤية بسيطة: جعل الغسيل تجربة سهلة ومريحة في حياة كل شخص. انطلقت من فريق صغير يسعى لتغيير مفهوم المغسلة التقليدية إلى خدمة حديثة متكاملة.' }}
                     </p>
                     {{-- <p class="mt-4 text-body fs-5">
                         اليوم، نفخر بخدمة آلاف العملاء الذين يثقون بنا يوميًا.
@@ -147,7 +147,7 @@
             <div class="col-12 col-xl-6">
                 <div class="ratio ratio-4x3" data-aos="fade" data-aos-duration="3000">
                     {{-- <img src="./assets/img/bg/bg2.jpg" class="object-fit-cover rounded-3" alt="Bona Story" loading="lazy"> --}}
-                    <img src=" {{ $about->story_image}}" class="object-fit-cover rounded-3" alt="Bona Story" loading="lazy">
+                    <img src=" {{ $about->story_image ?? './assets/img/bg/bg2.jpg'}}" class="object-fit-cover rounded-3" alt="Bona Story" loading="lazy">
                 </div>
             </div>
         </div>
@@ -211,7 +211,7 @@
          <h3 class="fw-bold text-body-emphasis mt-2">نفخر بثقة أبرز العلامات في المملكة</h3>
         <div class="mt-5 d-flex flex-wrap justify-content-center align-items-center gap-4">
             @foreach($partners as $partner)
-                <img src="{{ asset($partner->logo) }}" class="img-fluid" alt="{{ $partner->name }}" style="max-height:60px; object-fit:contain;">
+                <img src="{{ asset($partner->logo ?? 'assets/css/font/Inter-italic.var.woff2') }}" class="img-fluid" alt="{{ $partner->name ?? '' }}" style="max-height:60px; object-fit:contain;">
             @endforeach
         </div>
     </div>
