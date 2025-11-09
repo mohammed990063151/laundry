@@ -21,12 +21,12 @@
             @if ($isVideo)
                 <!-- 🎥 فيديو خلفية -->
                 <video autoplay muted loop playsinline class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
-                    <source src="{{ asset($home->hero_background) }}" type="video/{{ $ext }}">
+                    <source src="{{ asset($home->hero_background ?? 'img/main.mp4') }}" type="video/{{ $ext }}">
                     متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             @else
                 <!-- 🖼️ صورة خلفية -->
-                <img src="{{ asset($home->hero_background) }}" alt="Hero Background"
+                <img src="{{ asset($home->hero_background ?? 'assets/css/font/Inter-italic.var.woff2') }}" alt="Hero Background"
                     class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
             @endif
         @endif
@@ -44,14 +44,14 @@
                         <div class="text-center text-xl-start">
                             <h1 class="fw-bold display-4 mb-4" style="color: #4AC1E0;" data-aos="fade-up"
                                 data-aos-duration="1500">
-                                {{-- Clean Life --}}{{ $home->hero_title }}
+                                {{-- Clean Life --}}{{ $home->hero_title  ?? 'Clean Life'}}
                                 <span style="color: #fff;">with BONA</span>
                             </h1>
                             <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500"
                                 style="max-width:600px;">
                                 {{-- شبكة مغاسل مركزية مؤتمتة في الرياض تقدم خدمات الغسيل الذكي، التوصيل المنزلي،
                             والخزائن الذكية بتقنيات حديثة تجمع بين النظافة والفخامة. --}}
-                                {{ $home->hero_subtitle }}
+                                {{ $home->hero_subtitle ?? 'شبكة مغاسل مركزية مؤتمتة في الرياض تقدم خدمات الغسيل الذكي، التوصيل المنزلي، والخزائن الذكية بتقنيات حديثة تجمع بين النظافة والفخامة.' }}
                             </p>
                             <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-xl-start">
                                 <a href="{{ route('frontend.rooms') }}" class="btn btn-lg text-white fw-semibold shadow"
@@ -134,116 +134,18 @@
                 </p>
             </div>
 
-            <!-- بطاقات الخدمات -->
-            {{-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gy-5 gx-xl-4 mt-5 justify-content-center">
-            <!-- خدمة 1 -->
-            <div class="col" data-aos="fade-up" data-aos-delay="0">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                        <img src="{{ asset('img/services1.jpg') }}"
-                             class="object-fit-cover rounded-top-3" alt="غسيل الملابس" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="fw-bold text-dark mt-3">غسيل وكي الملابس</h3>
-                        <p class="text-muted mt-2">
-                            غسيل وكي احترافي للملابس بجودة عالية وتعقيم شامل باستخدام مواد صديقة للبيئة للحفاظ على الأقمشة والمظهر الأنيق.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- خدمة 2 -->
-            <div class="col" data-aos="fade-up" data-aos-delay="100">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                        <img src="{{ asset('img/services2.jpg') }}"
-                             class="object-fit-cover rounded-top-3" alt="غسيل الأحذية" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="fw-bold text-dark mt-3">تنظيف الأحذية الفاخرة</h3>
-                        <p class="text-muted mt-2">
-                            تنظيف ومعالجة احترافية للأحذية الفاخرة باستخدام تقنيات دقيقة تحافظ على الشكل والألوان لتعود كالجديدة تمامًا.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- خدمة 3 -->
-            <div class="col" data-aos="fade-up" data-aos-delay="200">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                        <img src="{{ asset('img/services3.jpg') }}"
-                             class="object-fit-cover rounded-top-3" alt="غسيل المفروشات" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="fw-bold text-dark mt-3">غسيل المفروشات والأقمشة</h3>
-                        <p class="text-muted mt-2">
-                            تنظيف شامل للمفروشات، الستائر، والسجاد بأحدث الأجهزة لضمان إزالة الأتربة والبقع مع الحفاظ على الألوان والنسيج.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- خدمة 4 -->
-            <div class="col" data-aos="fade-up" data-aos-delay="300">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                        <img src="{{ asset('img/services4.jpg') }}"
-                             class="object-fit-cover rounded-top-3" alt="العناية بالقطع الفاخرة" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="fw-bold text-dark mt-3">العناية بالقطع الفاخرة</h3>
-                        <p class="text-muted mt-2">
-                            معالجة وتنظيف القطع الفاخرة بعناية متناهية وخبرة عالية للحفاظ على تفاصيلها الدقيقة وجودتها الأصلية.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- خدمة 5 -->
-            <div class="col" data-aos="fade-up" data-aos-delay="400">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                        <img src="{{ asset('img/services5.jpg') }}"
-                             class="object-fit-cover rounded-top-3" alt="التنظيف بالبخار" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="fw-bold text-dark mt-3">التنظيف بالبخار الذكي</h3>
-                        <p class="text-muted mt-2">
-                            تقنية حديثة لتنظيف وتعقيم الملابس دون استخدام مواد كيميائية، تمنح نظافة عميقة ولمعاناً طبيعياً.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- خدمة 6 -->
-            <div class="col" data-aos="fade-up" data-aos-delay="500">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                        <img src="{{ asset('img/services6.jpg') }}"
-                             class="object-fit-cover rounded-top-3" alt="التوصيل الذكي" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="fw-bold text-dark mt-3">التوصيل الذكي</h3>
-                        <p class="text-muted mt-2">
-                            استلام وتسليم الطلبات عبر خدمة التوصيل السريع والخزائن الذكية لتجربة مريحة وسهلة من المنزل أو المكتب.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gy-5 gx-xl-4 mt-5 justify-content-center">
                 @foreach ($services as $service)
                     <div class="col" data-aos="fade-up">
                         <div class="card border-0 shadow-sm h-100">
                             <div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                                <img src="{{ asset($service->image) }}" class="object-fit-cover rounded-top-3"
-                                    alt="{{ $service->title }}">
+                                <img src="{{ asset($service->image ?? 'assets/css/font/Inter-italic.var.woff2') }}" class="object-fit-cover rounded-top-3"
+                                    alt="{{ $service->title ?? 'Service Image' }}">
                             </div>
                             <div class="card-body text-center">
-                                <h3 class="fw-bold text-dark mt-3">{{ $service->subtitle ?? $service->title }}</h3>
-                                <p class="text-muted mt-2">{{ $service->description }}</p>
+                                <h3 class="fw-bold text-dark mt-3">{{ $service->subtitle ?? $service->title  }}</h3>
+                                <p class="text-muted mt-2">{{ $service->description ?? '' }}</p>
                             </div>
                         </div>
                     </div>
@@ -270,17 +172,17 @@
                     <div class="mx-auto max-w-2xl">
                         <h2 class="m-0 fw-semibold" style="color: #4AC1E0;">
                             {{-- من نحن --}}
-                            {{ $home->whyus_badge }}
+                            {{ $home->whyus_badge  ?? 'من نحن' }}
                         </h2>
                         <p class="m-0 mt-2 fw-bold display-6" style="color: #1226AA;">
                             {{-- تجربة غسيل فاخرة تجمع بين النظافة والتقنية --}}
-                            {{ $home->whyus_title }}
+                            {{ $home->whyus_title ?? 'تجربة غسيل فاخرة تجمع بين النظافة والتقنية' }}
                         </p>
                         <p class="m-0 mt-4 text-muted fs-5">
                             {{-- <strong>بونا Bona Laundry</strong> هي شبكة مغاسل مركزية مؤتمتة بالكامل في <strong>الرياض – المملكة العربية السعودية</strong>،
                         تقدم خدمات غسيل وكي احترافية للملابس، الأحذية، والمفروشات،
                         مع حلول ذكية تشمل <strong>التوصيل المنزلي والخزائن الذكية</strong>. --}}
-                            {{ $home->whyus_text }}
+                            {{ $home->whyus_text ?? '<strong>بونا Bona Laundry</strong> هي شبكة مغاسل مركزية مؤتمتة بالكامل في <strong>الرياض – المملكة العربية السعودية</strong>، تقدم خدمات غسيل وكي احترافية للملابس، الأحذية، والمفروشات، مع حلول ذكية تشمل <strong>التوصيل المنزلي والخزائن الذكية</strong>.' }}
                         </p>
                         <p class="m-0 mt-3 text-muted fs-5">
                             {{-- نعتمد في بونا على أنظمة رقمية متطورة ومواد صديقة للبيئة لضمان نظافة مثالية
@@ -304,7 +206,7 @@
                         <div class="ratio ratio-4x3" data-aos-delay="0" data-aos="fade" data-aos-duration="2000">
                             {{-- <img src="{{ asset('assets/img/bg/bg2.jpg') }}" --}}
                             {{-- class="object-fit-cover rounded-3 shadow" --}}
-                            <img src="{{ asset($home->whyus_image) }}" alt="عن بونا" loading="lazy">
+                            <img src="{{ asset($home->whyus_image ?? 'assets/css/font/Inter-italic.var.woff2') }}" alt="عن بونا" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -313,7 +215,7 @@
             <!-- صورة كبيرة أسفل النص -->
             <div class="ratio ratio-16x9 mt-7 mt-sm-8 mt-xl-9" data-aos="fade-up" data-aos-duration="2500">
                 {{-- <img src="{{ asset('assets/img/bg/bg4.jpg') }}" --}}
-                <img src="{{ asset($home->big_image) }}" class="object-fit-cover rounded-3 shadow" alt="منشأة بونا"
+                <img src="{{ asset($home->big_image ?? 'assets/css/font/Inter-italic.var.woff2') }}" class="object-fit-cover rounded-3 shadow" alt="منشأة بونا"
                     loading="lazy">
             </div>
         </div>
@@ -343,8 +245,8 @@
 
                             @foreach ($partners as $partner)
                                 <li class="glide__slide">
-                                    <div class="p-4"><a href="{{ $partner->link }}" target="_blank" rel="noopener">
-                                            <img src="{{ asset($partner->logo) }}" alt="{{ $partner->name }}"
+                                    <div class="p-4"><a href="{{ $partner->link ?? ''}}" target="_blank" rel="noopener">
+                                            <img src="{{ asset($partner->logo ?? 'assets/css/font/Inter-italic.var.woff2') }}" alt="{{ $partner->name }}"
                                                 class="img-fluid" style="max-height:80px; object-fit:contain;"></a>
                                     </div>
                                 </li>
