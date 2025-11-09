@@ -41,11 +41,31 @@
     </a>
 </li>
  <li>
-        <a href="{{ route('dashboard.settings.edit') }}">
-            <i class="fa fa-cogs"></i> <span>اعدادات</span>
+        <a href="{{ route('dashboard.partners.index') }}">
+            <i class="fa fa-cogs"></i> <span>شعارات شركاء</span>
         </a>
     </li>
-
+      <li>
+        <a href="{{ route('dashboard.bona-services-settings.index') }}">
+            <i class="fa fa-cogs"></i> <span>صفحة الرئيسة</span>
+        </a>
+    </li>
+   <li>
+        <a href="{{ route('dashboard.bona.services.index') }}">
+            <i class="fa fa-cogs"></i> <span>خدمات</span>
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('dashboard.bona.about.edit') }}">
+            <i class="fa fa-cogs"></i> <span>من نحنا</span>
+        </a>
+    </li>
+ <li>
+        <a href="{{ route('dashboard.bona.projects.index') }}">
+            <i class="fa fa-cogs"></i> <span>مشاريعينا </span>
+        </a>
+    </li>
+  
 
 </ul>
 

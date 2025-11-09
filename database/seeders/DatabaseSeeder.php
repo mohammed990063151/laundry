@@ -45,6 +45,11 @@ $this->call([
 $this->call([
         ProjectSeeder::class,
     ]);
+
+
+
+    $this->call(BonaPageSeeder::class);
+
     }//end of run
 
 }//end of seeder

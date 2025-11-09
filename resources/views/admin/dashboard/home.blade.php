@@ -97,7 +97,7 @@
 
         {{-- 🔹 الرسم البياني --}}
         <div class="box">
-            <div class="box-header" style="background:#076860; color:white;">
+            <div class="box-header" >
                 <h3 class="box-title">إحصائيات عامة 📊</h3>
             </div>
             <div class="box-body">

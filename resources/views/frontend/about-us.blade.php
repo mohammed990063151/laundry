@@ -7,8 +7,8 @@
 	<!-- header body -->
 	<!-- Hero Section -->
 <div class="overflow-hidden py-9 py-xl-10 position-relative">
-    <img src="./assets/img/bg/bg1.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Laundry">
-
+    {{-- <img src="./assets/img/bg/bg1.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Laundry"> --}}
+<img src="{{ $about->hero_image}}" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Laundry">
     <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark"
         style="opacity: 0.85; mix-blend-mode: multiply; filter: contrast(1.15) brightness(0.85);"></div>
 
@@ -16,10 +16,12 @@
         <div class="container h-100 d-flex align-items-center">
             <div class="max-w-2xl mx-auto mx-xl-0 text-center text-xl-start">
                 <h1 class="m-0 mt-7 text-white fw-bold display-5" data-aos="fade" data-aos-duration="3000">
-                    من نحن
+                    {{-- من نحن --}}
+                    {{ $about->hero_title}}
                 </h1>
                 <p class="m-0 mt-4 text-white fs-5" data-aos-delay="100" data-aos="fade" data-aos-duration="3000">
-                    في <strong>بونا</strong> نعيد تعريف مفهوم الغسيل بخدمات ذكية وسريعة توفر وقتك وجهدك.
+                    {{-- في <strong>بونا</strong> نعيد تعريف مفهوم الغسيل بخدمات ذكية وسريعة توفر وقتك وجهدك. --}}
+                     {{ $about->hero_description}}
                 </p>
             </div>
         </div>
@@ -34,22 +36,25 @@
                 <div class="mx-auto max-w-2xl">
                     <h2 class="m-0 text-primary-emphasis text-base fw-semibold">عن بونا</h2>
                     <p class="m-0 mt-2 text-body-emphasis display-6 fw-bold">
-                        غسيل عصري.. بخدمة راقية وجودة استثنائية
+                        {{-- غسيل عصري.. بخدمة راقية وجودة استثنائية --}}
+                        {{ $about->about_title}}
                     </p>
                     <p class="m-0 mt-4 text-body-secondary fs-5">
-                        تأسست <strong>بونا</strong> لتكون الخيار الأول للأفراد والعائلات الباحثين عن الراحة والنظافة في كل تفاصيل حياتهم.
-                        نقدم خدمات غسيل متكاملة تشمل الغسيل، التنشيف، الكي، والتوصيل إلى باب المنزل.
+                        {{-- تأسست <strong>بونا</strong> لتكون الخيار الأول للأفراد والعائلات الباحثين عن الراحة والنظافة في كل تفاصيل حياتهم.
+                        نقدم خدمات غسيل متكاملة تشمل الغسيل، التنشيف، الكي، والتوصيل إلى باب المنزل. --}}
+                        {{ $about->about_text}}
                     </p>
-                    <p class="m-0 mt-4 text-body-secondary fs-5">
+                    {{-- <p class="m-0 mt-4 text-body-secondary fs-5">
                         نعمل بفريق محترف وتجهيزات حديثة تضمن لك نظافة فائقة، حماية كاملة للأقمشة، وتجربة خالية من المتاعب.
                         بونا... الغسيل أصبح أذكى.
-                    </p>
+                    </p> --}}
                 </div>
             </div>
 
             <div class="col-12 col-xl-6">
                 <div class="ratio ratio-4x3" data-aos-delay="200" data-aos="fade" data-aos-duration="3000">
-                    <img src="./assets/img/bg/bg7.jpg" class="object-fit-cover rounded-3" alt="Bona Laundry Process">
+                    {{-- <img src="./assets/img/bg/bg7.jpg" class="object-fit-cover rounded-3" alt="Bona Laundry Process"> --}}
+                    <img src="{{ $about->about_image}}" class="object-fit-cover rounded-3" alt="Bona Laundry Process">
                 </div>
             </div>
         </div>
@@ -66,7 +71,8 @@
                 </div>
                 <h3 class="m-0 mt-3 text-body-emphasis fw-semibold">رؤيتنا</h3>
                 <p class="m-0 mt-2 text-body-secondary">
-                    أن نكون المغسلة الأكثر ثقة في المملكة، بخدمة توازن بين الجودة، السرعة، والاستدامة.
+                    {{-- أن نكون المغسلة الأكثر ثقة في المملكة، بخدمة توازن بين الجودة، السرعة، والاستدامة. --}}
+                     {{ $about->vision_text}}
                 </p>
             </div>
 
@@ -76,7 +82,8 @@
                 </div>
                 <h3 class="m-0 mt-3 text-body-emphasis fw-semibold">مهمتنا</h3>
                 <p class="m-0 mt-2 text-body-secondary">
-                    تقديم تجربة غسيل متطورة تدمج التكنولوجيا مع الخدمة الراقية لتلائم نمط الحياة الحديث.
+                    {{-- تقديم تجربة غسيل متطورة تدمج التكنولوجيا مع الخدمة الراقية لتلائم نمط الحياة الحديث. --}}
+                     {{ $about->mission_text}}
                 </p>
             </div>
 
@@ -86,10 +93,11 @@
                 </div>
                 <h3 class="m-0 mt-3 text-body-emphasis fw-semibold">قيمنا</h3>
                 <p class="m-0 mt-2 text-body-secondary">
-                    <strong>الثقة</strong> في الخدمة،
+                    {{-- <strong>الثقة</strong> في الخدمة،
                     <strong>الجودة</strong> في الأداء،
                     <strong>الابتكار</strong> في الحلول،
-                    <strong>الاهتمام</strong> براحة العميل.
+                    <strong>الاهتمام</strong> براحة العميل. --}}
+                     {{ $about->values_text}}
                 </p>
             </div>
         </div>
@@ -121,20 +129,25 @@
             <div class="col-12 col-xl-6 col-xxl-5">
                 <div class="mx-auto max-w-2xl">
                     <h2 class="text-primary-emphasis fw-semibold">قصتنا</h2>
-                    <p class="mt-2 text-body-emphasis display-6 fw-bold">من فكرة صغيرة إلى علامة نظافة كبرى</p>
-                    <p class="mt-4 text-body fs-5">
-                        بدأت <strong>بونا</strong> برؤية بسيطة: جعل الغسيل تجربة سهلة ومريحة في حياة كل شخص.
-                        انطلقت من فريق صغير يسعى لتغيير مفهوم المغسلة التقليدية إلى خدمة حديثة متكاملة.
+                    <p class="mt-2 text-body-emphasis display-6 fw-bold">
+                    {{-- من فكرة صغيرة إلى علامة نظافة كبرى --}}
+ {{ $about->story_title}}
                     </p>
                     <p class="mt-4 text-body fs-5">
+                        {{-- بدأت <strong>بونا</strong> برؤية بسيطة: جعل الغسيل تجربة سهلة ومريحة في حياة كل شخص.
+                        انطلقت من فريق صغير يسعى لتغيير مفهوم المغسلة التقليدية إلى خدمة حديثة متكاملة. --}}
+                         {{ $about->story_text}}
+                    </p>
+                    {{-- <p class="mt-4 text-body fs-5">
                         اليوم، نفخر بخدمة آلاف العملاء الذين يثقون بنا يوميًا.
                         ومع كل غسلة جديدة، نقترب أكثر من تحقيق هدفنا: **الراحة والنظافة في كل بيت سعودي**.
-                    </p>
+                    </p> --}}
                 </div>
             </div>
             <div class="col-12 col-xl-6">
                 <div class="ratio ratio-4x3" data-aos="fade" data-aos-duration="3000">
-                    <img src="./assets/img/bg/bg2.jpg" class="object-fit-cover rounded-3" alt="Bona Story" loading="lazy">
+                    {{-- <img src="./assets/img/bg/bg2.jpg" class="object-fit-cover rounded-3" alt="Bona Story" loading="lazy"> --}}
+                    <img src=" {{ $about->story_image}}" class="object-fit-cover rounded-3" alt="Bona Story" loading="lazy">
                 </div>
             </div>
         </div>
@@ -142,7 +155,7 @@
 </div>
 
 <!-- Team -->
-<div class="overflow-hidden py-7 py-sm-8 py-xl-9">
+{{-- <div class="overflow-hidden py-7 py-sm-8 py-xl-9">
     <div class="container">
         <div class="row gy-5">
             <div class="col-12 col-xl-4">
@@ -175,10 +188,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <!-- Partners -->
-<div class="overflow-hidden py-6 py-sm-7 py-xl-8 bg-body-tertiary">
+{{-- <div class="overflow-hidden py-6 py-sm-7 py-xl-8 bg-body-tertiary">
     <div class="container text-center">
         <h2 class="text-primary-emphasis fw-semibold">شركاؤنا</h2>
         <h3 class="fw-bold text-body-emphasis mt-2">نفخر بثقة أبرز العلامات في المملكة</h3>
@@ -189,7 +202,21 @@
             <img src="./assets/img/partners/logo4.png" class="img-fluid" alt="Partner 4" style="max-height:60px;">
         </div>
     </div>
+</div> --}}
+@if($partners->count())
+<div class="overflow-hidden py-6 py-sm-7 py-xl-8 bg-body-tertiary">
+    <div class="container text-center">
+        <h2 class="text-primary-emphasis fw-semibold">شركاؤنا</h2>
+        {{-- <h3 class="fw-bold text-body-emphasis mt-2">نفخر بثقة عملائنا من المؤسسات والفنادق الكبرى</h3> --}}
+         <h3 class="fw-bold text-body-emphasis mt-2">نفخر بثقة أبرز العلامات في المملكة</h3>
+        <div class="mt-5 d-flex flex-wrap justify-content-center align-items-center gap-4">
+            @foreach($partners as $partner)
+                <img src="{{ asset($partner->logo) }}" class="img-fluid" alt="{{ $partner->name }}" style="max-height:60px; object-fit:contain;">
+            @endforeach
+        </div>
+    </div>
 </div>
+@endif
 
 <!-- Call to Action -->
 <div class="pb-9 pt-7">

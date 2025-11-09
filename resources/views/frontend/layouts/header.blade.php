@@ -84,7 +84,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('frontend.our-services') }}" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+                            <a href="{{ route('bona.services') }}" class="px-3 text-body-emphasis bg-body-secondary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
 	                                خدماتنا
 	                            </a>
                         </li>

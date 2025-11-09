@@ -108,7 +108,7 @@
             {{--<!-- Logo -->--}}
             <a href="{{ asset($setting->logo) }}" class="logo">
                 {{--<!-- mini logo for sidebar mini 50x50 pixels -->--}}
-                <span class="logo-mini">A<b>T</b>B</span>
+                <span class="logo-mini">B<b>O</b>NA</span>
                 <span class="logo-lg"><b>{{ $setting->name ?? '' }}</b></span>
             </a>
 

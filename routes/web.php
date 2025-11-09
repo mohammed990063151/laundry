@@ -20,25 +20,28 @@ use App\Http\Controllers\Dashboard\BranchesController;
 use App\Http\Controllers\Dashboard\MessagesController;
 use App\Http\Controllers\Dashboard\TestimonialController;
 use App\Http\Controllers\Dashboard\BonaMessageController;
+use App\Http\Controllers\Dashboard\BonaHeroController;
+use App\Http\Controllers\Dashboard\BonaServiceController;
+use App\Http\Controllers\Dashboard\BonaProjectController;
+use App\Http\Controllers\Dashboard\BonaPartnerController;
 use App\Http\Controllers\PagContactController;
 use App\Models\Service;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Front\NewsletterController;
 use App\Http\Controllers\Dashboard\NewslettersController;
-Route::get('/custom-login', function() {
+use App\Http\Controllers\Dashboard\BonaServicesSettingsController;
+use App\Http\Controllers\Dashboard\BonaTestimonialController;
+use App\Http\Controllers\Front\BonaServicesPageController;
+use App\Http\Controllers\Dashboard\BonaAboutController;
+
+Route::get('/custom-login', function () {
     return view('auth.custom-login');
 })->name('custom-login');
 
 // 🔹 الصفحة الرئيسية للموقع (الفرونت إند)
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 Route::get('/pag_service', [BlogController::class, 'Pagservice'])->name('servicepag.show');
-// Route::middleware(['auth', 'web'])->name('dashboard.')->group(function () {
-// // 🔹 مثال لمسار لوحة التحكم (backend)
-// Route::get('/dashboard', function () {
-//     return view('admin.home');
-// })->name('dashboard.welcome');
-// });
 
 Auth::routes(['register' => false]);
 
@@ -63,8 +66,9 @@ Route::get('/pag_services', function () {
 //     return view('frontend.about-us');
 // })->name('frontend.about-us');
 Route::get('/about-us', function () {
-    $about = \App\Models\CompanyAbout::first();
-    return view('frontend.about-us', compact('about'));
+    $about = \App\Models\BonaAboutSection::first();
+     $partners  = \App\Models\BonaPartner::latest()->get();
+    return view('frontend.about-us', compact('about','partners'));
 })->name('frontend.about-us');
 
 // صفحة الغرف
@@ -75,8 +79,10 @@ Route::get('/guests-reviews', function () {
     $services = Service::first();
     return view('frontend.guests-reviews', compact('services'));
 })->name('guests.reviews');
-Route::get('/book-now', function () {
-    return view('frontend.book-now');
+Route::get('/All-Projects', function () {
+    $projects = \App\Models\BonaProject::orderBy('sort_order')->get();
+    return view('frontend.book-now', compact('projects'));
+    // return view('frontend.book-now');
 })->name('book.now');
 // صفحة المدونة - قائمة المقالات
 
@@ -97,6 +103,14 @@ Route::get('/privacy', function () {
 
 
 
+Route::prefix('dashboard/bona/projects')->name('dashboard.bona.projects.')->group(function () {
+    Route::get('/', [App\Http\Controllers\Dashboard\BonaProjectController::class, 'index'])->name('index');
+    Route::get('/create', [App\Http\Controllers\Dashboard\BonaProjectController::class, 'create'])->name('create');
+    Route::post('/store', [App\Http\Controllers\Dashboard\BonaProjectController::class, 'store'])->name('store');
+    Route::get('/{project}/edit', [App\Http\Controllers\Dashboard\BonaProjectController::class, 'edit'])->name('edit');
+    Route::put('/{project}/update', [App\Http\Controllers\Dashboard\BonaProjectController::class, 'update'])->name('update');
+    Route::delete('/{project}/delete', [App\Http\Controllers\Dashboard\BonaProjectController::class, 'destroy'])->name('delete');
+});
 
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -115,88 +129,131 @@ Route::post('/bona-form', [App\Http\Controllers\Front\BonaFormController::class,
 
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])
     ->name('newsletter.subscribe');
+Route::get('/bona-services', [BonaServicesPageController::class, 'index'])->name('bona.services');
 
+
+
+Route::prefix('dashboard/bona/about')->name('dashboard.bona.about.')->group(function () {
+    Route::get('/edit', [BonaAboutController::class, 'edit'])->name('edit');
+    Route::post('/update', [BonaAboutController::class, 'update'])->name('update');
+});
+
+
+Route::prefix('dashboard/bona/services')->name('dashboard.bona.services.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Dashboard\BonaServiceController::class, 'index'])->name('index');
+    Route::get('/create', [\App\Http\Controllers\Dashboard\BonaServiceController::class, 'create'])->name('create');
+    Route::post('/store', [\App\Http\Controllers\Dashboard\BonaServiceController::class, 'store'])->name('store');
+    Route::get('/{service}/edit', [\App\Http\Controllers\Dashboard\BonaServiceController::class, 'edit'])->name('edit');
+    Route::put('/{service}/update', [\App\Http\Controllers\Dashboard\BonaServiceController::class, 'update'])->name('update');
+    Route::delete('/{service}/delete', [\App\Http\Controllers\Dashboard\BonaServiceController::class, 'destroy'])->name('delete');
+});
 
 // Auth::routes();
 Route::middleware(['auth', 'web'])->prefix('dashboard')->name('dashboard.')->group(function () {
+
+
+    Route::get('bona-services/settings', [BonaServicesSettingsController::class, 'index'])
+        ->name('bona-services-settings.index');
+    Route::put('bona-services/settings', [BonaServicesSettingsController::class, 'update'])
+        ->name('bona-services-settings.update');
+
+    Route::resource('bona-services', BonaServiceController::class)->names('bona-services');
+
+    Route::resource('bona-testimonials', BonaTestimonialController::class)->names('bona-testimonials');
+
+    Route::resource('hero', BonaHeroController::class)->only(['index', 'update']);
+    Route::resource('services', BonaServiceController::class);
+    Route::resource('projects', BonaProjectController::class);
+    Route::resource('partners', BonaPartnerController::class);
+
+
+
+
+
+
+
+
+
+
+
     Route::get('/index', [App\Http\Controllers\Dashboard\HomeController::class, 'index'])
-    ->name('home');
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// settings
-Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
+        ->name('home');
+    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    // settings
+    Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
     Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
-Route::get('/orders', [OrderController::class, 'index'])
-    ->middleware(['auth']) // يمكن إزالة auth لو غير مطلوب
-    ->name('orders');
+    Route::get('/orders', [OrderController::class, 'index'])
+        ->middleware(['auth']) // يمكن إزالة auth لو غير مطلوب
+        ->name('orders');
 
 
-// للوحة التحكم
-Route::get('bookings', [BookingController::class, 'index'])
-    ->middleware(['auth']) // يمكنك حذفها إذا لم تستخدم تسجيل الدخول
-    ->name('bookings');
+    // للوحة التحكم
+    Route::get('bookings', [BookingController::class, 'index'])
+        ->middleware(['auth']) // يمكنك حذفها إذا لم تستخدم تسجيل الدخول
+        ->name('bookings');
 
-Route::get('/bona-index', [BonaMessageController::class, 'index'])
-    ->name('bona-messages.index');
+    Route::get('/bona-index', [BonaMessageController::class, 'index'])
+        ->name('bona-messages.index');
 
 
 
     Route::get('/newsletter', [NewslettersController::class, 'index'])->name('newsletter.index');
 
 
-// sections
+    // sections
     Route::get('section/edit', [App\Http\Controllers\Dashboard\SectionController::class, 'edit'])->name('sections.edit');
     Route::put('section/update', [App\Http\Controllers\Dashboard\SectionController::class, 'update'])->name('sections.update');
-// about
-Route::get('/about', [AboutController::class, 'index'])->name('about.index');
-Route::put('/about/update', [AboutController::class, 'update'])->name('about.update');
-// whyus
-Route::get('/whyus', [WhyUsController::class, 'index'])->name('whyus.index');
-Route::put('/whyus/update', [WhyUsController::class, 'update'])->name('whyus.update');
-// gallery
-Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
-Route::put('/gallery/update', [GalleryController::class, 'update'])->name('gallery.update');
-Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
-Route::delete('/gallery/delete/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
-Route::put('gallery/{id}/edit', [GalleryController::class, 'editItem'])
-    ->name('gallery.editItem');
+    // about
+    Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+    Route::put('/about/update', [AboutController::class, 'update'])->name('about.update');
+    // whyus
+    Route::get('/whyus', [WhyUsController::class, 'index'])->name('whyus.index');
+    Route::put('/whyus/update', [WhyUsController::class, 'update'])->name('whyus.update');
+    // gallery
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::put('/gallery/update', [GalleryController::class, 'update'])->name('gallery.update');
+    Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::delete('/gallery/delete/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    Route::put('gallery/{id}/edit', [GalleryController::class, 'editItem'])
+        ->name('gallery.editItem');
 
-// services
-Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
-Route::put('/services/update', [ServiceController::class, 'update'])->name('services.update');
-// counters
-Route::get('/counters', [CounterController::class, 'index'])->name('counters.index');
-Route::put('/counters/update', [CounterController::class, 'update'])->name('counters.update');
-
-
-
-// routes/web.php
-
-// لوحة التحكم
-Route::get('/company-about', [CompanyAboutController::class, 'index'])
-    ->name('company_about.index');
-Route::put('/company-about/update', [CompanyAboutController::class, 'update'])
-    ->name('company_about.update');
+    // // services
+    // Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+    // Route::put('/services/update', [ServiceController::class, 'update'])->name('services.update');
+    // counters
+    Route::get('/counters', [CounterController::class, 'index'])->name('counters.index');
+    Route::put('/counters/update', [CounterController::class, 'update'])->name('counters.update');
 
 
-Route::resource('Pag_services', PagserviceController::class)
-    ->names('Pag_services')
-    ->parameters([
-        'Pag_services' => 'pagservice'
-    ]);
 
-// Route::get('/service/{slug}', [ServicePageController::class, 'show'])->name('service.show');
+    // routes/web.php
 
-// Dashboard
+    // لوحة التحكم
+    Route::get('/company-about', [CompanyAboutController::class, 'index'])
+        ->name('company_about.index');
+    Route::put('/company-about/update', [CompanyAboutController::class, 'update'])
+        ->name('company_about.update');
+
+
+    Route::resource('Pag_services', PagserviceController::class)
+        ->names('Pag_services')
+        ->parameters([
+            'Pag_services' => 'pagservice'
+        ]);
+
+    // Route::get('/service/{slug}', [ServicePageController::class, 'show'])->name('service.show');
+
+    // Dashboard
 
 
     Route::resource('modyaf_services', ModyafServiceController::class);
     Route::get('messages', [ContactController::class, 'inbox'])->name('messages.inbox');
 
 
-Route::delete('Pag_services/image/{id}', [App\Http\Controllers\Dashboard\PagserviceController::class, 'deleteImage'])
-    ->name('Pag_services.deleteImage');
+    Route::delete('Pag_services/image/{id}', [App\Http\Controllers\Dashboard\PagserviceController::class, 'deleteImage'])
+        ->name('Pag_services.deleteImage');
 
-// Route::put('/gallery/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+    // Route::put('/gallery/{id}', [GalleryController::class, 'update'])->name('gallery.update');
 
 
 
@@ -211,23 +268,23 @@ Route::delete('Pag_services/image/{id}', [App\Http\Controllers\Dashboard\Pagserv
 
 
 // frontend
-Route::get('/contact/pag',[PagContactController::class,'index'])->name('pag.contact');
-Route::post('/contact-send',[PagContactController::class,'send'])->name('contact.send');
+Route::get('/contact/pag', [PagContactController::class, 'index'])->name('pag.contact');
+Route::post('/contact-send', [PagContactController::class, 'send'])->name('contact.send');
 
 // dashboard
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function () {
 
     // Contact Settings
-    Route::get('contact/settings',[ContactSettingsController::class,'edit'])->name('contact.settings');
-    Route::put('contact/settings',[ContactSettingsController::class,'update']);
+    Route::get('contact/settings', [ContactSettingsController::class, 'edit'])->name('contact.settings');
+    Route::put('contact/settings', [ContactSettingsController::class, 'update']);
 
     // Branches CRUD
-    Route::resource('branches',BranchesController::class);
+    Route::resource('branches', BranchesController::class);
 
     // Inbox Messages
-    Route::get('messages',[MessagesController::class,'inbox'])->name('messages');
-    Route::get('messages/{message}',[MessagesController::class,'show'])->name('messages.show');
-    Route::delete('messages/{message}',[MessagesController::class,'destroy'])->name('messages.delete');
+    Route::get('messages', [MessagesController::class, 'inbox'])->name('messages');
+    Route::get('messages/{message}', [MessagesController::class, 'show'])->name('messages.show');
+    Route::delete('messages/{message}', [MessagesController::class, 'destroy'])->name('messages.delete');
 
     Route::resource('testimonials', TestimonialController::class);
 
@@ -240,7 +297,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::put('Pag_services/features/{id}', [PagServiceController::class, 'updateFeature'])
         ->name('Pag_services.features.update');
 
-Route::resource('projects', App\Http\Controllers\Dashboard\ProjectController::class);
+    Route::resource('projects', App\Http\Controllers\Dashboard\ProjectController::class);
 });
 
 Route::get('/projects_items', function () {
@@ -249,6 +306,3 @@ Route::get('/projects_items', function () {
     return view('frontend.guests-reviews', compact('projects'));
 })->name('testimonials');
 // Route::get('/projects', [App\Http\Controllers\Dashboard\ProjectController::class, 'index'])->name('projects.index');
-
-
-
