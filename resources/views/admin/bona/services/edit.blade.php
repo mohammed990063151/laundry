@@ -19,7 +19,12 @@
                 </div>
             @endif
 
-            <form action="{{ route('dashboard.bona.services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
+            {{-- <form action="{{ route('dashboard.bona.services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('PUT') --}}
+    <form action="{{ route('dashboard.bona-services.update', $service->id) }}"
+      method="POST"
+      enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -40,9 +45,9 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label>صورة أو فيديو الخدمة الحالي</label><br>
+                    <label>صورة </label><br>
 
-                    @if($service->image)
+                    {{-- @if($service->image)
                         @php
                             $ext = strtolower(pathinfo($service->image, PATHINFO_EXTENSION));
                             $isVideo = in_array($ext, ['mp4', 'webm', 'mov']);
@@ -52,13 +57,13 @@
                                 <source src="{{ asset($service->image) }}" type="video/{{ $ext }}">
                                 متصفحك لا يدعم تشغيل الفيديو.
                             </video>
-                        @else
-                            <img src="{{ asset($service->image) }}" width="200" class="rounded shadow-sm mb-2 border">
-                        @endif
-                    @endif
+                        @else --}}
+                            <img src="{{ asset($service->image ?? 'assets/css/font/Inter-italic.var.woff2') }}" width="200" class="rounded shadow-sm mb-2 border">
+                        {{-- @endif --}}
+                    {{-- @endif --}}
 
                     <input type="file" name="image" id="image" class="form-control mt-2">
-                    <small class="text-muted d-block mt-1">يمكنك ترك الحقل فارغًا للإبقاء على الصورة أو الفيديو الحالي.</small>
+                    <small class="text-muted d-block mt-1">يمكنك ترك الحقل فارغًا للإبقاء على الصورة .</small>
                 </div>
 
                 <div class="form-group mb-4">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BonaService;
+use PhpParser\Node\Stmt\Return_;
 
 class BonaServiceController extends Controller
 {
@@ -85,33 +86,85 @@ class BonaServiceController extends Controller
         return view('admin.bona.services.edit', compact('service'));
     }
 
+    // public function update(Request $request, BonaService $bona_service)
+    // {
+    //     $data = $request->validate([
+    //         'badge'       => 'nullable|string',
+    //         'title'       => 'required|string',
+    //         'description' => 'nullable|string',
+    //         'sort_order'  => 'nullable|integer',
+    //         'image'       => 'nullable|image|mimes:jpg,jpeg,png',
+    //     ]);
+
+    //     if ($request->hasFile('image')) {
+    //         if ($bona_service->image && file_exists(public_path($bona_service->image))) {
+    //             unlink(public_path($bona_service->image));
+    //         }
+
+    //         $file = $request->file('image');
+    //         $filename = time().'_service_'.$file->getClientOriginalName();
+    //         $dest = public_path('img/bona/services');
+    //         if (!file_exists($dest)) mkdir($dest, 0755, true);
+    //         $file->move($dest, $filename);
+    //         $data['image'] = 'img/bona/services/'.$filename;
+    //     }
+
+    //     $bona_service->update($data);
+
+    //     return redirect()->route('dashboard.bona-services.index')->with('success','تم تحديث الخدمة ✅');
+    // }
     public function update(Request $request, BonaService $bona_service)
-    {
-        $data = $request->validate([
-            'badge'       => 'nullable|string',
-            'title'       => 'required|string',
-            'description' => 'nullable|string',
-            'sort_order'  => 'nullable|integer',
-            'image'       => 'nullable|image|mimes:jpg,jpeg,png',
-        ]);
+{
+    // ✅ التحقق من صحة البيانات
+    $data = $request->validate([
+        'badge'       => 'nullable|string',
+        'title'       => 'required|string',
+        'description' => 'nullable|string',
+        'sort_order'  => 'nullable|integer',
+        'image'       => 'nullable|image|mimes:jpg,jpeg,png',
+    ]);
 
-        if ($request->hasFile('image')) {
-            if ($bona_service->image && file_exists(public_path($bona_service->image))) {
-                unlink(public_path($bona_service->image));
+    // 🧠 نفس منطق المسار الموجود في store()
+    $dest = app()->environment('local')
+        ? public_path('img/bona/services')                 // على جهازك
+        : base_path('../public_html/img/bona/services');   // على السيرفر
+
+    // 📁 إنشاء المجلد إذا لم يكن موجودًا
+    if (!file_exists($dest)) {
+        mkdir($dest, 0755, true);
+    }
+
+    // 🖼️ لو فيه صورة جديدة
+    if ($request->hasFile('image')) {
+        // 🗑️ حذف الصورة القديمة من نفس المسار الفعلي
+        if (!empty($bona_service->image)) {
+
+            $oldPath = app()->environment('local')
+                ? public_path($bona_service->image)                 // local
+                : base_path('../public_html/'.$bona_service->image); // server
+
+            if (file_exists($oldPath)) {
+                @unlink($oldPath);
             }
-
-            $file = $request->file('image');
-            $filename = time().'_service_'.$file->getClientOriginalName();
-            $dest = public_path('img/bona/services');
-            if (!file_exists($dest)) mkdir($dest, 0755, true);
-            $file->move($dest, $filename);
-            $data['image'] = 'img/bona/services/'.$filename;
         }
 
-        $bona_service->update($data);
+        // 🖼️ رفع الصورة الجديدة
+        $file = $request->file('image');
+        $filename = time() . '_service_' . uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->move($dest, $filename);
 
-        return redirect()->route('dashboard.bona-services.index')->with('success','تم تحديث الخدمة ✅');
+        // 🔗 حفظ المسار النسبي في الداتابيس
+        $data['image'] = 'img/bona/services/' . $filename;
     }
+
+    // ✅ تحديث بيانات الخدمة
+    $bona_service->update($data);
+
+    return redirect()
+        ->route('dashboard.bona-services.index')
+        ->with('success', '✅ تم تحديث الخدمة بنجاح');
+}
+
 
     public function destroy(BonaService $bona_service)
     {
