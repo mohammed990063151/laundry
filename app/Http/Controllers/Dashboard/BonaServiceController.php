@@ -76,7 +76,7 @@ class BonaServiceController extends Controller
         'title'       => 'required|string',
         'description' => 'nullable|string',
         'sort_order'  => 'nullable|integer',
-        'image'       => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        'image'       => 'nullable|image|mimes:jpg,jpeg,png',
     ]);
 
     // ✅ رفع الصورة إلى مجلد public_html/img/bona/services
