@@ -16,7 +16,7 @@ class HomeController extends Controller
   public function index()
 {
     $hero = \App\Models\BonaHeroSection::first();
-    $services = \App\Models\BonaService::orderBy('sort_order')->get();
+    $services = \App\Models\BonaService::orderBy('sort_order')->take(6)->get();
     $projects = Project::latest()->get();
     $partners = \App\Models\BonaPartner::all();
     $home = \App\Models\BonaServicesSetting::first();

@@ -22,7 +22,7 @@
                 </div>
                 <div class="mb-3">
                     <label>الوصف</label>
-                    <textarea name="hero_description" class="form-control">{{ $about->hero_description }}</textarea>
+                    <textarea name="hero_description" class="form-control ckeditor">{!! $about->hero_description !!}</textarea>
                 </div>
                 <div class="mb-3">
                     <label>صورة الخلفية</label><br>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="mb-3">
                     <label>النص</label>
-                    <textarea name="about_text" class="form-control" rows="4">{{ $about->about_text }}</textarea>
+                    <textarea name="about_text" class="form-control ckeditor" rows="4">{{ $about->about_text }}</textarea>
                 </div>
                 <div class="mb-3">
                     <label>الصورة</label><br>
@@ -56,15 +56,15 @@
                 <h4 class="text-primary">الرؤية / المهمة / القيم</h4>
                 <div class="mb-3">
                     <label>الرؤية</label>
-                    <textarea name="vision_text" class="form-control">{{ $about->vision_text }}</textarea>
+                    <textarea name="vision_text" class="form-control ckeditor">{{ $about->vision_text }}</textarea>
                 </div>
                 <div class="mb-3">
                     <label>المهمة</label>
-                    <textarea name="mission_text" class="form-control">{{ $about->mission_text }}</textarea>
+                    <textarea name="mission_text" class="form-control ckeditor">{{ $about->mission_text }}</textarea>
                 </div>
                 <div class="mb-3">
                     <label>القيم</label>
-                    <textarea name="values_text" class="form-control">{{ $about->values_text }}</textarea>
+                    <textarea name="values_text" class="form-control ckeditor">{{ $about->values_text }}</textarea>
                 </div>
 
                 <hr>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="mb-3">
                     <label>النص</label>
-                    <textarea name="story_text" class="form-control">{{ $about->story_text }}</textarea>
+                    <textarea name="story_text" class="form-control ckeditor">{{ $about->story_text }}</textarea>
                 </div>
                 <div class="mb-3">
                     <label>الصورة</label><br>
@@ -93,4 +93,18 @@
         </div>
     </section>
 </div>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('description', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
 @endsection

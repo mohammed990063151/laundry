@@ -18,7 +18,7 @@
 
                 <div class="mb-3">
                     <label>الوصف</label>
-                    <textarea name="description" class="form-control" rows="4"></textarea>
+                    <textarea name="description" class="form-control ckeditor" rows="4"></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -43,4 +43,18 @@
         </div>
     </section>
 </div>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('description', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
 @endsection

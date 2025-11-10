@@ -192,7 +192,7 @@
                     <img src="{{ asset($project->image) }}" class="card-img-top object-fit-cover" height="230" alt="{{ $project->title }}">
                     <div class="card-body p-4">
                         <h5 class="fw-bold text-body-emphasis">{{ $project->title }}</h5>
-                        <p class="text-body-secondary small mt-2">{{ $project->description }}</p>
+                        <p class="text-body-secondary small mt-2">{!! $project->description !!}</p>
                         @if($project->location)
                             <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: {{ $project->location }}</p>
                         @endif

@@ -51,7 +51,7 @@
                                 style="max-width:600px;">
                                 {{-- شبكة مغاسل مركزية مؤتمتة في الرياض تقدم خدمات الغسيل الذكي، التوصيل المنزلي،
                             والخزائن الذكية بتقنيات حديثة تجمع بين النظافة والفخامة. --}}
-                                {{ $home->hero_subtitle ?? 'شبكة مغاسل مركزية مؤتمتة في الرياض تقدم خدمات الغسيل الذكي، التوصيل المنزلي، والخزائن الذكية بتقنيات حديثة تجمع بين النظافة والفخامة.' }}
+                                {!! $home->hero_subtitle ?? 'شبكة مغاسل مركزية مؤتمتة في الرياض تقدم خدمات الغسيل الذكي، التوصيل المنزلي، والخزائن الذكية بتقنيات حديثة تجمع بين النظافة والفخامة.' !!}
                             </p>
                             <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-xl-start">
                                 <a href="{{ route('frontend.rooms') }}" class="btn btn-lg text-white fw-semibold shadow"
@@ -145,7 +145,7 @@
                             </div>
                             <div class="card-body text-center">
                                 <h3 class="fw-bold text-dark mt-3">{{ $service->subtitle ?? $service->title  }}</h3>
-                                <p class="text-muted mt-2">{{ $service->description ?? '' }}</p>
+                                <p class="text-muted mt-2">{!! $service->description ?? '' !!}</p>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                         </h2>
                         <p class="m-0 mt-2 fw-bold display-6" style="color: #1226AA;">
                             {{-- تجربة غسيل فاخرة تجمع بين النظافة والتقنية --}}
-                            {{ $home->whyus_title ?? 'تجربة غسيل فاخرة تجمع بين النظافة والتقنية' }}
+                            {!! $home->whyus_title ?? 'تجربة غسيل فاخرة تجمع بين النظافة والتقنية' !!}
                         </p>
                         <p class="m-0 mt-4 text-muted fs-5">
                             {{-- <strong>بونا Bona Laundry</strong> هي شبكة مغاسل مركزية مؤتمتة بالكامل في <strong>الرياض – المملكة العربية السعودية</strong>،
@@ -371,7 +371,7 @@
 
             <div class="px-5 text-center">
                 <h2 class="fw-bold display-6">{{ $home->cta_title ?? 'وفّر وقتك، واترك الغسيل علينا' }}</h2>
-                <p class="mt-3 fs-5">{{ $home->cta_subtitle ?? 'حمّل تطبيق بونا الآن أو احجز خدمتك عبر الموقع لتستمتع بغسيل احترافي وسريع.' }}</p>
+                <p class="mt-3 fs-5">{!! $home->cta_subtitle ?? 'حمّل تطبيق بونا الآن أو احجز خدمتك عبر الموقع لتستمتع بغسيل احترافي وسريع.' !!}</p>
                 <a href="{{ $home->cta_button_link ?? route('rooms.show') }}" class="btn btn-lg btn-primary text-white mt-3">
                     {{ $home->cta_button_text ?? 'احجز خدمتك الآن' }}
                 </a>

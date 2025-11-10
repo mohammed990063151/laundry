@@ -166,12 +166,13 @@ class BonaServiceController extends Controller
 }
 
 
-    public function destroy(BonaService $bona_service)
+    public function destroy(BonaService $service)
     {
-        if ($bona_service->image && file_exists(public_path($bona_service->image))) {
-            unlink(public_path($bona_service->image));
+        // return $service;
+        if ($service->image && file_exists(public_path($service->image))) {
+            unlink(public_path($service->image));
         }
-        $bona_service->delete();
+        $service->delete();
 
         return back()->with('success','تم حذف الخدمة ❌');
     }

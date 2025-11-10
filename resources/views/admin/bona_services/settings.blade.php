@@ -3,7 +3,7 @@
 @section('content')
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>إعدادات صفحة خدمات بونا</h1>
+        <h1>إعدادات صفحة الرئيسية بونا</h1>
     </section>
 
     <section class="content">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group">
                         <label>وصف الهيرو</label>
-                        <textarea name="hero_subtitle" class="form-control" rows="2">{{ old('hero_subtitle', $settings->hero_subtitle) }}</textarea>
+                        <textarea name="hero_subtitle" class="form-control ckeditor" rows="2">{{ old('hero_subtitle', $settings->hero_subtitle) }}</textarea>
                     </div>
                     {{-- <div class="form-group">
                         <label>صورة الخلفية للهيرو</label><br>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="form-group">
                         <label>النص</label>
-                        <textarea name="whyus_text" class="form-control" rows="3">{{ old('whyus_text', $settings->whyus_text) }}</textarea>
+                        <textarea name="whyus_text" class="form-control ckeditor" rows="3">{{ old('whyus_text', $settings->whyus_text) }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>صورة القسم</label><br>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="form-group">
                         <label>الوصف</label>
-                        <textarea name="cta_subtitle" class="form-control" rows="2">{{ old('cta_subtitle', $settings->cta_subtitle) }}</textarea>
+                        <textarea name="cta_subtitle" class="form-control ckeditor" rows="2">{{ old('cta_subtitle', $settings->cta_subtitle) }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>نص الزر</label>
@@ -132,4 +132,18 @@
         </div>
     </section>
 </div>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('description', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
 @endsection

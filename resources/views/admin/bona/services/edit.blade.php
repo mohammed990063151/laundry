@@ -41,7 +41,7 @@
 
                 <div class="form-group mb-3">
                     <label for="description">الوصف</label>
-                    <textarea name="description" id="description" class="form-control" rows="4">{{ old('description', $service->description) }}</textarea>
+                    <textarea name="description" id="description" class="form-control ckeditor" rows="4">{{ old('description', $service->description) }}</textarea>
                 </div>
 
                 <div class="form-group mb-3">
@@ -83,4 +83,18 @@
         </div>
     </section>
 </div>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('description', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
 @endsection

@@ -34,13 +34,13 @@
 
                 <div class="form-group mb-3">
                     <label for="description">الوصف</label>
-                    <textarea name="description" id="description" class="form-control" rows="4" placeholder="أدخل وصف الخدمة بالتفصيل"></textarea>
+                    <textarea name="description" id="description" class="form-control ckeditor" rows="4" placeholder="أدخل وصف الخدمة بالتفصيل"></textarea>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="image">صورة الخدمة أو فيديو</label>
+                    <label for="image">صورة الخدمة  </label>
                     <input type="file" name="image" id="image" class="form-control">
-                    <small class="text-muted d-block mt-1">أنواع الملفات المسموحة: jpg, png, webp, mp4, mov, webm</small>
+                    <small class="text-muted d-block mt-1">أنواع الملفات المسموحة: jpg, png, webp, mov, webm</small>
                 </div>
 
                 <div class="form-group mb-4">
@@ -60,4 +60,19 @@
         </div>
     </section>
 </div>
+
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('description', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
 @endsection
