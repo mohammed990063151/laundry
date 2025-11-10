@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>LinkedIn</label>
+                        <label>tiktok</label>
                         <input type="url" name="linkedin" class="form-control" value="{{ old('linkedin', $setting->linkedin ?? '') }}">
                     </div>
 

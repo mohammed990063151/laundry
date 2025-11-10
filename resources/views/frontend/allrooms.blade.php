@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section('title', ' الصفحة احجز خدمتك - بونا ')
 @section('content')
 <!-- Hero Section -->
 <div class="overflow-hidden py-9 py-xl-10 position-relative">

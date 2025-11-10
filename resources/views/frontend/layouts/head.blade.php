@@ -17,6 +17,7 @@
 
     <!-- Change the text within the <title> tag to match the webpage's content -->
     <title> your_title_goes_here </title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/logo/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo/favicon-32x32.png">
@@ -68,5 +69,14 @@
     body {
         font-family: 'Cairo', sans-serif;
     }
+
+    .hover-scale {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.hover-scale:hover {
+    transform: scale(1.2);
+    color: #1226AA !important; /* اللون الأزرق الرئيسي */
+}
+
 </style>
 </head>

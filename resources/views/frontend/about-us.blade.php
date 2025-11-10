@@ -1,6 +1,6 @@
 
 @extends('frontend.layouts.master')
-
+@section('title', ' الصفحة من نحن - بونا ')
 @section('content')
 
 

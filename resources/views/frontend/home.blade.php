@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section('title', ' الصفحة الرئيسة - بونا ')
 @section('content')
 
     <!-- ✅ BONA HERO SECTION -->
@@ -59,7 +59,7 @@
                                     data-aos-delay="300">
                                     اطلب الآن
                                 </a>
-                                <a href="{{ route('frontend.our-services') }}" class="btn btn-lg fw-semibold"
+                                <a href="{{ route('bona.services') }}" class="btn btn-lg fw-semibold"
                                     style="border:2px solid #4AC1E0; color:#4AC1E0; border-radius:12px;" data-aos="fade-up"
                                     data-aos-delay="400">
                                     تعرف على خدماتنا
@@ -144,7 +144,7 @@
                                     alt="{{ $service->title ?? 'Service Image' }}">
                             </div>
                             <div class="card-body text-center">
-                                <h3 class="fw-bold text-dark mt-3">{{ $service->subtitle ?? $service->title  }}</h3>
+                                <h3 class="fw-bold text-dark mt-3">{!! $service->subtitle ?? $service->title  !!}</h3>
                                 <p class="text-muted mt-2">{!! $service->description ?? '' !!}</p>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                             {{-- <strong>بونا Bona Laundry</strong> هي شبكة مغاسل مركزية مؤتمتة بالكامل في <strong>الرياض – المملكة العربية السعودية</strong>،
                         تقدم خدمات غسيل وكي احترافية للملابس، الأحذية، والمفروشات،
                         مع حلول ذكية تشمل <strong>التوصيل المنزلي والخزائن الذكية</strong>. --}}
-                            {{ $home->whyus_text ?? '<strong>بونا Bona Laundry</strong> هي شبكة مغاسل مركزية مؤتمتة بالكامل في <strong>الرياض – المملكة العربية السعودية</strong>، تقدم خدمات غسيل وكي احترافية للملابس، الأحذية، والمفروشات، مع حلول ذكية تشمل <strong>التوصيل المنزلي والخزائن الذكية</strong>.' }}
+                            {!! $home->whyus_text ?? '<strong>بونا Bona Laundry</strong> هي شبكة مغاسل مركزية مؤتمتة بالكامل في <strong>الرياض – المملكة العربية السعودية</strong>، تقدم خدمات غسيل وكي احترافية للملابس، الأحذية، والمفروشات، مع حلول ذكية تشمل <strong>التوصيل المنزلي والخزائن الذكية</strong>.' !!}
                         </p>
                         <p class="m-0 mt-3 text-muted fs-5">
                             {{-- نعتمد في بونا على أنظمة رقمية متطورة ومواد صديقة للبيئة لضمان نظافة مثالية
@@ -190,7 +190,7 @@
                             {{-- {{ $home->whyus_text2 }} --}}
                         </p>
                         <div class="mt-4">
-                            <a href="{{ route('frontend.our-services') }}"
+                            <a href="{{ route('bona.services') }}"
                                 class="icon-link icon-link-hover text-decoration-none fw-bold" style="color: #1226AA;">
                                 اكتشف خدماتنا
                                 <span class="bi align-self-start left-to-right" aria-hidden="true">→</span>

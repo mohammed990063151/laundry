@@ -74,6 +74,16 @@
                 transform: rotate(360deg);
             }
         }
+.sidebar-menu a:hover {
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    transition: 0.3s;
+}
+.sidebar-menu a.active {
+    background: #2563eb;
+    color: #fff !important;
+    border-radius: 6px;
+}
 
     </style>
 
@@ -93,6 +103,8 @@
 
     {{--<!-- iCheck -->--}}
     <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/icheck/all.css') }}">
+<!-- ✅ Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-R7oPWRZ4TXJr1TttjRovrkCMxyWwe1jFtO/4dIhEsL6nEoh+XW0eJFDXr7jL6C8vW2n3iGBkY7OQ96vEo4p0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{--html in  ie--}}
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

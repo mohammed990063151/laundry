@@ -1,28 +1,28 @@
 
  @extends('frontend.layouts.master')
-
+@section('title', ' الصفحة خدمتنا - بونا ')
 @section('content')
 
 <!-- Hero Section -->
 <div class="overflow-hidden py-9 py-xl-10 position-relative">
     {{-- <img src="{{ $settings && $settings->hero_background ? asset($settings->hero_background) : asset('assets/img/bg/laundry-bg1.jpg') }}"
          class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Laundry"> --}}
-          @if ($settings && $settings->hero_background)
+          @if ($settinges && $settinges->hero_background)
             @php
                 // استخرج الامتداد
-                $ext = strtolower(pathinfo($settings->hero_background, PATHINFO_EXTENSION));
+                $ext = strtolower(pathinfo($settinges->hero_background, PATHINFO_EXTENSION));
                 $isVideo = in_array($ext, ['mp4', 'webm', 'mov']);
             @endphp
 
             @if ($isVideo)
                 <!-- 🎥 فيديو خلفية -->
                 <video autoplay muted loop playsinline class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover">
-                    <source src="{{ asset($settings->hero_background) }}" type="video/{{ $ext }}">
+                    <source src="{{ asset($settinges->hero_background) }}" type="video/{{ $ext }}">
                     متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             @else
                 <!-- 🖼️ صورة خلفية -->
-               <img src="{{ $settings && $settings->hero_background ? asset($settings->hero_background) : asset('assets/img/bg/laundry-bg1.jpg') }}"
+               <img src="{{ $settinges && $settinges->hero_background ? asset($settinges->hero_background) : asset('assets/img/bg/laundry-bg1.jpg') }}"
          class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover" alt="Bona Laundry">
             @endif
         @endif
@@ -74,11 +74,11 @@
 @endforeach
 
 <!-- Big image -->
-@if($settings && $settings->big_image)
+@if($settinges && $settinges->big_image)
 <div class="overflow-hidden py-7 py-sm-8 py-xl-9 d-none d-xl-block">
     <div class="container">
         <div class="ratio ratio-16x9">
-            <img src="{{ asset($settings->big_image) }}" class="object-fit-cover rounded-3" alt="Bona Team">
+            <img src="{{ asset($settinges->big_image) }}" class="object-fit-cover rounded-3" alt="Bona Team">
         </div>
     </div>
 </div>
@@ -125,16 +125,16 @@
 <div class="pb-9 pt-7">
     <div class="container">
         <div class="py-6 position-relative text-white rounded-3">
-            <img src="{{ $settings && $settings->cta_background ? asset($settings->cta_background) : asset('assets/img/bg/laundry-cta.jpg') }}"
+            <img src="{{ $settinges && $settinges->cta_background ? asset($settinges->cta_background) : asset('assets/img/bg/laundry-cta.jpg') }}"
                  class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover rounded-3" alt="Bona Call To Action">
             <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark rounded-3"
                 style="opacity: 0.85; mix-blend-mode: multiply; filter: contrast(1.1) brightness(0.85);"></div>
 
             <div class="px-5 text-center">
-                <h2 class="fw-bold display-6">{{ $settings->cta_title ?? 'وفّر وقتك، واترك الغسيل علينا' }}</h2>
-                <p class="mt-3 fs-5">{!! $settings->cta_subtitle ?? 'حمّل تطبيق بونا الآن أو احجز خدمتك عبر الموقع لتستمتع بغسيل احترافي وسريع.' !!}</p>
-                <a href="{{ $settings->cta_button_link ?? route('rooms.show') }}" class="btn btn-lg btn-primary text-white mt-3">
-                    {{ $settings->cta_button_text ?? 'احجز خدمتك الآن' }}
+                <h2 class="fw-bold display-6">{{ $settinges->cta_title ?? 'وفّر وقتك، واترك الغسيل علينا' }}</h2>
+                <p class="mt-3 fs-5">{!! $settinges->cta_subtitle ?? 'حمّل تطبيق بونا الآن أو احجز خدمتك عبر الموقع لتستمتع بغسيل احترافي وسريع.' !!}</p>
+                <a href="{{ $settinges->cta_button_link ?? route('rooms.show') }}" class="btn btn-lg btn-primary text-white mt-3">
+                    {{ $settinges->cta_button_text ?? 'احجز خدمتك الآن' }}
                 </a>
             </div>
         </div>

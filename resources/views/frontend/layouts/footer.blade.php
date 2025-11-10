@@ -223,8 +223,27 @@
                     <li class="nav-item"><a href="{{ route('privacy') }}" class="nav-link text-body-secondary px-2">سياسة الخصوصية</a></li>
                 </ul>
             </div>
+
+           <!-- أيقونات التواصل الاجتماعي -->
+<div class="social-icons d-flex justify-content-center justify-content-xl-end gap-3 mt-3">
+    <a href="{{ $setting->facebook }}" target="_blank" class="text-dark hover-scale" title="Facebook">
+        <i class="fa-brands fa-facebook fa-lg"></i>
+    </a>
+    <a href="{{ $setting->linkedin }}" target="_blank" class="text-dark hover-scale" title="TikTok">
+        <i class="fa-brands fa-tiktok fa-lg"></i>
+    </a>
+    <a href="{{ $setting->twitter }}" target="_blank" class="text-dark hover-scale" title="X">
+        <i class="fa-brands fa-x-twitter fa-lg"></i>
+    </a>
+    <a href="{{ $setting->instagram }}" target="_blank" class="text-dark hover-scale" title="Instagram">
+        <i class="fa-brands fa-instagram fa-lg"></i>
+    </a>
+</div>
+
         </div>
     </div>
+
+
 </footer>
 
 <!-- زر الرجوع للأعلى -->

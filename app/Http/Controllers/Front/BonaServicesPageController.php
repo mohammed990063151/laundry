@@ -12,13 +12,13 @@ class BonaServicesPageController extends Controller
 {
     public function index()
     {
-        $settings     = BonaServicesSetting::first();
+        $settinges     = BonaServicesSetting::first();
         $services     = BonaService::orderBy('sort_order')->get();
         $testimonials = BonaTestimonial::orderBy('sort_order')->get();
         $partners     = BonaPartner::latest()->get(); // من جدول الشركاء الذي عملناه
-
+// return    $settinges;
         return view('frontend.our_services', compact(
-            'settings',
+            'settinges',
             'services',
             'testimonials',
             'partners'

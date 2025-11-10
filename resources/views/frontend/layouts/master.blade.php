@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en" dir="rtl" data-bs-theme="auto">
+{{-- @title('BONA Laundry - Your Trusted Laundry Service') --}}
 
-
+<title>@yield('title', 'BONA Laundry - مغسلتك الذكية الموثوقة')</title>
+<meta name="description" content="@yield('meta_description', 'مغسلة بونا - خدمات غسيل وكي وتعقيم احترافية في المملكة العربية السعودية.')">
 
 @include('frontend.layouts.head')
 
