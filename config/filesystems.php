@@ -37,24 +37,25 @@ return [
             'throw' => false,
             'report' => false,
         ],
+        'public_uploads' => [
+            'driver' => 'local',
+            'root' => public_path('uploads'), 
+            'url' => env('APP_URL') . '/uploads',
+            'visibility' => 'public',
+        ],
+
+
 // 'public_uploads' => [
 //     'driver' => 'local',
-//     'root' => base_path('../public_html'), // مسار السيرفر اللي طلبته
+
+//     // استخدم env() فقط هنا — بدون app()->environment() لأن config:cache لا يسمح بمناداة التطبيق
+//     'root' => env('APP_ENV') === 'local'
+//         ? public_path()
+//         : base_path('../public_html'),
+
 //     'url' => env('APP_URL'),
 //     'visibility' => 'public',
 // ],
-
-'public_uploads' => [
-    'driver' => 'local',
-
-    // استخدم env() فقط هنا — بدون app()->environment() لأن config:cache لا يسمح بمناداة التطبيق
-    'root' => env('APP_ENV') === 'local'
-        ? public_path()
-        : base_path('../public_html'),
-
-    'url' => env('APP_URL'),
-    'visibility' => 'public',
-],
 
 
 
