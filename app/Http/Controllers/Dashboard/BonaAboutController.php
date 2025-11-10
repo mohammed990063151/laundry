@@ -110,6 +110,8 @@ class BonaAboutController extends Controller
 
 //     return redirect()->back()->with('success', '✅ تم حفظ الصور في مجلد public/img/bona/about بنجاح');
 // }
+
+
 public function update(Request $request)
 {
     // ✅ جلب السجل الحالي أو إنشاء جديد إن لم يوجد
@@ -134,38 +136,47 @@ public function update(Request $request)
         'story_image'      => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
     ]);
 
-    // 📁 مسار الحفظ داخل public مباشرة
-    $uploadPath = public_path('img/bona/about');
+    // 🧠 نفس منطق المسار في BonaServiceController
+    $dest = app()->environment('local')
+        ? public_path('img/bona/about')                 // على جهازك المحلي
+        : base_path('../public_html/img/bona/about');   // على السيرفر الحقيقي
 
-    // 🔧 إنشاء المجلد إذا لم يكن موجود
-    if (!File::exists($uploadPath)) {
-        File::makeDirectory($uploadPath, 0775, true);
+    // 📁 إنشاء المجلد إذا لم يكن موجودًا
+    if (!file_exists($dest)) {
+        mkdir($dest, 0755, true);
     }
 
-    // 🖼️ معالجة الصور الثلاث بطريقة ديناميكية
+    // 🖼️ معالجة كل الصور (hero, about, story)
     foreach (['hero_image', 'about_image', 'story_image'] as $field) {
         if ($request->hasFile($field)) {
-            // 🗑️ حذف القديمة إن وُجدت
-            if (!empty($about->$field) && File::exists(public_path($about->$field))) {
-                File::delete(public_path($about->$field));
+
+            // 🗑️ حذف الصورة القديمة من نفس المسار
+            if (!empty($about->$field)) {
+                $oldPath = app()->environment('local')
+                    ? public_path($about->$field)
+                    : base_path('../public_html/' . $about->$field);
+
+                if (file_exists($oldPath)) {
+                    @unlink($oldPath);
+                }
             }
 
             // 🆕 رفع الصورة الجديدة
             $file = $request->file($field);
             $filename = time() . '_' . $field . '.' . $file->getClientOriginalExtension();
-            $file->move($uploadPath, $filename);
+            $file->move($dest, $filename);
 
-            // 🔗 حفظ المسار النسبي
+            // 🔗 حفظ المسار النسبي في قاعدة البيانات
             $data[$field] = 'img/bona/about/' . $filename;
         }
     }
 
-    // ✅ تحديث وحفظ البيانات
+    // ✅ حفظ جميع البيانات
     $about->fill($data)->save();
 
     return redirect()
         ->back()
-        ->with('success', '✅ تم حفظ البيانات والصور بنجاح في مجلد public/img/bona/about');
+        ->with('success', '✅ تم حفظ البيانات والصور بنجاح في public_html/img/bona/about');
 }
 
 
