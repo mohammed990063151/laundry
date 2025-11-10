@@ -28,14 +28,40 @@ class BonaServiceController extends Controller
             'image'       => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
+        // if ($request->hasFile('image')) {
+        //     $file = $request->file('image');
+        //     $filename = time().'_service_'.$file->getClientOriginalName();
+        //     $dest = public_path('img/bona/services');
+        //     if (!file_exists($dest)) mkdir($dest, 0755, true);
+        //     $file->move($dest, $filename);
+        //     $data['image'] = 'img/bona/services/'.$filename;
+        // }
         if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $filename = time().'_service_'.$file->getClientOriginalName();
-            $dest = public_path('img/bona/services');
-            if (!file_exists($dest)) mkdir($dest, 0755, true);
-            $file->move($dest, $filename);
-            $data['image'] = 'img/bona/services/'.$filename;
-        }
+
+    // ✅ تحديد المسار
+    $dest = public_path('img/bona/services');
+
+    // ✅ إنشاء المجلد إذا لم يكن موجودًا
+    if (!file_exists($dest)) {
+        mkdir($dest, 0755, true);
+    }
+
+    // ✅ حذف الصورة القديمة إن وُجدت
+    if (!empty($service->image) && file_exists(public_path($service->image))) {
+        unlink(public_path($service->image));
+    }
+
+    // ✅ إنشاء اسم فريد للملف (timestamp + random string)
+    $file = $request->file('image');
+    $filename = time().'_service_'.uniqid().'.'.$file->getClientOriginalExtension();
+
+    // ✅ نقل الملف إلى المجلد
+    $file->move($dest, $filename);
+
+    // ✅ حفظ المسار بالنسبة للموقع (بدون public/)
+    $data['image'] = 'img/bona/services/'.$filename;
+}
+
 
         BonaService::create($data);
 
@@ -59,18 +85,42 @@ class BonaServiceController extends Controller
             'image'       => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        if ($request->hasFile('image')) {
-            if ($bona_service->image && file_exists(public_path($bona_service->image))) {
-                unlink(public_path($bona_service->image));
-            }
+        // if ($request->hasFile('image')) {
+        //     if ($bona_service->image && file_exists(public_path($bona_service->image))) {
+        //         unlink(public_path($bona_service->image));
+        //     }
 
-            $file = $request->file('image');
-            $filename = time().'_service_'.$file->getClientOriginalName();
-            $dest = public_path('img/bona/services');
-            if (!file_exists($dest)) mkdir($dest, 0755, true);
-            $file->move($dest, $filename);
-            $data['image'] = 'img/bona/services/'.$filename;
-        }
+        //     $file = $request->file('image');
+        //     $filename = time().'_service_'.$file->getClientOriginalName();
+        //     $dest = public_path('img/bona/services');
+        //     if (!file_exists($dest)) mkdir($dest, 0755, true);
+        //     $file->move($dest, $filename);
+        //     $data['image'] = 'img/bona/services/'.$filename;
+        // }
+        if ($request->hasFile('image')) {
+    // 🗑️ حذف الصورة القديمة إن وجدت
+    if (!empty($bona_service->image) && file_exists(public_path($bona_service->image))) {
+        @unlink(public_path($bona_service->image));
+    }
+
+    // 🖼️ تجهيز الملف الجديد
+    $file = $request->file('image');
+    $extension = $file->getClientOriginalExtension();
+    $filename = time() . '_service_' . uniqid() . '.' . $extension;
+
+    // 📁 تحديد المسار وضمان وجود المجلد
+    $destination = public_path('img/bona/services');
+    if (!is_dir($destination)) {
+        mkdir($destination, 0755, true);
+    }
+
+    // 📤 نقل الملف
+    $file->move($destination, $filename);
+
+    // 💾 حفظ المسار النسبي
+    $data['image'] = 'img/bona/services/' . $filename;
+}
+
 
         $bona_service->update($data);
 
