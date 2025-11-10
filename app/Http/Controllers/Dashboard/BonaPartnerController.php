@@ -164,4 +164,14 @@ class BonaPartnerController extends Controller
 
         return back()->with('success', 'تم حذف الشريك بنجاح ❌');
     }
+     private function getFullPath($relativePath)
+    {
+        if (!$relativePath) return null;
+
+        $root = app()->environment('local')
+            ? public_path('/')
+            : base_path('../public_html/');
+
+        return $root . $relativePath;
+    }
 }
