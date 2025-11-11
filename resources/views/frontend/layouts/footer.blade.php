@@ -1,5 +1,5 @@
 
-    <footer class="overflow-hidden py-6 py-sm-7 py-xl-8"  style="background-color: #c3eaf4">
+    <footer class="overflow-hidden py-6 py-sm-7 py-xl-8"  >
     <div class="container">
         <div class="row gy-5 align-items-center">
 
@@ -30,7 +30,7 @@
       action="{{ route('newsletter.subscribe') }}">
     @csrf
 
-    <h2 class="fw-bold text-3xl" style="color:#1226AA;">
+    <h2 class="fw-bold text-3xl" >
         اشترك في نشرتنا البريدية 📬
     </h2>
     <p class="m-0 mt-3 text-muted fs-5">
