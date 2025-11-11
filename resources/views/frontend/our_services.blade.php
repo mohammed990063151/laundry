@@ -85,7 +85,7 @@
 @endif
 
 <!-- Testimonials -->
-@if($testimonials->count())
+{{-- @if($testimonials->count())
 <div class="overflow-hidden py-7 py-sm-8 py-xl-9 bg-body-secondary">
     <div class="container text-center">
         <h2 class="fw-bold text-body-emphasis mb-5">آراء عملاؤنا</h2>
@@ -104,7 +104,7 @@
         </div>
     </div>
 </div>
-@endif
+@endif --}}
 
 <!-- Clients -->
 @if($partners->count())
