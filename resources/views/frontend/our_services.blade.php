@@ -1,6 +1,6 @@
 
  @extends('frontend.layouts.master')
-@section('title', ' الصفحة خدمتنا - بونا ')
+@section('title', ' الصفحة خدمتنا - بونا' . $setting->name)
 @section('content')
 
 <!-- Hero Section -->

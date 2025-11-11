@@ -30,6 +30,7 @@ class BookingController extends Controller
     // عرض الطلبات في لوحة التحكم
     public function index()
     {
+          \App\Models\Booking::where('is_seen', false)->update(['is_seen' => true]);
         $bookings = Booking::latest()->paginate(10);
         return view('admin.bookings.index', compact('bookings'));
     }

@@ -23,15 +23,15 @@ return new class extends Migration
 
 
 
-   Schema::create('bona_projects', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->string('location')->nullable();
-        $table->text('description')->nullable();
-        $table->string('image')->nullable();
-        $table->integer('sort_order')->default(0);
-        $table->timestamps();
-    });
+//    Schema::create('bona_projects', function (Blueprint $table) {
+//         $table->id();
+//         $table->string('title');
+//         $table->string('location')->nullable();
+//         $table->text('description')->nullable();
+//         $table->string('image')->nullable();
+//         $table->integer('sort_order')->default(0);
+//         $table->timestamps();
+//     });
 
     Schema::create('bona_partners', function (Blueprint $table) {
         $table->id();

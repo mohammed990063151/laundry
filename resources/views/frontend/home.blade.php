@@ -1,16 +1,10 @@
 @extends('frontend.layouts.master')
-@section('title', ' الصفحة الرئيسة - بونا ')
+@section('title', ' الصفحة الرئيسة -  ' . $setting->name)
 @section('content')
 
     <!-- ✅ BONA HERO SECTION -->
     <div class="overflow-hidden position-relative" style="height: 100vh;">
 
-        <!-- خلفية الفيديو -->
-        {{-- <video autoplay muted loop playsinline class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
-        {{-- <source src="{{ asset('img/main.mp4') }}" type="video/mp4"> --}
-            <source src="{{ asset($home->hero_background) }}" type="video/mp4">
-        متصفحك لا يدعم تشغيل الفيديو.
-    </video> --}}
         @if ($home && $home->hero_background)
             @php
                 // استخرج الامتداد

@@ -29,6 +29,7 @@ class OrderController extends Controller
 
     public function index()
     {
+        \App\Models\Order::where('is_seen', false)->update(['is_seen' => true]);
         $orders = Order::latest()->paginate(10);
         return view('admin.orders.index', compact('orders'));
     }

@@ -38,44 +38,6 @@ class BonaServicesSettingsController extends Controller
             'cta_button_link'   => 'nullable|string',
         ]);
 
-        // // صور
-        // if ($request->hasFile('hero_background')) {
-        //     $file = $request->file('hero_background');
-        //     $filename = time().'_hero_'.$file->getClientOriginalName();
-        //     $dest = public_path('img/bona/services');
-        //     if (!file_exists($dest)) mkdir($dest, 0755, true);
-        //     $file->move($dest, $filename);
-        //     $data['hero_background'] = 'img/bona/services/'.$filename;
-        // }
-
-        // if ($request->hasFile('whyus_image')) {
-        //     $file = $request->file('whyus_image');
-        //     $filename = time().'_whyus_'.$file->getClientOriginalName();
-        //     $dest = public_path('img/bona/services');
-        //     if (!file_exists($dest)) mkdir($dest, 0755, true);
-        //     $file->move($dest, $filename);
-        //     $data['whyus_image'] = 'img/bona/services/'.$filename;
-        // }
-
-        // if ($request->hasFile('big_image')) {
-        //     $file = $request->file('big_image');
-        //     $filename = time().'_big_'.$file->getClientOriginalName();
-        //     $dest = public_path('img/bona/services');
-        //     if (!file_exists($dest)) mkdir($dest, 0755, true);
-        //     $file->move($dest, $filename);
-        //     $data['big_image'] = 'img/bona/services/'.$filename;
-        // }
-
-        // if ($request->hasFile('cta_background')) {
-        //     $file = $request->file('cta_background');
-        //     $filename = time().'_cta_'.$file->getClientOriginalName();
-        //     $dest = public_path('img/bona/services');
-        //     if (!file_exists($dest)) mkdir($dest, 0755, true);
-        //     $file->move($dest, $filename);
-        //     $data['cta_background'] = 'img/bona/services/'.$filename;
-        // }
-
-        // ✅ تحديد مجلد الحفظ الديناميكي (يعمل في local و server)
 $dest = app()->environment('local')
     ? public_path('img/bona/services')            // عندك محلي
     : base_path('../public_html/img/bona/services'); // على السيرفر

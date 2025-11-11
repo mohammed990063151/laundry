@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard.app')
-
+@section('title', ' الصفحة  تعديل خدمة لوحة  التحكم - بونا ')
 @section('content')
 <div class="content-wrapper">
     <section class="content-header">

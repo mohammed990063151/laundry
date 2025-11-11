@@ -3,41 +3,53 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\BonaMessage;     // الرسائل الواردة من نموذج التواصل
-use App\Models\Order;           // الطلبات
-use App\Models\CompanyBranch;          // الفروع
-use App\Models\User;            // العملاء أو المستخدمين
-use App\Models\Service;         // الخدمات
+use App\Models\BonaMessage;
+use App\Models\Order;
+use App\Models\Booking;
+use App\Models\User;
+use App\Models\BonaService;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        // عدد الرسائل
-        $messagesCount = BonaMessage::count();
+        // إعدادات الموقع
+        $stteing = Setting::first();
 
-        // عدد الطلبات
-        $ordersCount = Order::count();
-
-        // عدد الفروع
-        $branchesCount = CompanyBranch::count();
-
-        // عدد العملاء (يمكنك تخصيص Role معين لاحقًا)
+        // الإحصائيات العامة
+        $messagesCount  = BonaMessage::count();
+        $ordersCount    = Order::count();
+        $BookingCount   = Booking::count();
         $customersCount = User::count();
+        $servicesCount  = BonaService::count();
+        $lastMessages   = BonaMessage::latest()->take(5)->get();
 
-        // عدد الخدمات
-        $servicesCount = Service::count();
+        // 🔔 الطلبات والحجوزات غير المقروءة فقط (is_seen = 0)
+        $newOrders = Order::where('is_seen', false)->latest()->get();
+        $newBookings = Booking::where('is_seen', false)->latest()->get();
+        $newmessages = BonaMessage::where('is_seen', false)->latest()->get();
 
-        // آخر الرسائل (5 فقط)
-        $lastMessages = BonaMessage::latest()->take(5)->get();
+        $totalNotifications = $newOrders->count() + $newBookings->count() + $newmessages->count();
+
+        // ✅ عند دخول المستخدم الصفحة: نعتبرها مقروءة ونحدثها فورًا
+        // if ($totalNotifications > 0) {
+        //     Order::where('is_seen', false)->update(['is_seen' => true]);
+        //     Booking::where('is_seen', false)->update(['is_seen' => true]);
+        // }
 
         return view('admin.dashboard.home', compact(
+            'stteing',
             'messagesCount',
             'ordersCount',
-            'branchesCount',
+            'BookingCount',
             'customersCount',
             'servicesCount',
-            'lastMessages'
+            'lastMessages',
+            'newOrders',
+            'newBookings',
+            'newmessages',
+            'totalNotifications'
         ));
     }
 }

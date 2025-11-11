@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', ' الصفحة احجز خدمتك - بونا ')
+@section('title', ' الصفحة احجز خدمتك - بونا ' . $setting->name)
 @section('content')
 <!-- Hero Section -->
 <div class="overflow-hidden py-9 py-xl-10 position-relative">
@@ -116,7 +116,7 @@
             <div class="px-5 text-center">
                 <h2 class="fw-bold display-6">استلم راحتك في وقتك</h2>
                 <p class="mt-3 fs-5">نحن في بونا نوفر لك تجربة غسيل احترافية وسريعة بخدمة توصيل من الباب إلى الباب.</p>
-                <a href="tel:+966500000000" class="btn btn-lg btn-light text-primary mt-3 fw-semibold">
+                <a href="tel:{{ $setting->phone }}" class="btn btn-lg btn-light text-primary mt-3 fw-semibold">
                     اتصل الآن 📞
                 </a>
             </div>

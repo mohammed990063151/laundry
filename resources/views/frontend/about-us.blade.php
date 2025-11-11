@@ -1,6 +1,6 @@
 
 @extends('frontend.layouts.master')
-@section('title', ' الصفحة من نحن - بونا ')
+@section('title', ' الصفحة من نحن - '  . $setting->name)
 @section('content')
 
 
@@ -154,55 +154,6 @@
     </div>
 </div>
 
-<!-- Team -->
-{{-- <div class="overflow-hidden py-7 py-sm-8 py-xl-9">
-    <div class="container">
-        <div class="row gy-5">
-            <div class="col-12 col-xl-4">
-                <div class="max-w-2xl">
-                    <h2 class="text-body-emphasis fw-bold display-6">فريق بونا</h2>
-                    <p class="mt-3 text-body-secondary fs-5">
-                        خلف كل قطعة ملابس نظيفة فريق مخلص من المحترفين يعمل بتفانٍ لضمان الجودة والسرعة والرضا.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-xl-8">
-                <div class="row gy-4">
-                    <div class="col-6 col-md-4 text-center">
-                        <img class="rounded-circle mb-3" src="./assets/img/small-team/st1.jpg" width="90" height="90" alt="team">
-                        <h6 class="fw-semibold text-body-emphasis">أحمد الغامدي</h6>
-                        <p class="text-primary-emphasis small">المدير التنفيذي</p>
-                    </div>
-                    <div class="col-6 col-md-4 text-center">
-                        <img class="rounded-circle mb-3" src="./assets/img/small-team/st2.jpg" width="90" height="90" alt="team">
-                        <h6 class="fw-semibold text-body-emphasis">سارة المطيري</h6>
-                        <p class="text-primary-emphasis small">إدارة العمليات</p>
-                    </div>
-                    <div class="col-6 col-md-4 text-center">
-                        <img class="rounded-circle mb-3" src="./assets/img/small-team/st3.jpg" width="90" height="90" alt="team">
-                        <h6 class="fw-semibold text-body-emphasis">محمد الحربي</h6>
-                        <p class="text-primary-emphasis small">خدمة العملاء</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-<!-- Partners -->
-{{-- <div class="overflow-hidden py-6 py-sm-7 py-xl-8 bg-body-tertiary">
-    <div class="container text-center">
-        <h2 class="text-primary-emphasis fw-semibold">شركاؤنا</h2>
-        <h3 class="fw-bold text-body-emphasis mt-2">نفخر بثقة أبرز العلامات في المملكة</h3>
-        <div class="mt-4 d-flex flex-wrap justify-content-center align-items-center gap-4">
-            <img src="./assets/img/partners/logo1.png" class="img-fluid" alt="Partner 1" style="max-height:60px;">
-            <img src="./assets/img/partners/logo2.png" class="img-fluid" alt="Partner 2" style="max-height:60px;">
-            <img src="./assets/img/partners/logo3.png" class="img-fluid" alt="Partner 3" style="max-height:60px;">
-            <img src="./assets/img/partners/logo4.png" class="img-fluid" alt="Partner 4" style="max-height:60px;">
-        </div>
-    </div>
-</div> --}}
 @if($partners->count())
 <div class="overflow-hidden py-6 py-sm-7 py-xl-8 bg-body-tertiary">
     <div class="container text-center">

@@ -6,7 +6,7 @@
         <div class="mb-5 text-center">
             <h1 class="fw-bold text-body-emphasis">سياسة الخصوصية</h1>
             <p class="text-body-secondary mt-2">
-                شركة بونا لغسيل الملابس (BONA Laundry KSA)
+                شركة بونا لغسيل الملابس ({{ $setting->name }})
             </p>
         </div>
 
@@ -91,9 +91,9 @@
             <h5 class="mt-4 fw-bold">11. التواصل معنا</h5>
             <p>لأي استفسارات حول سياسة الخصوصية، يمكنك التواصل معنا عبر:</p>
             <ul>
-                <li>البريد الإلكتروني: <a href="mailto:info@bona.sa">info@bona.sa</a></li>
-                <li>رقم الجوال: <a href="tel:+966500000000">+966 50 000 0000</a></li>
-                <li>العنوان: الرياض، المملكة العربية السعودية</li>
+                <li>البريد الإلكتروني: <a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></li>
+                <li>رقم الجوال: <a href="tel:{{ $setting->phone }}">{{ $setting->phone }}</a></li>
+                <li>{{ $setting->address }}</li>
             </ul>
 
             <p class="text-body-secondary mt-4 small">

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title', 'تواصل معنا - بونا ')
+@section('title', 'تواصل معنا - بونا '  . $setting->name)
 
 @section('content')
 <!-- Hero Section -->
@@ -41,26 +41,7 @@
       method="POST" novalidate>
     @csrf
                         <div class="row g-3">
-                            {{-- <div class="col-md-6">
-                                <label class="form-label small fw-semibold">الاسم الكامل</label>
-                                <input type="text" name="" class="form-control form-control-sm" placeholder="اكتب اسمك" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label small fw-semibold">البريد الإلكتروني</label>
-                                <input type="email" name="" class="form-control form-control-sm" placeholder="name@email.com" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label small fw-semibold">رقم الجوال</label>
-                                <input type="text" name="" class="form-control form-control-sm" placeholder="05xxxxxxxx" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label small fw-semibold">الموضوع</label>
-                                <input type="text" name="" class="form-control form-control-sm" placeholder="موضوع الرسالة" required>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label small fw-semibold">الرسالة</label>
-                                <textarea name="message" class="form-control form-control-sm" rows="4" placeholder="اكتب رسالتك هنا..." required></textarea>
-                            </div> --}}
+
 
                         <div class="col-md-6">
                             <label for="nameForm" class="form-label text-sm">
@@ -108,7 +89,7 @@
                             <div class="invalid-feedback text-xs">الرجاء كتابة الرسالة.</div>
                         </div>
 
-                       
+
                         </div>
 
                         <div class="mt-4 text-center">
@@ -135,11 +116,11 @@
                         </li>
                         <li class="mb-3 d-flex align-items-center">
                             <i class="fa-solid fa-phone text-primary me-2"></i>
-                            <span><a href="tel:+966500000000" class="text-decoration-none text-body-secondary">+966 50 000 0000</a></span>
+                            <span><a href="tel:{{ $setting->phone }}" class="text-decoration-none text-body-secondary">{{ $setting->phone }}</a></span>
                         </li>
                         <li class="mb-3 d-flex align-items-center">
                             <i class="fa-solid fa-envelope text-primary me-2"></i>
-                            <span><a href="mailto:info@bona.sa" class="text-decoration-none text-body-secondary">info@bona.sa</a></span>
+                            <span><a href="mailto:{{ $setting->email }}" class="text-decoration-none text-body-secondary">{{ $setting->email }}</a></span>
                         </li>
                         <li class="mb-3 d-flex align-items-center">
                             <i class="fa-solid fa-clock text-primary me-2"></i>
@@ -150,10 +131,10 @@
                     <div class="mt-4">
                         <h5 class="fw-bold text-body-emphasis mb-2">تابعنا على:</h5>
                         <div class="d-flex gap-3">
-                            <a href="#" class="text-primary fs-5"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-primary fs-5"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="text-primary fs-5"><i class="fab fa-facebook"></i></a>
-                            <a href="#" class="text-primary fs-5"><i class="fab fa-whatsapp"></i></a>
+                            <a href="{{ $setting->twitter }}" class="text-primary fs-5"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $setting->instagram }}" class="text-primary fs-5"><i class="fab fa-instagram"></i></a>
+                            <a href="{{ $setting->facebook }}" class="text-primary fs-5"><i class="fab fa-facebook"></i></a>
+                            <a href="{{ $setting->linkedin }}" class="text-primary fs-5"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
                 </div>

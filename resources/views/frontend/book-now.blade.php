@@ -2,7 +2,7 @@
 
 
 @extends('frontend.layouts.master')
-@section('title', ' الصفحة مشاريعنا - بونا ')
+@section('title', ' الصفحة مشاريعنا - بونا '  . $setting->name)
 @section('content')
 
 <div class="overflow-hidden py-9 py-xl-10 position-relative">

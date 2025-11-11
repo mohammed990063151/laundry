@@ -112,10 +112,10 @@
         <div class="text-center mt-5">
             <p class="text-body-secondary mb-3">هل تحتاج مساعدة؟ تواصل معنا مباشرة 👇</p>
             <div class="d-flex flex-wrap justify-content-center gap-3">
-                <a href="https://wa.me/966500000000" target="_blank" class="btn btn-success fw-semibold px-4">
+                <a href="https://wa.me/{{ $setting->phone }}" target="_blank" class="btn btn-success fw-semibold px-4">
                     <i class="fab fa-whatsapp me-2"></i> واتساب
                 </a>
-                <a href="tel:+966500000000" class="btn btn-outline-primary fw-semibold px-4">
+                <a href="tel:{{ $setting->phone }}" class="btn btn-outline-primary fw-semibold px-4">
                     <i class="fa-solid fa-phone me-2"></i> اتصال مباشر
                 </a>
             </div>
@@ -135,7 +135,7 @@
             <div class="position-relative px-3 px-md-5">
                 <h2 class="fw-bold display-6 mb-3">راحة بالك تبدأ من هنا</h2>
                 <p class="fs-5 mb-4">بونا تقدم لك تجربة غسيل مثالية بخدمة توصيل سريعة ومعقمة.</p>
-                <a href="tel:+966500000000" class="btn btn-light text-primary btn-lg fw-semibold">
+                <a href="tel:{{ $setting->phone }}" class="btn btn-light text-primary btn-lg fw-semibold">
                     اتصل الآن واحجز موعدك
                 </a>
             </div>
