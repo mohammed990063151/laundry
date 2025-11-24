@@ -61,6 +61,23 @@
                     <p class="m-0 mt-4 text-body-secondary fs-5">
                         {!! nl2br(e($service->description)) !!}
                     </p>
+                      <a href="{{ route('bona.services.show', $service->slug) }}"
+                       class="btn btn-primary px-4 py-2 mt-4">
+                        عرض التفاصيل
+                    </a>
+                    <a href="https://wa.me/966500000000?text=اريد%20خدمة%20{{ urlencode($service->title) }}"
+   class="btn btn-success px-4 py-2 mt-3">
+    اطلب عبر واتساب
+</a>
+{{-- <a href="{{ route('booking.service', $service->id) }}"
+   class="btn btn-warning px-4 py-2 mt-3">
+    احجز الآن
+</a>
+<a href="{{ route('bona.services.show', $service->id) }}#gallery"
+   class="btn btn-outline-dark px-4 py-2 mt-3">
+    شاهد المعرض
+</a> --}}
+
                 </div>
             </div>
             <div class="col-12 col-xl-6">

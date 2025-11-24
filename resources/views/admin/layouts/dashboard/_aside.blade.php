@@ -150,6 +150,11 @@
                    <i class="fa fa-bath me-2 text-light"></i> <span>الخدمات</span>
                 </a>
             </li>
+             <li class="nav-item mb-1">
+                <a href="{{ route('dashboard.service.details.index') }}" class="d-flex align-items-center px-3 py-2 text-white text-decoration-none">
+                   <i class="fa fa-bath me-2 text-light"></i> <span>تفاصيل الخدمة</span>
+                </a>
+            </li>
 
             <li class="nav-item mb-1">
                 <a href="{{ route('dashboard.bona.about.edit') }}" class="d-flex align-items-center px-3 py-2 text-white text-decoration-none">

@@ -34,13 +34,13 @@
                         <tr>
                             <td>
                                 @if($project->image)
-                                    <img src="{{ asset($project->image) }}" width="90" class="rounded shadow-sm">
+                                    <img src="{{ asset('storage/' .$project->image) }}" width="90" class="rounded shadow-sm">
                                 @else
                                     <span class="text-muted small">لا توجد صورة</span>
                                 @endif
                             </td>
                             <td class="fw-semibold">{{ $project->title }}</td>
-                            <td>{{ Str::limit($project->description, 60) }}</td>
+                            <td>{{ Str::limit($project->short_description, 60) }}</td>
                             <td>{{ $project->location ?? '-' }}</td>
                             <td>{{ $project->sort_order }}</td>
                             <td>

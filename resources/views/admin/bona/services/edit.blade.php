@@ -36,7 +36,7 @@
 
                 <div class="form-group mb-3">
                     <label for="subtitle">العنوان الفرعي (اختياري)</label>
-                    <input type="text" name="subtitle" id="subtitle" value="{{ old('subtitle', $service->subtitle) }}" class="form-control">
+                    <input type="text" name="badge" id="subtitle" value="{{ old('badge', $service->badge) }}" class="form-control">
                 </div>
 
                 <div class="form-group mb-3">

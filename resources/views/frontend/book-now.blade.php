@@ -3,6 +3,27 @@
 
 @extends('frontend.layouts.master')
 @section('title', ' الصفحة مشاريعنا - بونا '  . $setting->name)
+<style>
+.btn-details {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #ea8705, #4cafa5);
+    color: #fff !important;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn-details:hover {
+    background: #D9EF82;
+    color: #1b3b26 !important;
+    transform: translateY(-3px);
+}
+
+    </style>
 @section('content')
 
 <div class="overflow-hidden py-9 py-xl-10 position-relative">
@@ -50,6 +71,13 @@
                         @if($project->location)
                             <p class="text-primary-emphasis fw-semibold small mt-2">الموقع: {{ $project->location }}</p>
                         @endif
+                        <div class="text-center mt-3">
+    <a href="{{ route('projects.show', $project->slug) }}"
+       class="btn-details">
+        <i class="fa fa-eye"></i> عرض التفاصيل
+    </a>
+</div>
+
                     </div>
                 </div>
             </div>

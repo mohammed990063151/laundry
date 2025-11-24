@@ -12,9 +12,11 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Front\NewsletterController;
 use App\Http\Controllers\Dashboard\NewslettersController;
 use App\Http\Controllers\Dashboard\BonaServicesSettingsController;
-use App\Http\Controllers\Dashboard\BonaTestimonialController;
+use App\Http\Controllers\Dashboard\BonaProjectController;
 use App\Http\Controllers\Front\BonaServicesPageController;
 use App\Http\Controllers\Dashboard\BonaAboutController;
+use App\Http\Controllers\Dashboard\BonaServiceDetailController;
+use App\Http\Controllers\Front\ProjectFrontendController;
 // صفحة تسجيل الدخول المخصصة
 Route::get('/custom-login', function () {
     return view('auth.custom-login');
@@ -67,6 +69,12 @@ Route::get('/privacy', function () {
     return view('frontend.rooms.show');
 })->name('privacy');
 
+// Route::get('/services/{id}', [BonaServiceController::class, 'show'])->name('bona.services.show');
+Route::get('/services/{slug}', [BonaServiceController::class, 'show'])
+    ->name('bona.services.show');
+
+
+
 
 // // مسارات إدارة مشاريع بونا في لوحة التحكم
 Route::prefix('dashboard/bona/projects')->name('dashboard.bona.projects.')->group(function () {
@@ -111,10 +119,68 @@ Route::prefix('dashboard/bona/services')->name('dashboard.bona.services.')->grou
     Route::put('/{service}/update', [\App\Http\Controllers\Dashboard\BonaServiceController::class, 'update'])->name('update');
     Route::delete('/{service}/delete', [\App\Http\Controllers\Dashboard\BonaServiceController::class, 'destroy'])->name('delete');
 });
+Route::delete('/services/{service}/details/{detail}/delete-main-image',
+    [BonaServiceDetailController::class, 'deleteMainImage']
+);
+
+Route::delete('/services/{service}/details/{detail}/delete-gallery-image',
+    [BonaServiceDetailController::class, 'deleteGalleryImage']
+);
 
 //  // Auth::routes();
 // // مسارات لوحة التحكم
 Route::middleware(['auth', 'web'])->prefix('dashboard')->name('dashboard.')->group(function () {
+
+
+
+
+
+Route::delete('/services/{service}/details/{detail}/delete-main-image',
+    [BonaServiceDetailController::class, 'deleteMainImage']
+)->name('service.details.delete.mainImage');
+
+Route::delete('/services/{service}/details/{detail}/delete-gallery-image',
+    [BonaServiceDetailController::class, 'deleteGalleryImage']
+)->name('service.details.delete.galleryImage');
+
+
+    Route::delete(
+    'services/{service}/details/{detail:id}/delete',
+    [BonaServiceDetailController::class, 'destroy']
+)->name('service.details.delete');
+
+
+
+    Route::get(
+        '/service-details',
+        [BonaServiceDetailController::class, 'index']
+    )
+        ->name('service.details.index');
+    Route::get(
+        '/services/{service}/details/{detail}/edit',
+        [BonaServiceDetailController::class, 'edit']
+    )
+        ->name('service.details.edit');
+
+    Route::post(
+        '/services/{service}/details/{detail}/update',
+        [BonaServiceDetailController::class, 'update']
+    )
+        ->name('service.details.update');
+
+
+    Route::get(
+        '/services/{id}/details/create',
+        [BonaServiceDetailController::class, 'create']
+    )
+        ->name('service.details.create');
+
+    Route::post(
+        '/services/{id}/details/store',
+        [BonaServiceDetailController::class, 'store']
+    )
+        ->name('service.details.store');
+
 
 
     Route::get('bona-services/settings', [BonaServicesSettingsController::class, 'index'])
@@ -122,7 +188,7 @@ Route::middleware(['auth', 'web'])->prefix('dashboard')->name('dashboard.')->gro
     Route::put('bona-services/settings', [BonaServicesSettingsController::class, 'update'])
         ->name('bona-services-settings.update');
 
-    Route::resource('bona-services', BonaServiceController::class)->names('bona-services');
+    Route::resource('bona-services/detlets', BonaServiceController::class)->names('bona-services');
 
     Route::resource('partners', BonaPartnerController::class);
 
@@ -135,7 +201,7 @@ Route::middleware(['auth', 'web'])->prefix('dashboard')->name('dashboard.')->gro
         ->name('orders');
 
 
-//     // للوحة التحكم
+    //     // للوحة التحكم
     Route::get('bookings', [BookingController::class, 'index'])
         ->name('bookings');
 
@@ -145,5 +211,43 @@ Route::middleware(['auth', 'web'])->prefix('dashboard')->name('dashboard.')->gro
 
 
     Route::get('/newsletter', [NewslettersController::class, 'index'])->name('newsletter.index');
-
 });
+
+
+Route::prefix('dashboard')->group(function () {
+
+    Route::get('/projects', [BonaProjectController::class, 'index'])
+        ->name('dashboard.projects.index');
+
+    Route::get('/projects/create', [BonaProjectController::class, 'create'])
+        ->name('dashboard.projects.create');
+
+    Route::post('/projects', [BonaProjectController::class, 'store'])
+        ->name('dashboard.projects.store');
+
+    Route::get('/projects/{id}/edit', [BonaProjectController::class, 'edit'])
+        ->name('dashboard.projects.edit');
+
+    Route::put('/projects/{id}', [BonaProjectController::class, 'update'])
+        ->name('dashboard.projects.update');
+
+    Route::delete('/projects/{id}', [BonaProjectController::class, 'destroy'])
+        ->name('dashboard.projects.delete');
+});
+// Dashboard
+Route::prefix('dashboard')->name('dashboard.')->group(function () {
+    Route::resource('bona-projects', BonaProjectController::class);
+
+    Route::delete('bona-projects/image/{id}',
+        [BonaProjectController::class, 'deleteImage'])->name('bona-projects.delete-image');
+});
+
+// Frontend
+Route::get('/projects', [ProjectFrontendController::class, 'index'])->name('projects.index');
+
+// Route::get('/projects/{id}', [ProjectFrontendController::class, 'show'])->name('projects.show');
+Route::get('/services/{slug}', [ProjectFrontendController::class, 'show'])
+    ->name('projects.show');
+
+
+

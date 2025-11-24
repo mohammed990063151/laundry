@@ -9,16 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-   public function up(): void
+   public function up()
 {
-      Schema::create('bona_project', function (Blueprint $table) {
+    Schema::create('bona_project_images', function (Blueprint $table) {
         $table->id();
-        $table->string('title');
-        $table->string('location')->nullable();
-        // $table->text('description')->nullable();
-        $table->string('image')->nullable();
-        $table->integer('sort_order')->default(0);
+        $table->unsignedBigInteger('project_id');
+        $table->string('image');
         $table->timestamps();
+
+        $table->foreign('project_id')->references('id')->on('bona_project')->onDelete('cascade');
     });
 }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bona_services');
+        Schema::dropIfExists('bona_project_images');
     }
 };

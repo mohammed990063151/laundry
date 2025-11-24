@@ -29,7 +29,7 @@
 
                 <div class="form-group mb-3">
                     <label for="subtitle">العنوان الفرعي (اختياري)</label>
-                    <input type="text" name="subtitle" id="subtitle" class="form-control" placeholder="أدخل عنوانًا فرعيًا (اختياري)">
+                    <input type="text" name="badge" id="subtitle" class="form-control" placeholder="أدخل عنوانًا فرعيًا (اختياري)">
                 </div>
 
                 <div class="form-group mb-3">
