@@ -90,8 +90,8 @@ public function update(Request $request, $service_id, $detail_id)
     // تحديث الصورة الأساسية
     if ($request->hasFile('image')) {
 
-        if ($detail->image && file_exists(public_path('storage/'.$detail->image))) {
-            unlink(public_path('storage/'.$detail->image));
+        if ($detail->image && file_exists(public_path('storage/app/public/'.$detail->image))) {
+            unlink(public_path('storage/app/public'.$detail->image));
         }
 
         $data['image'] = $request->image->store('service_details', 'public');
