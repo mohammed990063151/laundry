@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="form-group mb-3">
                     <label>الصورة الرئيسية (الحالية أدناه)</label><br>
                     @if($project->image)
-                        <img src="{{ asset('storage/' . $project->image) }}" width="180" class="mb-2">
+                        <img src="{{ asset('storage/app/public/' . $project->image) }}" width="180" class="mb-2">
                     @endif
                     <input type="file" name="image" class="form-control mt-2">
                 </div>
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="row mt-2">
                     @foreach($project->images as $img)
                     <div class="col-md-3 mb-3 text-center">
-                        <img src="{{ asset('storage/' . $img->image) }}" class="img-thumbnail" style="height:140px;object-fit:cover">
+                        <img src="{{ asset('storage/app/public/' . $img->image) }}" class="img-thumbnail" style="height:140px;object-fit:cover">
                         <form action="{{ route('dashboard.bona-projects.delete-image', $img->id) }}" method="POST">
                             @csrf
                             @method('DELETE')

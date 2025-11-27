@@ -34,7 +34,7 @@
                         <tr>
                             <td>
                                 @if($project->image)
-                                    <img src="{{ asset('storage/' .$project->image) }}" width="90" class="rounded shadow-sm">
+                                    <img src="{{ asset('storage/app/public/' .$project->image) }}" width="90" class="rounded shadow-sm">
                                 @else
                                     <span class="text-muted small">لا توجد صورة</span>
                                 @endif
