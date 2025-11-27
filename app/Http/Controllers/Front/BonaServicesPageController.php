@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\BonaServicesSetting;
+use Illuminate\Http\Request;
 use App\Models\BonaService;
 use App\Models\BonaTestimonial;
 use App\Models\BonaPartner;
@@ -24,4 +25,16 @@ class BonaServicesPageController extends Controller
             'partners'
         ));
     }
+      public function show(Request $request,$slug)
+{
+
+ $settinges     = BonaServicesSetting::first();
+      $services = BonaService::inRandomOrder('sort_order')->take(3)->get();
+    // جلب الخدمة المطلوبة
+    $service = BonaService::with('details')->where('slug', $slug)->firstOrFail();
+
+
+    return view('frontend.services.show', compact('service','services','settinges'));
+}
+
 }

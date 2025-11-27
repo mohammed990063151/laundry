@@ -61,7 +61,7 @@
                     <p class="m-0 mt-4 text-body-secondary fs-5">
                         {!! nl2br(e($service->description)) !!}
                     </p>
-                      <a href="{{ route('bona.services.show', $service->slug) }}"
+                      <a href="{{ route('services.show', $service->slug) }}"
                        class="btn btn-primary px-4 py-2 mt-4">
                         عرض التفاصيل
                     </a>

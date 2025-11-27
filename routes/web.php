@@ -70,8 +70,8 @@ Route::get('/privacy', function () {
 })->name('privacy');
 
 // Route::get('/services/{id}', [BonaServiceController::class, 'show'])->name('bona.services.show');
-Route::get('/services/{slug}', [BonaServiceController::class, 'show'])
-    ->name('bona.services.show');
+Route::get('/services/{slug}', [BonaServicesPageController::class, 'show'])
+    ->name('services.show');
 
 
 
@@ -246,7 +246,7 @@ Route::prefix('dashboard')->name('dashboard.')->group(function () {
 Route::get('/projects', [ProjectFrontendController::class, 'index'])->name('projects.index');
 
 // Route::get('/projects/{id}', [ProjectFrontendController::class, 'show'])->name('projects.show');
-Route::get('/services/{slug}', [ProjectFrontendController::class, 'show'])
+Route::get('/projects/{slug}', [ProjectFrontendController::class, 'show'])
     ->name('projects.show');
 
 

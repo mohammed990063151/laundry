@@ -207,7 +207,7 @@
                         <h5 class="fw-bold">{{ $item->title }}</h5>
                         <p class="small text-muted">{!! Str::limit($item->description, 80) !!}</p>
 
-                        <a href="{{ route('bona.services.show', $item->slug) }}"
+                        <a href="{{ route('services.show', $item->slug) }}"
                            class="btn btn-primary mt-3">عرض التفاصيل</a>
                     </div>
                 </div>
