@@ -46,7 +46,7 @@ class BonaServiceDetailController extends Controller
         if ($request->hasFile('gallery')) {
             $galleryImages = [];
             foreach ($request->gallery as $file) {
-                $galleryImages[] = $file->store('service_details/gallery', 'public');
+                $galleryImages[] = $file->store('app/public/service_details/gallery', 'public');
             }
             $data['gallery'] = $galleryImages;
         }
@@ -103,7 +103,7 @@ public function update(Request $request, $service_id, $detail_id)
         $galleryImages = $detail->gallery ?? [];
 
         foreach ($request->gallery as $file) {
-            $galleryImages[] = $file->store('service_details/gallery', 'public');
+            $galleryImages[] = $file->store('app/public/service_details/gallery', 'public');
         }
 
         $data['gallery'] = $galleryImages;
