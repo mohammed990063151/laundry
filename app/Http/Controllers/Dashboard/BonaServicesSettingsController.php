@@ -38,13 +38,20 @@ class BonaServicesSettingsController extends Controller
             'cta_button_link'   => 'nullable|string',
         ]);
 
-$dest = app()->environment('local')
-    ? public_path('img/bona/services')            // عندك محلي
-    : base_path('../public_html/img/bona/services'); // على السيرفر
+// $dest = app()->environment('local')
+//     ? public_path('img/bona/services')            // عندك محلي
+//     : base_path('../public_html/img/bona/services'); // على السيرفر
 
-if (!file_exists($dest)) {
-    mkdir($dest, 0755, true);
-}
+// if (!file_exists($dest)) {
+//     mkdir($dest, 0755, true);
+// }
+
+$dest = public_path('img/bona/services');
+
+    if (!file_exists($dest)) {
+        mkdir($dest, 0755, true);
+    }
+
 
 // ✅ رفع الصور المختلفة
 $images = [
