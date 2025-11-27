@@ -137,11 +137,17 @@ public function update(Request $request)
     ]);
 
     // 🧠 نفس منطق المسار في BonaServiceController
-    $dest = app()->environment('local')
-        ? public_path('img/bona/about')                 // على جهازك المحلي
-        : base_path('../public_html/img/bona/about');   // على السيرفر الحقيقي
+    // $dest = app()->environment('local')
+    //     ? public_path('img/bona/about')                 // على جهازك المحلي
+    //     : base_path('../public_html/img/bona/about');   // على السيرفر الحقيقي
 
-    // 📁 إنشاء المجلد إذا لم يكن موجودًا
+    // // 📁 إنشاء المجلد إذا لم يكن موجودًا
+    // if (!file_exists($dest)) {
+    //     mkdir($dest, 0755, true);
+    // }
+
+    $dest = public_path('img/bona/about');
+
     if (!file_exists($dest)) {
         mkdir($dest, 0755, true);
     }
@@ -154,7 +160,7 @@ public function update(Request $request)
             if (!empty($about->$field)) {
                 $oldPath = app()->environment('local')
                     ? public_path($about->$field)
-                    : base_path('../public_html/' . $about->$field);
+                    : base_path('../public_html/public' . $about->$field);
 
                 if (file_exists($oldPath)) {
                     @unlink($oldPath);
@@ -167,7 +173,7 @@ public function update(Request $request)
             $file->move($dest, $filename);
 
             // 🔗 حفظ المسار النسبي في قاعدة البيانات
-            $data[$field] = 'img/bona/about/' . $filename;
+            $data[$field] = 'public/img/bona/about/' . $filename;
         }
     }
 
