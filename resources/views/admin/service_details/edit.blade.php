@@ -54,7 +54,7 @@
     @if($detail->image)
         <div id="mainImageBox" class="d-flex align-items-center gap-3 mb-3">
 
-            <img src="{{ asset('storage/'.$detail->image) }}" width="200" class="rounded shadow">
+            <img src="{{ asset('storage/app/public/'.$detail->image) }}" width="200" class="rounded shadow">
 
             <button class="btn btn-danger"
                     onclick="deleteMainImage({{ $service->id }}, {{ $detail->id }})">
@@ -91,7 +91,7 @@
             <div class="col-md-3 text-center mb-3 gallery-item" id="img_{{ md5($img) }}">
 
                 <div class="border p-2 rounded shadow-sm bg-white">
-                    <img src="{{ asset('storage/'.$img) }}" class="img-fluid rounded mb-2"
+                    <img src="{{ asset('storage/app/public/'.$img) }}" class="img-fluid rounded mb-2"
                          style="height:150px; object-fit:cover;">
                 </div>
 
