@@ -66,7 +66,7 @@ foreach ($images as $field => $prefix) {
         $file = $request->file($field);
         $filename = time() . "_{$prefix}_" . $file->getClientOriginalName();
         $file->move($dest, $filename);
-        $data[$field] = 'img/bona/services/' . $filename;
+        $data[$field] = 'public/img/bona/services/' . $filename;
     }
 }
 
