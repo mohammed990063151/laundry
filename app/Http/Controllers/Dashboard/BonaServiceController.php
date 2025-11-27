@@ -70,14 +70,21 @@ public function store(Request $request)
     ]);
 
     // 🧠 مسار الحفظ (يعمل محلي + سيرفر)
-    $dest = app()->environment('local')
-        ? public_path('img/bona/services')
-        : base_path('../public_html/img/bona/services');
+    // $dest = app()->environment('local')
+    //     ? public_path('img/bona/services')
+    //     : base_path('../public_html/img/bona/services');
 
-    // 📁 إنشاء المجلد إذا لم يكن موجودًا
+    // // 📁 إنشاء المجلد إذا لم يكن موجودًا
+    // if (!file_exists($dest)) {
+    //     mkdir($dest, 0755, true);
+    // }
+
+$dest = public_path('img/bona/services');
+
     if (!file_exists($dest)) {
         mkdir($dest, 0755, true);
     }
+
 
     // 🖼️ رفع الصورة
     if ($request->hasFile('image')) {
@@ -86,7 +93,7 @@ public function store(Request $request)
         $file->move($dest, $filename);
 
         // المسار النسبي
-        $data['image'] = 'img/bona/services/' . $filename;
+        $data['image'] = 'public/img/bona/services/' . $filename;
     }
 
     // ⭐ إضافة slug قبل الإنشاء
@@ -172,14 +179,21 @@ public function update(Request $request, BonaService $bona_service)
     ]);
 
     // 🧠 نفس منطق المسار الموجود في store()
-    $dest = app()->environment('local')
-        ? public_path('img/bona/services')
-        : base_path('../public_html/img/bona/services');
+    // $dest = app()->environment('local')
+    //     ? public_path('img/bona/services')
+    //     : base_path('../public_html/img/bona/services');
 
-    // 📁 إنشاء المجلد إذا لم يكن موجودًا
+    // // 📁 إنشاء المجلد إذا لم يكن موجودًا
+    // if (!file_exists($dest)) {
+    //     mkdir($dest, 0755, true);
+    // }
+
+$dest = public_path('img/bona/services');
+
     if (!file_exists($dest)) {
         mkdir($dest, 0755, true);
     }
+
 
     // 🖼️ لو فيه صورة جديدة
     if ($request->hasFile('image')) {
@@ -189,7 +203,7 @@ public function update(Request $request, BonaService $bona_service)
 
             $oldPath = app()->environment('local')
                 ? public_path($bona_service->image)
-                : base_path('../public_html/' . $bona_service->image);
+                : base_path('../public_html/public' . $bona_service->image);
 
             if (file_exists($oldPath)) {
                 @unlink($oldPath);
@@ -202,7 +216,7 @@ public function update(Request $request, BonaService $bona_service)
         $file->move($dest, $filename);
 
         // 🔗 حفظ المسار النسبي
-        $data['image'] = 'img/bona/services/' . $filename;
+        $data['image'] = 'public/img/bona/services/' . $filename;
     }
 
     // ⭐ تحديث slug فقط إن تغيّر العنوان
