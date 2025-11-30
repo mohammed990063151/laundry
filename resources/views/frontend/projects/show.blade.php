@@ -143,7 +143,7 @@
 
                 @foreach($project->images as $img)
                     <div class="swiper-slide">
-                        <img src="{{ asset('storage/' .$img->image) }}" class="gallery-img">
+                        <img src="{{ asset('storage/app/public/' . $img->image) }}" class="gallery-img">
                     </div>
                 @endforeach
 
@@ -167,7 +167,7 @@
             @foreach($related as $item)
             <div class="col-6 col-md-4 col-lg-3">
                 <a href="{{ route('projects.show',  $item->slug) }}">
-                    <img src="{{ asset('storage/' .$item->image) }}" class="img-fluid shadow">
+                    <img src="{{ asset('storage/app/public/' . $item->image) }}" class="img-fluid shadow">
                     <h6 class="mt-2 text-center">{{ $item->title }}</h6>
                 </a>
             </div>

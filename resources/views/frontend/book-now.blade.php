@@ -64,7 +64,7 @@
             @foreach($projects as $project)
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                    <img src="{{ asset($project->image) }}" class="card-img-top object-fit-cover" height="230" alt="{{ $project->title }}">
+                    <img src="{{ asset('storage/app/public/' . $project->image) }}" class="card-img-top object-fit-cover" height="230" alt="{{ $project->title }}">
                     <div class="card-body p-4">
                         <h5 class="fw-bold text-body-emphasis">{{ $project->title }}</h5>
                         <p class="text-body-secondary small mt-2">{!! $project->description !!}</p>
