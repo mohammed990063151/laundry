@@ -152,11 +152,11 @@
         @endif
 
         @if($detail->long_description)
-            <p class="fs-6">{!! nl2br(e($detail->long_description)) !!}</p>
+            <p class="fs-6">{!! $detail->long_description !!}</p>
         @endif
 
         @if($detail->image)
-            <img src="{{ asset('storage/'.$detail->image) }}" class="img-fluid rounded mb-4 shadow">
+            <img src="{{ asset('storage/app/public/'.$detail->image) }}" class="img-fluid rounded mb-4 shadow">
         @endif
 
         <!-- معرض الصور -->
@@ -168,7 +168,7 @@
                 <div class="swiper-wrapper">
                     @foreach($detail->gallery as $img)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/'.$img) }}" class="gallery-img">
+                            <img src="{{ asset('storage/app/public/'.$img) }}" class="gallery-img">
                         </div>
                     @endforeach
                 </div>
@@ -205,7 +205,7 @@
 
                     <div class="card-body text-center">
                         <h5 class="fw-bold">{{ $item->title }}</h5>
-                        <p class="small text-muted">{!! Str::limit($item->description, 80) !!}</p>
+                        <p class="small text-muted">{!! $item->description !!}</p>
 
                         <a href="{{ route('services.show', $item->slug) }}"
                            class="btn btn-primary mt-3">عرض التفاصيل</a>
