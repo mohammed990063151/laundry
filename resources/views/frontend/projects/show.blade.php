@@ -106,11 +106,63 @@
     transform:scale(1.05);
 }
 </style>
+<style>
+.btn-details {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #ea8705, #4cafa5);
+    color: #fff !important;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-<section class="header-cover">
+.btn-details:hover {
+    background: #D9EF82;
+    color: #1b3b26 !important;
+    transform: translateY(-3px);
+}
+.hero-header {
+    height: 420px;
+    position:relative;
+}
+.hero-header::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+}
+.hero-header .content {
+    position:absolute;
+    bottom:40px;
+    width:100%;
+    text-align:center;
+    color:white;
+}
+.hero-header h1 {
+    font-size:2.8rem;
+    font-weight:700;
+}
+.hero-header p {
+    font-size:1.1rem;
+    opacity:0.9;
+}
+
+    </style>
+
+{{-- <section class="header-cover">
     <h1>{{ $project->title }}</h1>
     <p>{!! $project->short_description !!}</p>
-</section>
+</section> --}}
+<div class="hero-header">
+    <div class="content" data-aos="fade-up">
+        <h1>{{ $project->title }}</h1>
+        <p>{!! $project->short_description ?? '' !!}</p>
+    </div>
+</div>
 
 <section class="project-details">
     <div class="container" style="max-width:950px;">
