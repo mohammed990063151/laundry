@@ -40,7 +40,7 @@
                                 @endif
                             </td>
                             <td class="fw-semibold">{{ $project->title }}</td>
-                            <td>{{ Str::limit($project->short_description, 60) }}</td>
+                            <td>{!! Str::limit($project->short_description, 60) !!}</td>
                             <td>{{ $project->location ?? '-' }}</td>
                             <td>{{ $project->sort_order }}</td>
                             <td>
