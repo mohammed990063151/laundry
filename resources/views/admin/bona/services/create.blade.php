@@ -27,10 +27,10 @@
                     <input type="text" name="title" id="title" class="form-control" placeholder="أدخل اسم الخدمة" required>
                 </div>
 
-                <div class="form-group mb-3">
+                {{-- <div class="form-group mb-3">
                     <label for="subtitle">العنوان الفرعي (اختياري)</label>
                     <input type="text" name="badge" id="subtitle" class="form-control" placeholder="أدخل عنوانًا فرعيًا (اختياري)">
-                </div>
+                </div> --}}
 
                 <div class="form-group mb-3">
                     <label for="description">الوصف</label>

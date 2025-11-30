@@ -34,10 +34,10 @@
                     <input type="text" name="title" id="title" value="{{ old('title', $service->title) }}" class="form-control" required>
                 </div>
 
-                <div class="form-group mb-3">
+                {{-- <div class="form-group mb-3">
                     <label for="subtitle">العنوان الفرعي (اختياري)</label>
                     <input type="text" name="badge" id="subtitle" value="{{ old('badge', $service->badge) }}" class="form-control">
-                </div>
+                </div> --}}
 
                 <div class="form-group mb-3">
                     <label for="description">الوصف</label>
