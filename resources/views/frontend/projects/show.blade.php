@@ -11,7 +11,7 @@
 .header-cover {
     height: 380px;
     position:relative;
-    background:url('{{ asset('storage/' .$project->image) }}') center/cover no-repeat;
+    background:url('{{ asset('storage/app/public/' . $project->image) }}') center/cover no-repeat;
 }
 .header-cover::before {
     content:'';
@@ -109,7 +109,7 @@
 
 <section class="header-cover">
     <h1>{{ $project->title }}</h1>
-    <p>{{ $project->short_description }}</p>
+    <p>{!! $project->short_description !!}</p>
 </section>
 
 <section class="project-details">
@@ -118,15 +118,31 @@
         <h2>تفاصيل المشروع</h2>
 
         <p class="mb-4" style="line-height:1.9;">
-            {!! nl2br(e($project->long_description ?? $project->description)) !!}
+            {!! $project->long_description ?? $project->description !!}
         </p>
 
-        <div class="project-meta mt-4">
-            <p><strong>📍 الموقع:</strong> {{ $project->location }}</p>
-            <p><strong>📅 تاريخ الإضافة:</strong> {{ $project->created_at->format('Y-m-d') }}</p>
-            <p><strong>🖼 عدد صور المعرض:</strong> {{ $project->images->count() }}</p>
-            <p><strong>🔗 رابط المشاركة:</strong> {{ url()->current() }}</p>
-        </div>
+    {{-- <div class="project-meta mt-4">
+
+    <p><strong>📍 الموقع:</strong> {{ $project->location }}</p>
+    <p><strong>📅 تاريخ الإضافة:</strong> {{ $project->created_at->format('Y-m-d') }}</p>
+    <p><strong>🖼 عدد صور المعرض:</strong> {{ $project->images->count() }}</p>
+    <p><strong>🔗 رابط المشاركة:</strong> {{ url()->current() }}</p>
+
+    <p><strong>⏳ مدة التنفيذ:</strong> {{ $project->duration ?? 'غير محدد' }}</p>
+    <p><strong>📌 الحالة:</strong> <span class="badge bg-primary">{{ $project->status ?? 'مكتمل' }}</span></p>
+
+    @if($project->client_name)
+    <p><strong>👤 العميل:</strong> {{ $project->client_name }}</p>
+    @endif
+
+    @if($project->map_link)
+    <p><strong>🗺 موقع المشروع:</strong>
+        <a href="{{ $project->map_link }}" target="_blank">عرض على الخريطة</a>
+    </p>
+    @endif
+
+</div> --}}
+
 
     </div>
 </section>
@@ -166,10 +182,13 @@
         <div class="row g-4">
             @foreach($related as $item)
             <div class="col-6 col-md-4 col-lg-3">
-                <a href="{{ route('projects.show',  $item->slug) }}">
+                {{-- <a href="{{ route('projects.show',  $item->slug) }}"> --}}
                     <img src="{{ asset('storage/app/public/' . $item->image) }}" class="img-fluid shadow">
                     <h6 class="mt-2 text-center">{{ $item->title }}</h6>
-                </a>
+               <a href="{{ route('projects.show', $project->slug) }}"
+       class="btn-details">
+        <i class="fa fa-eye"></i> عرض التفاصيل
+    </a>
             </div>
             @endforeach
         </div>

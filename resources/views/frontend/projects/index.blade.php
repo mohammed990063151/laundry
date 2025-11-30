@@ -50,7 +50,7 @@
 
                         <div class="content">
                             <h4>{{ $project->title }}</h4>
-                            <p>{{ Str::limit($project->description, 70) }}</p>
+                            <p>{!! $project->description !!}</p>
                         </div>
                     </div>
                 </a>
