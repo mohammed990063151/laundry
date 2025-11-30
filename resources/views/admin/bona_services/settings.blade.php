@@ -135,7 +135,35 @@
  <script>
 document.addEventListener('DOMContentLoaded', function() {
     if (typeof CKEDITOR !== 'undefined') {
-        CKEDITOR.replace('description', {
+        CKEDITOR.replace('hero_subtitle', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('whyus_text', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('cta_subtitle', {
             contentsLangDirection: 'rtl',
             contentsLanguage: 'ar',
             language: 'ar',
