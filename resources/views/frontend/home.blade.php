@@ -68,7 +68,7 @@
                         <!-- Button trigger modal -->
                         <a class="video-play-button video-btn-modal position-relative" href="javascript:;"
                             data-bs-toggle="modal" data-bs-target="#videoModal"
-                            data-bs-src="https://www.youtube.com/watch?v=MNOXcYcvQcQ">
+                            data-bs-src="https://www.youtube.com/embed/iD_n9CvetEM">
                             <span class="top-50 start-50 translate-middle"></span>
                         </a>
                     </div>

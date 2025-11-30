@@ -188,7 +188,8 @@
             <div class="col-6 col-md-4 col-lg-3">
                     <img src="{{ asset('storage/app/public/' . $item->image) }}" class="img-fluid shadow">
                     <h6 class="mt-2 text-center">{{ $item->title }}</h6>
-               <a href="{{ route('projects.show', $project->slug) }}"
+                    <p class="text-body-secondary small mt-2">{!! $item->short_description !!}</p>
+               <a href="{{ route('projects.show', $item->slug) }}"
        class="btn-details">
         <i class="fa fa-eye"></i> عرض التفاصيل
     </a>
