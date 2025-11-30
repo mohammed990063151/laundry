@@ -7,36 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 <style>
-/* 🔥 غلاف المشروع */
-.header-cover {
-    height: 380px;
-    position:relative;
-    background:url('{{ asset('storage/app/public/' . $project->image) }}') center/cover no-repeat;
-}
-.header-cover::before {
-    content:'';
-    position:absolute;
-    top:0;left:0;width:100%;height:100%;
-    background:rgba(0,0,0,0.55);
-}
-.header-cover h1 {
-    position:absolute;
-    bottom:30px;
-    left:50%;
-    transform:translateX(-50%);
-    color:#fff;
-    font-size:2.7rem;
-    font-weight:700;
-    text-shadow:0 2px 10px rgba(0,0,0,0.4);
-}
-.header-cover p {
-    position:absolute;
-    bottom:10px;
-    left:50%;
-    transform:translateX(-50%);
-    color:#fff;
-    opacity:0.9;
-}
+
 
 /* 🔥 تفاصيل المشروع */
 .project-details {
@@ -128,6 +99,7 @@
 .hero-header {
     height: 420px;
     position:relative;
+    background:url('{{ asset('storage/app/public/' . $project->image) }}') center/cover no-repeat;
 }
 .hero-header::before {
     content:'';
