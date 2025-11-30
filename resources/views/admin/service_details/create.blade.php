@@ -72,7 +72,7 @@
                 <!-- الوصف الطويل -->
                 <div class="mb-3">
                     <label class="form-label">الوصف الطويل</label>
-                    <textarea name="long_description" class="form-control" rows="5"
+                    <textarea name="long_description" class="form-control ckeditor" rows="5"
                               placeholder="اكتب شرحاً طويلاً للخدمة">{{ old('long_description') }}</textarea>
                 </div>
 
@@ -91,7 +91,7 @@
                 <!-- مميزات الخدمة -->
                 <div class="mb-3">
                     <label class="form-label">مميزات الخدمة (كل ميزة في سطر)</label>
-                    <textarea name="features" class="form-control" rows="4"
+                    <textarea name="features" class="form-control ckeditor" rows="4"
                               placeholder="مثال:
 ✔ جودة عالية
 ✔ تنفيذ سريع
@@ -125,5 +125,33 @@
 </div>
  </section>
 </div>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('long_description', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('features', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
 @endsection
 

@@ -88,12 +88,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <div class="form-group mb-3">
                     <label>الوصف المختصر</label>
-                    <textarea name="short_description" class="form-control" rows="3"></textarea>
+                    <textarea name="short_description" class="form-control ckeditor" rows="3"></textarea>
                 </div>
 
                 <div class="form-group mb-3">
                     <label>الوصف الكامل</label>
-                    <textarea name="long_description" class="form-control" rows="5"></textarea>
+                    <textarea name="long_description" class="form-control ckeditor" rows="5"></textarea>
                 </div>
 
                 <div class="form-group mb-3">
@@ -118,5 +118,34 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
 </div>
+
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('short_description', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('long_description', {
+            contentsLangDirection: 'rtl',
+            contentsLanguage: 'ar',
+            language: 'ar',
+            height: 250,
+            removeButtons: 'Subscript,Superscript,Anchor,Image', // اختياري
+            toolbarCanCollapse: true
+        });
+    }
+});
+</script>
 @endsection
 

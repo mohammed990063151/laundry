@@ -55,10 +55,10 @@
                             <td class="text-muted text-start small">{{ Str::limit(strip_tags($service->description), 80, '...') }}</td>
                             <td><span class="badge bg-light text-dark">{{ $service->sort_order }}</span></td>
                             <td>
- <a href="{{ route('dashboard.service.details.create', $service) }}" class="btn btn-blue btn-sm">
+ <a href="{{ route('dashboard.service.details.create', $service) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-edit"></i> تفاصيل
                                 </a>
-                                
+
 
                                 <a href="{{ route('dashboard.bona.services.edit', $service) }}" class="btn btn-warning btn-sm">
                                     <i class="fa fa-edit"></i> تعديل

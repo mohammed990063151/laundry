@@ -144,10 +144,11 @@ Route::delete('/services/{service}/details/{detail}/delete-gallery-image',
 )->name('service.details.delete.galleryImage');
 
 
-    Route::delete(
-    'services/{service}/details/{detail:id}/delete',
+   Route::delete(
+    '/services/{service}/details/{detail}/delete',
     [BonaServiceDetailController::class, 'destroy']
 )->name('service.details.delete');
+
 
 
 
@@ -214,7 +215,7 @@ Route::delete('/services/{service}/details/{detail}/delete-gallery-image',
 });
 
 
-Route::prefix('dashboard')->group(function () {
+Route::middleware(['auth', 'web'])->prefix('dashboard')->group(function () {
 
     Route::get('/projects', [BonaProjectController::class, 'index'])
         ->name('dashboard.projects.index');
@@ -235,11 +236,15 @@ Route::prefix('dashboard')->group(function () {
         ->name('dashboard.projects.delete');
 });
 // Dashboard
-Route::prefix('dashboard')->name('dashboard.')->group(function () {
+Route::middleware(['auth', 'web'])->prefix('dashboard')->name('dashboard.')->group(function () {
     Route::resource('bona-projects', BonaProjectController::class);
 
     Route::delete('bona-projects/image/{id}',
         [BonaProjectController::class, 'deleteImage'])->name('bona-projects.delete-image');
+        Route::delete('/bona/projects/{project}/delete-main-image',
+    [BonaProjectController::class, 'deleteMainImage']
+)->name('bona-projects.delete-main');
+
 });
 
 // Frontend

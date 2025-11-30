@@ -120,26 +120,33 @@ public function update(Request $request, $service_id, $detail_id)
         ->route('dashboard.service.details.index', $service_id)
         ->with('success', 'تم تحديث تفاصيل الخدمة بنجاح');
 }
-public function destroy($id)
+// public function destroy($id)
+// {
+//     // return $id;
+
+//     // ابحث عن السجل
+//     $item = \App\Models\BonaServiceDetail::find($id);
+// // return $item;
+//     if (!$item) {
+//         return redirect()->back()->with('error', 'العنصر غير موجود.');
+//     }
+
+//     try {
+//         // حذف السجل
+//         $item->delete();
+
+//         return redirect()->back()->with('success', 'تم حذف العنصر بنجاح.');
+//     } catch (\Exception $e) {
+//         return redirect()->back()->with('error', 'حدث خطأ أثناء الحذف.');
+//     }
+// }
+public function destroy(BonaService $service, BonaServiceDetail $detail)
 {
-    // return $id;
+    $detail->delete();
 
-    // ابحث عن السجل
-    $item = \App\Models\BonaServiceDetail::find($id);
-// return $item;
-    if (!$item) {
-        return redirect()->back()->with('error', 'العنصر غير موجود.');
-    }
-
-    try {
-        // حذف السجل
-        $item->delete();
-
-        return redirect()->back()->with('success', 'تم حذف العنصر بنجاح.');
-    } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'حدث خطأ أثناء الحذف.');
-    }
+    return back()->with('success', 'تم الحذف بنجاح');
 }
+
 
 public function deleteMainImage($service_id, $detail_id)
 {
