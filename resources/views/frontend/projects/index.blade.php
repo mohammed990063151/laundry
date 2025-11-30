@@ -46,7 +46,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <a href="{{ route('projects.show', $project->id) }}" class="text-decoration-none">
                     <div class="project-card">
-                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}">
+                        <img src="{{ asset('storage/app/public/' . $project->image) }}" alt="{{ $project->title }}">
 
                         <div class="content">
                             <h4>{{ $project->title }}</h4>
