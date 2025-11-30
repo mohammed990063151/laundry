@@ -145,28 +145,6 @@
             {!! $project->long_description ?? $project->description !!}
         </p>
 
-    {{-- <div class="project-meta mt-4">
-
-    <p><strong>📍 الموقع:</strong> {{ $project->location }}</p>
-    <p><strong>📅 تاريخ الإضافة:</strong> {{ $project->created_at->format('Y-m-d') }}</p>
-    <p><strong>🖼 عدد صور المعرض:</strong> {{ $project->images->count() }}</p>
-    <p><strong>🔗 رابط المشاركة:</strong> {{ url()->current() }}</p>
-
-    <p><strong>⏳ مدة التنفيذ:</strong> {{ $project->duration ?? 'غير محدد' }}</p>
-    <p><strong>📌 الحالة:</strong> <span class="badge bg-primary">{{ $project->status ?? 'مكتمل' }}</span></p>
-
-    @if($project->client_name)
-    <p><strong>👤 العميل:</strong> {{ $project->client_name }}</p>
-    @endif
-
-    @if($project->map_link)
-    <p><strong>🗺 موقع المشروع:</strong>
-        <a href="{{ $project->map_link }}" target="_blank">عرض على الخريطة</a>
-    </p>
-    @endif
-
-</div> --}}
-
 
     </div>
 </section>
@@ -203,10 +181,11 @@
 
         <h2 class="fw-bold mb-4" style="color:#1b3b26;">🎯 مشاريع مشابهة</h2>
 
-        <div class="row g-4">
+        <div class="row g-4" style="
+    text-align: center;
+">
             @foreach($related as $item)
             <div class="col-6 col-md-4 col-lg-3">
-                {{-- <a href="{{ route('projects.show',  $item->slug) }}"> --}}
                     <img src="{{ asset('storage/app/public/' . $item->image) }}" class="img-fluid shadow">
                     <h6 class="mt-2 text-center">{{ $item->title }}</h6>
                <a href="{{ route('projects.show', $project->slug) }}"
